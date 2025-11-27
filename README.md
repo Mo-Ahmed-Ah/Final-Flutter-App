@@ -8,21 +8,56 @@
 
 يتم تنظيم الملفات داخل التطبيق بالشكل التالي لتسهيل التطوير والتوسّع لاحقًا:
 ```
+assets
+├─ fonts
+| ├─ Cario
+| | ├─ Cairo-Black.ttf
+| | ├─ Cairo-Bold.ttf
+| | ├─ Cairo-ExtraLight.ttf
+| | ├─ Cairo-Light.ttf
+| | ├─ Cairo-Regular.ttf
+| | └─ Cairo-SemiBold.ttf
+| └─
+├─ images
+│ ├─ onboardingone.PNG
+│ ├─ onboardingtwo.PNG
+│ ├─ onboardingthree.PNG
+│ └─ onboardingfour.PNG
+└─
 lip
 ├─ controller
 ├─ core
 │ ├─ class
 │ ├─ constant
+| | ├─ imageasset.dart
+| | ├─ color.dart
+| | └─
+| └─
 │ ├─ functions
 │ ├─ localization
 │ ├─ services
 │ └─ shared
 ├─ data
 │ ├─ datasource
+| | ├─ static
+| | | ├─ static.dart
+| | | └─
+| | └─
 │ └─ model
-└─ view
-├─ screen
-└─ widget
+| | ├─ onboardingmodel.dart
+| | └─
+├─ view
+| ├─ screen
+| | ├─ onboarding.dart
+| | └─
+| └─widget
+| | ├─ onboarding
+| | | ├─ custombutton.dart
+| | | ├─ customslider.dart
+| | | ├─ dotcontroller.dart
+| | | └─
+| | └─
+└─ main.dart
 ```
 
 ### ✅ شرح المجلدات
