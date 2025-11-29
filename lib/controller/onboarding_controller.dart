@@ -29,6 +29,7 @@ class OnBoardingControllerImp extends OnBoardingController {
     update();
   }
 
+  @override
   void onInit() {
     pageController = PageController();
     super.onInit();

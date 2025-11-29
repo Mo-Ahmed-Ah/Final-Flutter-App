@@ -17,12 +17,23 @@
   | | ├─ Cairo-Light.ttf
   | | ├─ Cairo-Regular.ttf
   | | └─ Cairo-SemiBold.ttf
-  | └─
+  | └─ PlayfairDisplay
+  | | ├─ PlayfairDisplay-Black.ttf
+  | | ├─ PlayfairDisplay-BlackItalic.ttf
+  | | ├─ PlayfairDisplay-Bold.ttf
+  | | ├─ PlayfairDisplay-BoldItalic.ttf
+  | | ├─ PlayfairDisplay-ExtraBold.ttf
+  | | ├─ PlayfairDisplay-ExtraBoldItalic.ttf
+  | | ├─ PlayfairDisplay-Italic.ttf
+  | | ├─ PlayfairDisplay-Medium.ttf
+  | | ├─ PlayfairDisplay-MediumItalic.ttf
+  | | ├─ PlayfairDisplay-Regular.ttf
+  | | ├─ PlayfairDisplay-SemiBold.ttf
+  | | └─ PlayfairDisplay-SemiBoldItalic.ttf
   ├─ images
-  │ ├─ onboardingone.PNG
-  │ ├─ onboardingtwo.PNG
-  │ ├─ onboardingthree.PNG
-  │ └─ onboardingfour.PNG
+  │ ├─ one.PNG
+  │ ├─ two.PNG
+  │ └─ three.PNG
   └─
 
   lip
@@ -39,7 +50,11 @@
   | └─
   │ ├─ functions
   │ ├─ localization
+  | | ├─ services.dart
+  | | └─ changelocale.dart
   │ ├─ services
+  | | ├─ services.dart
+  | | └─
   │ └─ shared
   ├─ data
   │ ├─ datasource
@@ -55,14 +70,17 @@
   | | ├─ auth
   | | | ├─ login.dart
   | | ├─ onboarding.dart
+  | | ├─ lanuage.dart
   | | └─
   | └─ widget
   | | ├─ onboarding
   | | | ├─ custombutton.dart
   | | | ├─ customslider.dart
-  | | | ├─ dotcontroller.dart
-  | | | └─
+  | | | └─dotcontroller.dart
+  | | ├─ onboarding
+  | | | ├─ custombuttonlang.dart
   | | └─
+  | └─
   ├─ routes.dart
   └─ main.dart
 

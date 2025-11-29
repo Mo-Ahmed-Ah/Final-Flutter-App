@@ -1,4 +1,5 @@
 import 'package:finalflutterapp/controller/onboarding_controller.dart';
+import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/view/widget/onboarding/custombutton.dart';
 import 'package:finalflutterapp/view/widget/onboarding/customslider.dart';
 import 'package:finalflutterapp/view/widget/onboarding/dotcontroller.dart';
@@ -12,11 +13,12 @@ class OnBoarding extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(OnBoardingControllerImp());
     return Scaffold(
+      backgroundColor: AppColor.bgColor,
       body: SafeArea(
         child: Column(
           children: [
             Expanded(
-              flex: 2,
+              flex: 4,
               child: CustomSliderOnBoarding(),
             ),
             Expanded(

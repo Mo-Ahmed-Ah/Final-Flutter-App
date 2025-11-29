@@ -3,7 +3,6 @@ import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/data/datasource/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:path/path.dart';
 
 class CustomDotControllerOnBoarding extends StatelessWidget {
   const CustomDotControllerOnBoarding({super.key});
