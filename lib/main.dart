@@ -3,8 +3,8 @@ import 'package:finalflutterapp/core/localization/changelocale.dart';
 import 'package:finalflutterapp/core/localization/translation.dart';
 import 'package:finalflutterapp/core/services/services.dart';
 import 'package:finalflutterapp/routes.dart';
-import 'package:finalflutterapp/view/screen/language.dart';
-import 'package:finalflutterapp/view/screen/onboarding.dart';
+import 'package:finalflutterapp/view/screen/auth/login.dart';
+// import 'package:finalflutterapp/view/screen/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -29,29 +29,49 @@ class MyApp extends StatelessWidget {
       locale: controller.language,
       theme: ThemeData(
         textTheme: TextTheme(
+          // head Text Styles
           headlineLarge: const TextStyle(
+            fontFamily: "PlayfairDisplay",
+            fontWeight: FontWeight.bold,
+            fontSize: 26,
+            color: AppColor.black,
+          ),
+          headlineMedium: const TextStyle(
+            fontFamily: "PlayfairDisplay",
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+            color: AppColor.black,
+          ),
+          headlineSmall: const TextStyle(
             fontFamily: "PlayfairDisplay",
             fontWeight: FontWeight.bold,
             fontSize: 20,
             color: AppColor.black,
+          ),
+          // body Text Styles
+          bodyLarge: const TextStyle(
+            height: 2,
+            color: AppColor.gray,
+            fontWeight: FontWeight.bold,
+            fontSize: 26,
+          ),
+          bodyMedium: const TextStyle(
+            height: 2,
+            color: AppColor.gray,
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
           ),
           bodySmall: const TextStyle(
             height: 2,
             fontFamily: "PlayfairDisplay",
             color: AppColor.gray,
             fontWeight: FontWeight.bold,
-            fontSize: 15,
-          ),
-          bodyLarge: const TextStyle(
-            height: 2,
-            color: AppColor.gray,
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
+            fontSize: 16,
           ),
         ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
-      home:  const Language(),
+      home:  const Login(),
       routes: routes,
     );
   }

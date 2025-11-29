@@ -27,7 +27,7 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
           SizedBox(height: 80),
           Text(
             onBoardingList[i].title!,
-            style: Theme.of(context).textTheme.headlineLarge,
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
           Container(
             width: double.infinity,
