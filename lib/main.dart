@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
           headlineSmall: const TextStyle(
             fontFamily: "PlayfairDisplay",
             fontWeight: FontWeight.bold,
-            fontSize: 20,
+            fontSize: 14,
             color: AppColor.black,
           ),
           // body Text Styles
@@ -66,7 +66,7 @@ class MyApp extends StatelessWidget {
             fontFamily: "PlayfairDisplay",
             color: AppColor.gray,
             fontWeight: FontWeight.bold,
-            fontSize: 16,
+            fontSize: 14,
           ),
         ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),

@@ -11,7 +11,7 @@ class CustomTextFormAuth extends StatelessWidget {
     required this.hintText,
     required this.labelText,
     required this.icon,
-    this.mycontroller,
+    required this.mycontroller,
   });
 
   @override

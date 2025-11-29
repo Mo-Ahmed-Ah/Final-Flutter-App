@@ -1,0 +1,41 @@
+import 'package:finalflutterapp/core/constant/routes.dart';
+import 'package:finalflutterapp/view/screen/auth/login.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+
+abstract class ForgetpasswordController extends GetxController {
+ checkemail();
+ goToVerfiyCode();
+}
+
+class ForgetpasswordControllerImp extends ForgetpasswordController{
+  late TextEditingController email;
+
+
+  @override
+  checkemail() {
+    throw UnimplementedError();
+  }
+  
+  @override
+  goToVerfiyCode() {
+    Get.offNamed(AppRoutes.verfiycode);
+  }
+  
+  @override
+  void onInit() {
+
+    email = TextEditingController();
+
+    
+    super.onInit();
+  }
+  
+  @override
+  void dispose() {
+    email.dispose();
+
+    super.dispose();
+  }
+
+}

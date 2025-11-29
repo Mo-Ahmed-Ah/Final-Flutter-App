@@ -1,4 +1,4 @@
-import 'package:finalflutterapp/controller/auth/login_controller.dart';
+import 'package:finalflutterapp/controller/auth/signup_controller.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/view/widget/auth/custombuttonautho.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextandaskauth.dart';
@@ -10,16 +10,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class Signup extends StatelessWidget {
+  const Signup({super.key});
 
   @override
   Widget build(BuildContext context) {
-    LoginControllerImp controller = Get.put(LoginControllerImp());
+    SignupControllerImp controller = Get.put(SignupControllerImp());
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "SI".tr,
+          "SU".tr,
           style: Theme.of(
             context,
           ).textTheme.headlineMedium!.copyWith(color: AppColor.gray),
@@ -32,16 +32,27 @@ class Login extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: ListView(
           children: [
-            const LogoAuth(),
             const CustomTextTitleAuth(text: "WB"),
             const SizedBox(height: 10),
-            const CustomTextBodyAuth(text: "SIT"),
+            const CustomTextBodyAuth(text: "SYT"),
             const SizedBox(height: 15),
+            CustomTextFormAuth(
+              mycontroller: controller.userName,
+              hintText: "EYUN",
+              labelText: "UN",
+              icon: Icons.person_2_outlined,
+            ),
             CustomTextFormAuth(
               mycontroller: controller.email,
               hintText: "EYE",
               labelText: "E",
               icon: Icons.email_outlined,
+            ),
+            CustomTextFormAuth(
+              mycontroller: controller.phoneNumber,
+              hintText: "EYPN",
+              labelText: "PN",
+              icon: Icons.phone_android_outlined,
             ),
             // const SizedBox(height: 20),
             CustomTextFormAuth(
@@ -50,21 +61,16 @@ class Login extends StatelessWidget {
               labelText: "PW",
               icon: Icons.lock_outline,
             ),
-            InkWell(
-              child: Text("FP".tr, textAlign: TextAlign.end),
-              onTap: () {
-                controller.goToForgetPassword();
-              },
-            ),
-            CustomButtonAutho(text: "SI", onPressed: () {}),
+            CustomButtonAutho(text: "SU", onPressed: () {}),
             SizedBox(height: 30),
             CustomTextAndAskAuth(
-              askTest: "D'THAA",
-              linkText: "SU",
+              askTest: "HAA",
+              linkText: "SI",
               onTap: () {
                 controller.goToSignUp();
               },
             ),
+            
           ],
         ),
       ),

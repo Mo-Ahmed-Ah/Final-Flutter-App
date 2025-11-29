@@ -1,4 +1,5 @@
-import 'package:finalflutterapp/controller/auth/login_controller.dart';
+import 'package:finalflutterapp/controller/auth/forgetpassword_controller.dart';
+import 'package:finalflutterapp/controller/auth/signup_controller.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/view/widget/auth/custombuttonautho.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextandaskauth.dart';
@@ -10,16 +11,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class Forgetpassword extends StatelessWidget {
+  const Forgetpassword({super.key});
 
   @override
   Widget build(BuildContext context) {
-    LoginControllerImp controller = Get.put(LoginControllerImp());
+    ForgetpasswordControllerImp controller = Get.put(ForgetpasswordControllerImp());
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "SI".tr,
+          "FP".tr,
           style: Theme.of(
             context,
           ).textTheme.headlineMedium!.copyWith(color: AppColor.gray),
@@ -32,39 +33,19 @@ class Login extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: ListView(
           children: [
-            const LogoAuth(),
-            const CustomTextTitleAuth(text: "WB"),
+            const CustomTextTitleAuth(text: "CE"),
             const SizedBox(height: 10),
-            const CustomTextBodyAuth(text: "SIT"),
+            const CustomTextBodyAuth(text: "SYT"),
             const SizedBox(height: 15),
+            
             CustomTextFormAuth(
               mycontroller: controller.email,
               hintText: "EYE",
               labelText: "E",
               icon: Icons.email_outlined,
             ),
-            // const SizedBox(height: 20),
-            CustomTextFormAuth(
-              mycontroller: controller.password,
-              hintText: "EPW",
-              labelText: "PW",
-              icon: Icons.lock_outline,
-            ),
-            InkWell(
-              child: Text("FP".tr, textAlign: TextAlign.end),
-              onTap: () {
-                controller.goToForgetPassword();
-              },
-            ),
-            CustomButtonAutho(text: "SI", onPressed: () {}),
-            SizedBox(height: 30),
-            CustomTextAndAskAuth(
-              askTest: "D'THAA",
-              linkText: "SU",
-              onTap: () {
-                controller.goToSignUp();
-              },
-            ),
+            CustomButtonAutho(text: "C", onPressed: () {}),
+            const SizedBox(height: 40),
           ],
         ),
       ),
