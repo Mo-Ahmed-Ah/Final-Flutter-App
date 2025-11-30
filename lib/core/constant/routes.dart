@@ -7,6 +7,8 @@ class AppRoutes{
   static const String resetpassword = "/resetpassword"; 
   static const String successresetpasword = "/successresetpasword"; 
   static const String successsignup = "/successsignup"; 
+  static const String checkemail = "/checkemail"; 
+  static const String verificationCodeSigunUp = "/verfiycodesigunup"; 
   // OnBoarding Routes
   static const String onBoarding= "/onboarding"; 
 }

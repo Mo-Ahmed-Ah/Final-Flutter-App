@@ -1,15 +1,16 @@
-import 'package:finalflutterapp/controller/auth/forgetpassword/successresetpassword_controller.dart';
+import 'package:finalflutterapp/controller/auth/sigunup/successsignup_controller.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/view/widget/auth/custombuttonautho.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/utils.dart';
-class SuccessResetPasword extends StatelessWidget {
-  const SuccessResetPasword({super.key});
+
+class SuccessSignup extends StatelessWidget {
+  const SuccessSignup({super.key});
 
   @override
   Widget build(BuildContext context) {
-    SuccessResetPasswordControllerImp controller = Get.put(SuccessResetPasswordControllerImp());
+    SuccessSignUpControllerImp controller = Get.put(SuccessSignUpControllerImp());
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -38,7 +39,7 @@ class SuccessResetPasword extends StatelessWidget {
                   .textTheme
                   .headlineSmall!
                   .copyWith(fontSize: 30)),
-            Text("PRS".tr),
+            Text("SR".tr),
             Spacer(),
             Container(
               width: double.infinity,

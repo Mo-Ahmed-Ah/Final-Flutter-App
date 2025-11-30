@@ -1,4 +1,4 @@
-import 'package:finalflutterapp/controller/auth/checkEmail_controller.dart';
+import 'package:finalflutterapp/controller/auth/sigunup/checkemail_controller.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/view/widget/auth/custombuttonautho.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextbodyauth.dart';
@@ -17,7 +17,7 @@ class CheckEmail extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "FP".tr,
+          "CE".tr,
           style: Theme.of(
             context,
           ).textTheme.headlineMedium!.copyWith(color: AppColor.gray),
@@ -30,7 +30,7 @@ class CheckEmail extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: ListView(
           children: [
-            const CustomTextTitleAuth(text: "CE"),
+            const CustomTextTitleAuth(text: "SSU"),
             const SizedBox(height: 10),
             const CustomTextBodyAuth(text: "FPT"),
             const SizedBox(height: 15),
@@ -40,7 +40,7 @@ class CheckEmail extends StatelessWidget {
               labelText: "E",
               icon: Icons.email_outlined,
             ),
-            CustomButtonAutho(text: "C", onPressed: () {controller.goToSccessSignUp();}),
+            CustomButtonAutho(text: "C", onPressed: () {controller.goToVerificationCodeSigunUp();}),
             const SizedBox(height: 40),
           ],
         ),

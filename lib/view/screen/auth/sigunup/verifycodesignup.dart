@@ -1,5 +1,4 @@
-// import 'package:finalflutterapp/controller/auth/VerfiyCode_controller.dart';
-import 'package:finalflutterapp/controller/auth/forgetpassword/verfiycode_controller.dart';
+import 'package:finalflutterapp/controller/auth/sigunup/verifycodesignup_controller.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextbodyauth.dart';
 import 'package:finalflutterapp/view/widget/auth/customtexttitleauth.dart';
@@ -8,12 +7,12 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
-class VerfiyCode extends StatelessWidget {
-  const VerfiyCode({super.key});
+class VerfiyCodeSigunUp extends StatelessWidget {
+  const VerfiyCodeSigunUp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    VerifyCodeControllerImp controller = Get.put(VerifyCodeControllerImp());
+    VerifyCodeSignUpControllerImp controller = Get.put(VerifyCodeSignUpControllerImp());
     
     return Scaffold(
       appBar: AppBar(
@@ -48,7 +47,7 @@ class VerfiyCode extends StatelessWidget {
               },
               //runs when every textfield is filled
               onSubmit: (String verificationCode) {
-                controller.goToResetPassword();
+                controller.goToSuccessSignUp();
               }, // end onSubmit
             ),
             // CustomButtonAutho(text: "C", onPressed: () {}),

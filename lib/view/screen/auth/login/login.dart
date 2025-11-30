@@ -1,4 +1,4 @@
-import 'package:finalflutterapp/controller/auth/login_controller.dart';
+import 'package:finalflutterapp/controller/auth/login/login_controller.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/view/widget/auth/custombuttonautho.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextandaskauth.dart';

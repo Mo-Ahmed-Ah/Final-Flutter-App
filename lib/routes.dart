@@ -1,11 +1,13 @@
 import 'package:finalflutterapp/core/constant/routes.dart' show AppRoutes;
+import 'package:finalflutterapp/view/screen/auth/sigunup/checkemail.dart';
 import 'package:finalflutterapp/view/screen/auth/forgetpassword/forgetpassword.dart';
-import 'package:finalflutterapp/view/screen/auth/login.dart';
+import 'package:finalflutterapp/view/screen/auth/login/login.dart';
 import 'package:finalflutterapp/view/screen/auth/forgetpassword/resetpassword.dart';
-import 'package:finalflutterapp/view/screen/auth/signup.dart';
+import 'package:finalflutterapp/view/screen/auth/sigunup/signup.dart';
 import 'package:finalflutterapp/view/screen/auth/forgetpassword/sccess_resetpassword.dart';
-import 'package:finalflutterapp/view/screen/auth/success_signup.dart';
+import 'package:finalflutterapp/view/screen/auth/sigunup/success_signup.dart';
 import 'package:finalflutterapp/view/screen/auth/forgetpassword/verfiycode.dart';
+import 'package:finalflutterapp/view/screen/auth/sigunup/verifycodesignup.dart';
 import 'package:finalflutterapp/view/screen/onboarding.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -18,6 +20,8 @@ Map<String , Widget Function(BuildContext)> routes={
   AppRoutes.resetpassword : (context) => ResetPassword(),
   AppRoutes.successresetpasword : (context) => SuccessResetPasword(),
   AppRoutes.successsignup : (context) => SuccessSignup(),
+  AppRoutes.checkemail : (context) => CheckEmail(),
+  AppRoutes.verificationCodeSigunUp : (context) => VerfiyCodeSigunUp(),
   // OnBoarding Routes 
   AppRoutes.onBoarding : (context) => OnBoarding(),
 };

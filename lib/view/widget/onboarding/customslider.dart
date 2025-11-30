@@ -1,6 +1,7 @@
 import 'package:finalflutterapp/controller/onboarding_controller.dart';
 import 'package:finalflutterapp/data/datasource/static/static.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:get/state_manager.dart';
 
 class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
@@ -26,14 +27,14 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
           ),
           SizedBox(height: 80),
           Text(
-            onBoardingList[i].title!,
+            onBoardingList[i].title!.tr,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           Container(
             width: double.infinity,
             alignment: Alignment.center,
             child: Text(
-              onBoardingList[i].body!,
+              onBoardingList[i].body!.tr,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodySmall,
             ),

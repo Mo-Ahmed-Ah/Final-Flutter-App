@@ -3,8 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 abstract class SignupController extends GetxController {
- login();
- goToSignUp();
+ signUp();
+ goToSignIn();
 }
 
 class SignupControllerImp extends SignupController{
@@ -14,12 +14,12 @@ class SignupControllerImp extends SignupController{
   late TextEditingController password;
 
   @override
-  login() {
-    throw UnimplementedError();
+  signUp() {
+    Get.offNamed(AppRoutes.checkemail);
   }
   
   @override
-  goToSignUp() {
+   goToSignIn() {
     Get.offNamed(AppRoutes.login);
   }
   

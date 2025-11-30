@@ -1,20 +1,21 @@
 import 'package:finalflutterapp/core/constant/imageasset.dart';
 import 'package:finalflutterapp/data/model/onboardingmodel.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 List<OnBoardingModel> onBoardingList = [
   OnBoardingModel(
-      title: "Choose Product" , 
-      body: "We Have a 100K Product , Choose \n your Product From our E-commerce Shop" ,
+      title: "CP", 
+      body: "CPD",
       image: AppImageAsset.onBoardingImageOne
     ),
   OnBoardingModel(
-      title: "Easy & Safe Payment" , 
-      body: "Easy Checkout & Safe Payment \nmethod. Trusted by our Customers \nfrom all over the world" , 
+      title: "ESP", 
+      body: "ESPD", 
       image: AppImageAsset.onBoardingImageTwo
     ),
   OnBoardingModel(
-      title: "Track Your Order" , 
-      body: "Best Tracker has been Used For \nTrack your order. You'll know where \nyour product is at the moment" ,
+      title: "TYO", 
+      body: "TYOD",
       image: AppImageAsset.onBoardingImageThree
     ),
   // OnBoardingModel(

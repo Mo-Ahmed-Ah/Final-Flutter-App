@@ -1,4 +1,4 @@
-import 'package:finalflutterapp/controller/auth/Resetpassword_controller.dart';
+import 'package:finalflutterapp/controller/auth/forgetpassword/resetpassword_controller.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/view/widget/auth/custombuttonautho.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextbodyauth.dart';
@@ -13,11 +13,13 @@ class ResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ResetPasswordControllerImp controller = Get.put(ResetPasswordControllerImp());
+    ResetPasswordControllerImp controller = Get.put(
+      ResetPasswordControllerImp(),
+    );
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "RP" .tr,
+          "RP".tr,
           style: Theme.of(
             context,
           ).textTheme.headlineMedium!.copyWith(color: AppColor.gray),
@@ -34,25 +36,29 @@ class ResetPassword extends StatelessWidget {
             const SizedBox(height: 10),
             const CustomTextBodyAuth(text: "ENP"),
             const SizedBox(height: 15),
-             CustomTextFormAuth(
+            CustomTextFormAuth(
               mycontroller: controller.newPassword,
               hintText: "EPW",
               labelText: "PW",
               icon: Icons.lock_outline,
             ),
-             CustomTextFormAuth(
+            CustomTextFormAuth(
               mycontroller: controller.reNewPassword,
               hintText: "REPW",
               labelText: "PW",
               icon: Icons.lock_outline,
             ),
-            
-            CustomButtonAutho(text: "S", onPressed: () {}),
+
+            CustomButtonAutho(
+              text: "S",
+              onPressed: () {
+                controller.goToSccessResetPassword();
+              },
+            ),
             const SizedBox(height: 40),
           ],
         ),
       ),
     );
-
   }
 }

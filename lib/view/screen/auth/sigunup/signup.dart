@@ -1,4 +1,4 @@
-import 'package:finalflutterapp/controller/auth/signup_controller.dart';
+import 'package:finalflutterapp/controller/auth/sigunup/signup_controller.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/view/widget/auth/custombuttonautho.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextandaskauth.dart';
@@ -60,13 +60,15 @@ class Signup extends StatelessWidget {
               labelText: "PW",
               icon: Icons.lock_outline,
             ),
-            CustomButtonAutho(text: "SU", onPressed: () {}),
+            CustomButtonAutho(text: "SU", onPressed: () {
+              controller.signUp();
+            }),
             SizedBox(height: 30),
             CustomTextAndAskAuth(
               askTest: "HAA",
               linkText: "SI",
               onTap: () {
-                controller.goToSignUp();
+                controller.goToSignIn();
               },
             ),
             
