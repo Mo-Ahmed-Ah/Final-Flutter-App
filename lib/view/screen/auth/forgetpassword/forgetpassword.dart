@@ -1,5 +1,6 @@
 import 'package:finalflutterapp/controller/auth/forgetpassword/forgetpassword_controller.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
+import 'package:finalflutterapp/core/functions/validinput.dart';
 import 'package:finalflutterapp/view/widget/auth/custombuttonautho.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextbodyauth.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextformauth.dart';
@@ -26,23 +27,30 @@ class Forgetpassword extends StatelessWidget {
         elevation: 0.0,
         centerTitle: true,
       ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-        child: ListView(
-          children: [
-            const CustomTextTitleAuth(text: "CE"),
-            const SizedBox(height: 10),
-            const CustomTextBodyAuth(text: "FPT"),
-            const SizedBox(height: 15),
-            CustomTextFormAuth(
-              mycontroller: controller.email,
-              hintText: "EYE",
-              labelText: "E",
-              icon: Icons.email_outlined,
-            ),
-            CustomButtonAutho(text: "C", onPressed: () {controller.goToVerfiyCode();}),
-            const SizedBox(height: 40),
-          ],
+      body: Form(
+        key: controller.formstate,
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+          child: ListView(
+            children: [
+              const CustomTextTitleAuth(text: "CE"),
+              const SizedBox(height: 10),
+              const CustomTextBodyAuth(text: "FPT"),
+              const SizedBox(height: 15),
+              CustomTextFormAuth(
+                valid: (value) { 
+                  return validInput(value!, 5, 100, "email");
+                },
+                isNumber: false,
+                mycontroller: controller.email,
+                hintText: "EYE",
+                labelText: "E",
+                icon: Icons.email_outlined,
+              ),
+              CustomButtonAutho(text: "C", onPressed: () {controller.checkemail();}),
+              const SizedBox(height: 40),
+            ],
+          ),
         ),
       ),
     );

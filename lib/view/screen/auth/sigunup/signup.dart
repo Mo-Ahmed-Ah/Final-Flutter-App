@@ -1,5 +1,7 @@
 import 'package:finalflutterapp/controller/auth/sigunup/signup_controller.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
+import 'package:finalflutterapp/core/functions/alertexitapp.dart';
+import 'package:finalflutterapp/core/functions/validinput.dart';
 import 'package:finalflutterapp/view/widget/auth/custombuttonautho.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextandaskauth.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextbodyauth.dart';
@@ -14,7 +16,7 @@ class Signup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SignupControllerImp controller = Get.put(SignupControllerImp());
+    Get.lazyPut(() => SignupControllerImp());
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -27,52 +29,83 @@ class Signup extends StatelessWidget {
         elevation: 0.0,
         centerTitle: true,
       ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-        child: ListView(
-          children: [
-            const CustomTextTitleAuth(text: "WB"),
-            const SizedBox(height: 10),
-            const CustomTextBodyAuth(text: "SUT"),
-            const SizedBox(height: 15),
-            CustomTextFormAuth(
-              mycontroller: controller.userName,
-              hintText: "EYUN",
-              labelText: "UN",
-              icon: Icons.person_2_outlined,
+      body: WillPopScope(
+        onWillPop: alertExitApp,
+        child: GetBuilder<SignupControllerImp>(
+          builder: (controller) => Container(
+            child: Form(
+              key: controller.formstate,
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 15,
+                  horizontal: 30,
+                ),
+                child: ListView(
+                  children: [
+                    const CustomTextTitleAuth(text: "WB"),
+                    const SizedBox(height: 10),
+                    const CustomTextBodyAuth(text: "SUT"),
+                    const SizedBox(height: 15),
+                    CustomTextFormAuth(
+                      valid: (value) {
+                        return validInput(value!, 5, 30, "username");
+                      },
+                      isNumber: false,
+                      mycontroller: controller.userName,
+                      hintText: "EYUN",
+                      labelText: "UN",
+                      icon: Icons.person_2_outlined,
+                    ),
+                    CustomTextFormAuth(
+                      valid: (value) {
+                        return validInput(value!, 5, 100, "email");
+                      },
+                      isNumber: false,
+                      mycontroller: controller.email,
+                      hintText: "EYE",
+                      labelText: "E",
+                      icon: Icons.email_outlined,
+                    ),
+                    CustomTextFormAuth(
+                      valid: (value) {
+                        return validInput(value!, 11, 15, "phone");
+                      },
+                      isNumber: true,
+                      mycontroller: controller.phoneNumber,
+                      hintText: "EYPN",
+                      labelText: "PN",
+                      icon: Icons.phone_android_outlined,
+                    ),
+                    // const SizedBox(height: 20),
+                    CustomTextFormAuth(
+                      valid: (value) {
+                        return validInput(value!, 6, 30, "password");
+                      },
+                      isNumber: false,
+                      mycontroller: controller.password,
+                      hintText: "EPW",
+                      labelText: "PW",
+                      icon: Icons.lock_outline,
+                    ),
+                    CustomButtonAutho(
+                      text: "SU",
+                      onPressed: () {
+                        controller.signUp();
+                      },
+                    ),
+                    SizedBox(height: 30),
+                    CustomTextAndAskAuth(
+                      askTest: "HAA",
+                      linkText: "SI",
+                      onTap: () {
+                        controller.goToSignIn();
+                      },
+                    ),
+                  ],
+                ),
+              ),
             ),
-            CustomTextFormAuth(
-              mycontroller: controller.email,
-              hintText: "EYE",
-              labelText: "E",
-              icon: Icons.email_outlined,
-            ),
-            CustomTextFormAuth(
-              mycontroller: controller.phoneNumber,
-              hintText: "EYPN",
-              labelText: "PN",
-              icon: Icons.phone_android_outlined,
-            ),
-            // const SizedBox(height: 20),
-            CustomTextFormAuth(
-              mycontroller: controller.password,
-              hintText: "EPW",
-              labelText: "PW",
-              icon: Icons.lock_outline,
-            ),
-            CustomButtonAutho(text: "SU", onPressed: () {
-              controller.signUp();
-            }),
-            SizedBox(height: 30),
-            CustomTextAndAskAuth(
-              askTest: "HAA",
-              linkText: "SI",
-              onTap: () {
-                controller.goToSignIn();
-              },
-            ),
-            
-          ],
+          ),
         ),
       ),
     );

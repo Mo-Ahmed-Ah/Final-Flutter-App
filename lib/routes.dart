@@ -1,5 +1,4 @@
 import 'package:finalflutterapp/core/constant/routes.dart' show AppRoutes;
-import 'package:finalflutterapp/view/screen/auth/sigunup/checkemail.dart';
 import 'package:finalflutterapp/view/screen/auth/forgetpassword/forgetpassword.dart';
 import 'package:finalflutterapp/view/screen/auth/login/login.dart';
 import 'package:finalflutterapp/view/screen/auth/forgetpassword/resetpassword.dart';
@@ -20,7 +19,6 @@ Map<String , Widget Function(BuildContext)> routes={
   AppRoutes.resetpassword : (context) => ResetPassword(),
   AppRoutes.successresetpasword : (context) => SuccessResetPasword(),
   AppRoutes.successsignup : (context) => SuccessSignup(),
-  AppRoutes.checkemail : (context) => CheckEmail(),
   AppRoutes.verificationCodeSigunUp : (context) => VerfiyCodeSigunUp(),
   // OnBoarding Routes 
   AppRoutes.onBoarding : (context) => OnBoarding(),

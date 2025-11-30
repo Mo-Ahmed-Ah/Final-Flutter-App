@@ -1,5 +1,6 @@
 import 'package:finalflutterapp/controller/auth/forgetpassword/resetpassword_controller.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
+import 'package:finalflutterapp/core/functions/validinput.dart';
 import 'package:finalflutterapp/view/widget/auth/custombuttonautho.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextbodyauth.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextformauth.dart';
@@ -28,35 +29,46 @@ class ResetPassword extends StatelessWidget {
         elevation: 0.0,
         centerTitle: true,
       ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-        child: ListView(
-          children: [
-            const CustomTextTitleAuth(text: "NP"),
-            const SizedBox(height: 10),
-            const CustomTextBodyAuth(text: "ENP"),
-            const SizedBox(height: 15),
-            CustomTextFormAuth(
-              mycontroller: controller.newPassword,
-              hintText: "EPW",
-              labelText: "PW",
-              icon: Icons.lock_outline,
-            ),
-            CustomTextFormAuth(
-              mycontroller: controller.reNewPassword,
-              hintText: "REPW",
-              labelText: "PW",
-              icon: Icons.lock_outline,
-            ),
-
-            CustomButtonAutho(
-              text: "S",
-              onPressed: () {
-                controller.goToSccessResetPassword();
-              },
-            ),
-            const SizedBox(height: 40),
-          ],
+      body: Form(
+        key: controller.formstate,
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+          child: ListView(
+            children: [
+              const CustomTextTitleAuth(text: "NP"),
+              const SizedBox(height: 10),
+              const CustomTextBodyAuth(text: "ENP"),
+              const SizedBox(height: 15),
+              CustomTextFormAuth(
+                valid: (value) { 
+                  return validInput(value!, 6, 30, "password");
+                },
+                isNumber: false,
+                mycontroller: controller.newPassword,
+                hintText: "EPW",
+                labelText: "PW",
+                icon: Icons.lock_outline,
+              ),
+              CustomTextFormAuth(
+                valid: (value) {
+                  return validInput(value!, 6, 30, "password");
+                 },
+                 isNumber: false,
+                mycontroller: controller.reNewPassword,
+                hintText: "REPW",
+                labelText: "PW",
+                icon: Icons.lock_outline,
+              ),
+        
+              CustomButtonAutho(
+                text: "S",
+                onPressed: () {
+                  controller.resetPassword();
+                },
+              ),
+              const SizedBox(height: 40),
+            ],
+          ),
         ),
       ),
     );

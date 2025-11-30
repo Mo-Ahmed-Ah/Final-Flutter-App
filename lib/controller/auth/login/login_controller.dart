@@ -9,22 +9,28 @@ abstract class LoginController extends GetxController {
 }
 
 class LoginControllerImp extends LoginController{
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
   late TextEditingController email;
   late TextEditingController password;
 
   @override
   login() {
-    throw UnimplementedError();
+    var formdata = formstate.currentState;
+    if(formdata!.validate()){
+      print("V".tr);
+    }else{
+      print("NV".tr);
+    }
   }
 
   @override
   goToSignUp() {
-    Get.toNamed(AppRoutes.signUp);
+    Get.offNamed(AppRoutes.signUp);
   }
   
   @override
   goToForgetPassword() {
-    Get.toNamed(AppRoutes.forgetpassword);
+    Get.offNamed(AppRoutes.forgetpassword);
   }
 
   @override
