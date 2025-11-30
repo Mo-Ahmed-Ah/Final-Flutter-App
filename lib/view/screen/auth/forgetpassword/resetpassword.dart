@@ -1,12 +1,9 @@
-import 'package:finalflutterapp/controller/auth/ResetPassword_controller.dart';
-import 'package:finalflutterapp/controller/auth/signup_controller.dart';
+import 'package:finalflutterapp/controller/auth/Resetpassword_controller.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/view/widget/auth/custombuttonautho.dart';
-import 'package:finalflutterapp/view/widget/auth/customtextandaskauth.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextbodyauth.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextformauth.dart';
 import 'package:finalflutterapp/view/widget/auth/customtexttitleauth.dart';
-import 'package:finalflutterapp/view/widget/auth/logoauth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
@@ -16,11 +13,11 @@ class ResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ResetPasswordControllerImp controller = Get.put(ResetPasswordControllerImp());
+    ResetPasswordControllerImp controller = Get.put(ResetPasswordControllerImp());
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "FP".tr,
+          "RP" .tr,
           style: Theme.of(
             context,
           ).textTheme.headlineMedium!.copyWith(color: AppColor.gray),
@@ -33,22 +30,29 @@ class ResetPassword extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: ListView(
           children: [
-            const CustomTextTitleAuth(text: "CE"),
+            const CustomTextTitleAuth(text: "NP"),
             const SizedBox(height: 10),
-            const CustomTextBodyAuth(text: "SYT"),
+            const CustomTextBodyAuth(text: "ENP"),
             const SizedBox(height: 15),
+             CustomTextFormAuth(
+              mycontroller: controller.newPassword,
+              hintText: "EPW",
+              labelText: "PW",
+              icon: Icons.lock_outline,
+            ),
+             CustomTextFormAuth(
+              mycontroller: controller.reNewPassword,
+              hintText: "REPW",
+              labelText: "PW",
+              icon: Icons.lock_outline,
+            ),
             
-            // CustomTextFormAuth(
-            //   mycontroller: controller.email,
-            //   hintText: "EYE",
-            //   labelText: "E",
-            //   icon: Icons.email_outlined,
-            // ),
-            CustomButtonAutho(text: "C", onPressed: () {}),
+            CustomButtonAutho(text: "S", onPressed: () {}),
             const SizedBox(height: 40),
           ],
         ),
       ),
     );
+
   }
 }

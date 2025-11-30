@@ -1,4 +1,3 @@
-import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/utils.dart';
 

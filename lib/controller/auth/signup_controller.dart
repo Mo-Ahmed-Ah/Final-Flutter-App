@@ -1,5 +1,4 @@
 import 'package:finalflutterapp/core/constant/routes.dart';
-import 'package:finalflutterapp/view/screen/auth/login.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 

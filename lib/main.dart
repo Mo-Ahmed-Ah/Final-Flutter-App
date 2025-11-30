@@ -3,6 +3,7 @@ import 'package:finalflutterapp/core/localization/changelocale.dart';
 import 'package:finalflutterapp/core/localization/translation.dart';
 import 'package:finalflutterapp/core/services/services.dart';
 import 'package:finalflutterapp/routes.dart';
+import 'package:finalflutterapp/test.dart';
 import 'package:finalflutterapp/view/screen/auth/login.dart';
 // import 'package:finalflutterapp/view/screen/onboarding.dart';
 import 'package:flutter/material.dart';
@@ -71,7 +72,9 @@ class MyApp extends StatelessWidget {
         ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
-      home:  const Login(),
+      home:  
+        // const Test(),
+        const Login(),
       routes: routes,
     );
   }

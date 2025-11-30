@@ -5,7 +5,6 @@ import 'package:finalflutterapp/view/widget/auth/customtextandaskauth.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextbodyauth.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextformauth.dart';
 import 'package:finalflutterapp/view/widget/auth/customtexttitleauth.dart';
-import 'package:finalflutterapp/view/widget/auth/logoauth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
@@ -34,7 +33,7 @@ class Signup extends StatelessWidget {
           children: [
             const CustomTextTitleAuth(text: "WB"),
             const SizedBox(height: 10),
-            const CustomTextBodyAuth(text: "SYT"),
+            const CustomTextBodyAuth(text: "SUT"),
             const SizedBox(height: 15),
             CustomTextFormAuth(
               mycontroller: controller.userName,

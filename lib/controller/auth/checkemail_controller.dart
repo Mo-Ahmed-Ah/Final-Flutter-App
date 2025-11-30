@@ -2,13 +2,13 @@ import 'package:finalflutterapp/core/constant/routes.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-abstract class ForgetpasswordController extends GetxController {
+abstract class CheckEmailController extends GetxController {
  checkemail();
- goToVerfiyCode();
+ goToSccessSignUp();
  
 }
 
-class ForgetpasswordControllerImp extends ForgetpasswordController{
+class CheckEmailControllerImp extends CheckEmailController{
   late TextEditingController email;
 
 
@@ -18,7 +18,7 @@ class ForgetpasswordControllerImp extends ForgetpasswordController{
   }
   
   @override
-  goToVerfiyCode() {
+  goToSccessSignUp() {
     Get.offNamed(AppRoutes.verfiycode);
   }
   
