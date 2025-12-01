@@ -44,9 +44,9 @@ function insertData($table, $data, $json = true)
     $count = $stmt->rowCount();
     if ($json == true) {
     if ($count > 0) {
-        echo json_encode(array("status" => "success"));
+        printFailure();
     } else {
-        echo json_encode(array("status" => "failure"));
+        printFailure();
     }
   }
     return $count;
@@ -142,4 +142,8 @@ function checkAuthenticate()
     }
 
     // End 
+}
+
+function printFailure(){
+    echo json_encode(array("status" => "failure"));
 }
