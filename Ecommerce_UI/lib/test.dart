@@ -1,3 +1,4 @@
+import 'package:finalflutterapp/core/functions/checkinternet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
@@ -9,6 +10,16 @@ class Test extends StatefulWidget {
 }
 
 class _TestState extends State<Test> {
+  var isInternetConnectted;
+  initialData() async {
+    isInternetConnectted = await checkInternet();
+  }
+  @override 
+  void initState() {
+    initialData();
+    print(isInternetConnectted);
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

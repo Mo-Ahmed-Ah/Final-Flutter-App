@@ -13,9 +13,9 @@ function filterRequest($requestname)
 
 function getAllData($table, $where = null, $values = null)
 {
-    global $con;
+    global $conn;
     $data = array();
-    $stmt = $con->prepare("SELECT  * FROM $table WHERE   $where ");
+    $stmt = $conn->prepare("SELECT  * FROM $table WHERE   $where ");
     $stmt->execute($values);
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $count  = $stmt->rowCount();
@@ -43,12 +43,12 @@ function insertData($table, $data, $json = true)
     $stmt->execute();
     $count = $stmt->rowCount();
     if ($json == true) {
-    if ($count > 0) {
-        printFailure();
-    } else {
-        printFailure();
+        if ($count > 0) {
+            printState("success");
+        } else {
+            printState("failure" , $json->ERRMODE_EXCEPTION);
+        }
     }
-  }
     return $count;
 }
 
@@ -144,6 +144,6 @@ function checkAuthenticate()
     // End 
 }
 
-function printFailure(){
-    echo json_encode(array("status" => "failure"));
+function printState($status , $massage = "none"){
+    echo json_encode(array("status" => $status ,   "massage" => $massage));
 }

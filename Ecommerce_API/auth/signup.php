@@ -1,6 +1,6 @@
 <?php 
 
-include "../auth/signup.php";
+include "../connect.php";
 
 $username = filterRequest("username");
 $password = sha1(filterRequest("password"));
@@ -8,11 +8,11 @@ $email = filterRequest("email");
 $phone = filterRequest("phone");
 $verfiycode = 0;
 
-$stmt = $conn->prepare("SELECT * FROM users WHERE user_email =? OR user_phone  =?");
-$stmt->exec(array($email , $phone));
+$stmt = $con->prepare("SELECT * FROM users WHERE user_email = ? OR user_phone = ?");
+$stmt->execute([$email, $phone]);
 $conunt = $stmt->rowCount();
-if($conn > 0){
-    printFailure();
+if($conunt > 0){
+    printState( "failure" , "Phone Number Or Email");
 }else{
     $data = array(
         "user_name" => $username,
@@ -21,5 +21,5 @@ if($conn > 0){
         "user_verfiycode" => $verfiycode,
         "user_password" => $password,
     );
-    insertData("users" , $data);
+    insertData("users" , $data );
 }
