@@ -10,39 +10,29 @@ class Test extends StatefulWidget {
 }
 
 class _TestState extends State<Test> {
-  var isInternetConnectted;
-  initialData() async {
-    isInternetConnectted = await checkInternet();
-  }
-  @override 
+  bool? isInternetConnected;
+  
+  @override
   void initState() {
-    initialData();
-    print(isInternetConnectted);
     super.initState();
+    initialData();
   }
+
+  initialData() async {
+    isInternetConnected = await checkInternet();
+    print(isInternetConnected);
+
+    setState(() {}); // Refresh UI when value arrives
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Test")),
-      body: Container(
-        padding: EdgeInsets.all(20),
-        child: ListView(
-          children: [
-            OtpTextField(
-              fieldWidth: 50.0,
-              borderRadius: BorderRadius.circular(20),
-              numberOfFields: 5,
-              borderColor: Color(0xFF512DA8),
-              //set to true to show as box or false to show as dash
-              showFieldAsBox: true,
-              //runs when a code is typed in
-              onCodeChanged: (String code) {
-                //handle validation or checks here
-              },
-              //runs when every textfield is filled
-              onSubmit: (String verificationCode) {}, // end onSubmit
-            ),
-          ],
+      body: Center(
+        child: Text(
+          "Internet: $isInternetConnected",
+          style: TextStyle(fontSize: 20),
         ),
       ),
     );

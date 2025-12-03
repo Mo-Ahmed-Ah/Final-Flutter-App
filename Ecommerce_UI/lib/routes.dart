@@ -1,5 +1,6 @@
 import 'package:finalflutterapp/core/constant/routes.dart' show AppRoutes;
 import 'package:finalflutterapp/core/middleware/mymiddleware.dart';
+import 'package:finalflutterapp/test.dart';
 import 'package:finalflutterapp/view/screen/auth/forgetpassword/forgetpassword.dart';
 import 'package:finalflutterapp/view/screen/auth/login/login.dart';
 import 'package:finalflutterapp/view/screen/auth/forgetpassword/resetpassword.dart';
@@ -13,11 +14,13 @@ import 'package:finalflutterapp/view/screen/onboarding.dart';
 import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? routes = [
-  GetPage(
-    name: "/",
-    page: () => const Language(),
-    middlewares: [MyMiddleWare()],
-  ),
+  // GetPage(
+  //   name: "/",
+  //   page: () => const Language(),
+  //   middlewares: [MyMiddleWare()],
+  // ),
+  
+  GetPage(name: "/", page: () => Test()),
   // Auth Routes
   GetPage(name: AppRoutes.login, page: () => Login()),
   GetPage(name: AppRoutes.signUp, page: () => Signup()),

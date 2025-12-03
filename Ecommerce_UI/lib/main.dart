@@ -2,7 +2,7 @@ import 'package:finalflutterapp/core/localization/changelocale.dart';
 import 'package:finalflutterapp/core/localization/translation.dart';
 import 'package:finalflutterapp/core/services/services.dart';
 import 'package:finalflutterapp/routes.dart';
-import 'package:finalflutterapp/view/screen/language.dart';
+// import 'package:finalflutterapp/view/screen/language.dart';
 // import 'package:finalflutterapp/view/screen/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,6 +15,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+  
   const MyApp({super.key});
 
   // This widget is the root of your application.
