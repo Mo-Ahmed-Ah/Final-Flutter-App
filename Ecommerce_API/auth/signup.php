@@ -6,7 +6,7 @@ $username = filterRequest("username");
 $password = sha1(filterRequest("password"));
 $email = filterRequest("email");
 $phone = filterRequest("phone");
-$verfiycode = 0;
+$verfiycode = rand(10000, 99999);
 
 $stmt = $con->prepare("SELECT * FROM users WHERE user_email = ? OR user_phone = ?");
 $stmt->execute([$email, $phone]);
@@ -21,5 +21,6 @@ if($conunt > 0){
         "user_verfiycode" => $verfiycode,
         "user_password" => $password,
     );
+    sendEmail($email , "Verify Code Ecommerce" , "Verify Code : $verfiycode");
     insertData("users" , $data );
 }

@@ -52,7 +52,6 @@ function insertData($table, $data, $json = true)
     return $count;
 }
 
-
 function updateData($table, $data, $where, $json = true)
 {
     global $con;
@@ -120,7 +119,6 @@ function imageUpload($imageRequest)
 }
 
 
-
 function deleteFile($dir, $imagename)
 {
     if (file_exists($dir . "/" . $imagename)) {
@@ -146,4 +144,23 @@ function checkAuthenticate()
 
 function printState($status , $massage = "none"){
     echo json_encode(array("status" => $status ,   "massage" => $massage));
+}
+
+function sendEmail($toemail , $inputsubject , $inputmessage){
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    $to = $toemail;
+    $subject = $inputsubject;
+    $message = $inputmessage;
+    $headers = "From: ahmed7777003330@gmail.com";
+
+    if(mail($to, $subject, $message, $headers)) {
+        echo "Email sent successfully!";
+    } else {
+        echo "Email failed to send!";
+        print_r(error_get_last());
+    }
+
 }
