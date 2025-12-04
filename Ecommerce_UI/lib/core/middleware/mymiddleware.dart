@@ -13,6 +13,7 @@ class MyMiddleWare extends GetMiddleware{
     if(myServices.sharedPreferences.getBool("onBoarding") == true){
       return const RouteSettings(name: AppRoutes.login);
     }
+    return null;
   }
 
 }

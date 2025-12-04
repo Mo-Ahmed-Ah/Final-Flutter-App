@@ -1,6 +1,5 @@
 import 'package:finalflutterapp/core/functions/checkinternet.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 class Test extends StatefulWidget {
   const Test({super.key});
