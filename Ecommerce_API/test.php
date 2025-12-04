@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 $to = "mo.ahmed7777003330@gmail.com";
-$title = "hi";
+$subject = "hi";
 $message = "I am Ahmed";
 $headers = "From: support@ahmed.com" . "\n" . "CC:ahmed7777003330@gmail.com";
 

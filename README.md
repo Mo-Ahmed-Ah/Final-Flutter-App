@@ -363,3 +363,24 @@
   - Flutter آخر إصدار
   - Android SDK حديث
   - تفعيل Google Maps API
+
+## To Enable Send Mail using Gmail On Exampp
+  ### VERY IMPORTANT: Create a Gmail App Password
+  - Go to: [Your Google Account Manager](https://myaccount.google.com/)
+  - Enable 2-Step Verification
+  - Go to Security → App passwords
+  - Enter The app Name like "STMP"
+  - Right-Click on Generate
+  - Copy That 16-digit password
+  ### Configure XAMPP php.ini
+  - Open the file : `xampp/php/php.ini`
+  - Set `sendmail_path = "\"C:\xampp\sendmail\sendmail.exe\" -t"`
+  - save file
+  ### Configure XAMPP sendmail.ini
+  - Open the file : `xampp/sendmail/sendmail.ini`
+  - set `smtp_server=smtp.gmail.com`
+  - set `smtp_port=587`
+  - set `smtp_ssl=tls`
+  - set `auth_username=yourgmail@gmail.com`
+  - set `auth_password=your_app_password`
+  - save file
