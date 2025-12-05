@@ -5,17 +5,22 @@
 // ==========================================================
 
 define("MB", 1048576);
-
-function filterRequest($requestname)
-{
-  return  htmlspecialchars(strip_tags($_POST[$requestname]));
+function filterRequest($key){
+    if (isset($_POST[$key])) {
+        return htmlspecialchars(strip_tags($_POST[$key]));
+    } elseif (isset($_GET[$key])) {
+        return htmlspecialchars(strip_tags($_GET[$key]));
+    } else {
+        return null; // يمنع الأخطاء
+    }
 }
+
 
 function getAllData($table, $where = null, $values = null)
 {
-    global $conn;
+    global $con;
     $data = array();
-    $stmt = $conn->prepare("SELECT  * FROM $table WHERE   $where ");
+    $stmt = $con->prepare("SELECT  * FROM $table WHERE   $where ");
     $stmt->execute($values);
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $count  = $stmt->rowCount();

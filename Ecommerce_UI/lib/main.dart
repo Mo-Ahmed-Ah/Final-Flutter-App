@@ -1,3 +1,4 @@
+import 'package:finalflutterapp/bindings/initialbindings.dart';
 import 'package:finalflutterapp/core/localization/changelocale.dart';
 import 'package:finalflutterapp/core/localization/translation.dart';
 import 'package:finalflutterapp/core/services/services.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       locale: controller.language,
       theme: controller.appTheme,
-      
+      initialBinding: InitialBindings(),
       getPages: routes,
     );
   }

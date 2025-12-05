@@ -9,6 +9,7 @@ import 'package:finalflutterapp/view/screen/auth/sigunup/success_signup.dart';
 import 'package:finalflutterapp/view/screen/auth/forgetpassword/verfiycode.dart';
 import 'package:finalflutterapp/view/screen/auth/sigunup/verifycodesignup.dart';
 import 'package:finalflutterapp/view/screen/onboarding.dart';
+import 'package:finalflutterapp/view/test/test_view.dart';
 import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? routes = [
@@ -18,7 +19,8 @@ List<GetPage<dynamic>>? routes = [
   //   middlewares: [MyMiddleWare()],
   // ),
   
-  GetPage(name: "/", page: () => Test()),
+  // GetPage(name: "/", page: () => Test()),
+  GetPage(name: "/", page: () => TestView()),
   // Auth Routes
   GetPage(name: AppRoutes.login, page: () => Login()),
   GetPage(name: AppRoutes.signUp, page: () => Signup()),
