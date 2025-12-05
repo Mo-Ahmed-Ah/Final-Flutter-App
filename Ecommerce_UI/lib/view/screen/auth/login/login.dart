@@ -65,9 +65,9 @@ class Login extends StatelessWidget {
                     obscureText: controller.isShowIcon,
                     isNumber: false,
                     mycontroller: controller.password,
+                    icon: controller.passIcon,
                     hintText: "EPW",
                     labelText: "PW",
-                    icon: controller.passIcon,
                   ),
                 ),
                 InkWell(

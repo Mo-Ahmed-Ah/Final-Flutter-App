@@ -59,6 +59,8 @@ class MyTranslation implements Translations {
       "DYWTLTP": "هل تريد مغادرة البرنامج؟",
       "YSE" : "نعم",
       "NO" : "لا",
+      "WO": "تحذير",
+      "PNOEAE": "رقم الهاتف أو البريد الإلكتروني موجود بالفعل",
     },
     "en": {
       // Start onBoarding Test With English lang
@@ -119,6 +121,8 @@ class MyTranslation implements Translations {
       "DYWTLTP" : "Do you want to leave the program ? ",
       "YSE" : "Yse",
       "NO" : "No",
+      "WO" : "Worning",
+      "PNOEAE" :  "phone Number or Email already exists",
     },
   };
 }

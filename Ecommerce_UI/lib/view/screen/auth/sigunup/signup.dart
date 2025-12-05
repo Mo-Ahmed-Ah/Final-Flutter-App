@@ -78,18 +78,23 @@ class Signup extends StatelessWidget {
                     ),
                     // const SizedBox(height: 20),
                     CustomTextFormAuth(
+                      onTapIcon: () {
+                        controller.showPassword();
+                      },
                       valid: (value) {
                         return validInput(value!, 6, 30, "password");
                       },
+                      obscureText: controller.isShowIcon,
                       isNumber: false,
                       mycontroller: controller.password,
+                      icon: controller.passIcon,
                       hintText: "EPW",
                       labelText: "PW",
-                      icon: Icons.lock_outline,
                     ),
                     CustomButtonAutho(
                       text: "SU",
                       onPressed: () {
+                        
                         controller.signUp();
                       },
                     ),

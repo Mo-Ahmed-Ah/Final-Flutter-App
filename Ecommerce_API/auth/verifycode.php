@@ -1,8 +1,8 @@
 <?php
 include("../connect.php");
 
-$email = filterRequest("user_email");
-$verifycode = filterRequest("user_verfiycode"); // اسم الحقل الصحيح من POST
+$email = filterRequest("username");
+$verifycode = filterRequest("verfiycode"); // اسم الحقل الصحيح من POST
 
 $stmt = $con->prepare("SELECT * FROM users WHERE user_email = ? AND user_verfiycode = ?");
 $stmt->execute([$email, $verifycode]);
