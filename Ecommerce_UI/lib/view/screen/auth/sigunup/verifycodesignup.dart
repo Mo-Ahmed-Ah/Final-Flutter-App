@@ -1,6 +1,8 @@
 import 'package:finalflutterapp/controller/auth/sigunup/verifycodesignup_controller.dart';
+import 'package:finalflutterapp/core/class/statusrequest.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextbodyauth.dart';
+import 'package:finalflutterapp/view/widget/auth/customtextbodyveriycodesignup.dart';
 import 'package:finalflutterapp/view/widget/auth/customtexttitleauth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
@@ -12,8 +14,10 @@ class VerfiyCodeSigunUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    VerifyCodeSignUpControllerImp controller = Get.put(VerifyCodeSignUpControllerImp());
-    
+    VerifyCodeSignUpControllerImp controller = Get.put(
+      VerifyCodeSignUpControllerImp(),
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -26,33 +30,39 @@ class VerfiyCodeSigunUp extends StatelessWidget {
         elevation: 0.0,
         centerTitle: true,
       ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-        child: ListView(
-          children: [
-            const CustomTextTitleAuth(text: "CE"),
-            const SizedBox(height: 10),
-            const CustomTextBodyAuth(text: "VCT"),
-            const SizedBox(height: 15),
-            OtpTextField(
-              fieldWidth: 50.0,
-              borderRadius: BorderRadius.circular(20),
-              numberOfFields: 5,
-              borderColor: Color(0xFF512DA8),
-              //set to true to show as box or false to show as dash
-              showFieldAsBox: true,
-              //runs when a code is typed in
-              onCodeChanged: (String code) {
-                //handle validation or checks here
-              },
-              //runs when every textfield is filled
-              onSubmit: (String verificationCode) {
-                controller.goToSuccessSignUp();
-              }, // end onSubmit
-            ),
-            // CustomButtonAutho(text: "C", onPressed: () {}),
-            const SizedBox(height: 40),
-          ],
+      body: GetBuilder<VerifyCodeSignUpControllerImp>(
+        builder: (controller) => 
+        controller.statusRequest == StatusRequest.loading ? 
+        Center(child: Text("Loading"))
+        :
+        Container(
+          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+          child: ListView(
+            children: [
+              const CustomTextTitleAuth(text: "CE"),
+              const SizedBox(height: 10),
+              CustomTextBodyVeriyCodeSignup(text: "VCT" , email: Get.arguments['email']),
+              const SizedBox(height: 15),
+              OtpTextField(
+                fieldWidth: 50.0,
+                borderRadius: BorderRadius.circular(20),
+                numberOfFields: 5,
+                borderColor: Color(0xFF512DA8),
+                //set to true to show as box or false to show as dash
+                showFieldAsBox: true,
+                //runs when a code is typed in
+                onCodeChanged: (String code) {
+                  //handle validation or checks here
+                },
+                //runs when every textfield is filled
+                onSubmit: (String verificationCode) {
+                  controller.goToSuccessSignUp(verificationCode);
+                }, // end onSubmit
+              ),
+              // CustomButtonAutho(text: "C", onPressed: () {}),
+              const SizedBox(height: 40),
+            ],
+          ),
         ),
       ),
     );

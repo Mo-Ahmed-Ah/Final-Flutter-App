@@ -160,12 +160,12 @@ function sendEmail($toemail , $inputsubject , $inputmessage){
     $subject = $inputsubject;
     $message = $inputmessage;
     $headers = "From: ahmed7777003330@gmail.com";
-
-    if(mail($to, $subject, $message, $headers)) {
-        echo "Email sent successfully!";
-    } else {
-        echo "Email failed to send!";
-        print_r(error_get_last());
-    }
+    mail($to, $subject, $message, $headers);
+    // if(mail($to, $subject, $message, $headers)) {
+    //     echo "Email sent successfully!";
+    // } else {
+    //     echo "Email failed to send!";
+    //     print_r(error_get_last());
+    // }
 
 }

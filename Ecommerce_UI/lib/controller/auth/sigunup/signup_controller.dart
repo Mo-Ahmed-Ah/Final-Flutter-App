@@ -32,7 +32,7 @@ class SignupControllerImp extends SignupController {
   }
 
 
-  late StatusRequest statusRequest;
+   StatusRequest? statusRequest;
   SigunUpData sigunUpData = SigunUpData(Get.find());
   List data = [];
   @override
@@ -40,6 +40,7 @@ class SignupControllerImp extends SignupController {
     var formdata = formstate.currentState;
     if (formdata!.validate()) {
       statusRequest = StatusRequest.loading;
+      update();
       var respose = await sigunUpData.postData(
         userName.text,
         password.text,
@@ -51,8 +52,11 @@ class SignupControllerImp extends SignupController {
       print(respose);
       if (statusRequest == StatusRequest.success) {
         if (respose["status"] == "success") {
-          data.addAll(respose["data"]);
-          Get.offNamed(AppRoutes.verificationCodeSigunUp);
+          // data.addAll(respose["data"]);
+
+          Get.offNamed(AppRoutes.verificationCodeSigunUp , arguments: {
+            'email' : email.text
+          });
         } else {
           Get.defaultDialog(
             title: "WO".tr,

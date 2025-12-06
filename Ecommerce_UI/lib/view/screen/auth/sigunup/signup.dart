@@ -1,4 +1,5 @@
 import 'package:finalflutterapp/controller/auth/sigunup/signup_controller.dart';
+import 'package:finalflutterapp/core/class/statusrequest.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/core/functions/alertexitapp.dart';
 import 'package:finalflutterapp/core/functions/validinput.dart';
@@ -32,85 +33,87 @@ class Signup extends StatelessWidget {
       body: WillPopScope(
         onWillPop: alertExitApp,
         child: GetBuilder<SignupControllerImp>(
-          builder: (controller) => Container(
-            child: Form(
-              key: controller.formstate,
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 15,
-                  horizontal: 30,
+          builder: (controller) =>
+              controller.statusRequest == StatusRequest.loading
+              ? Center(child: Text("Loading"))
+              : Container(
+                  child: Form(
+                    key: controller.formstate,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 15,
+                        horizontal: 30,
+                      ),
+                      child: ListView(
+                        children: [
+                          const CustomTextTitleAuth(text: "WB"),
+                          const SizedBox(height: 10),
+                          const CustomTextBodyAuth(text: "SUT"),
+                          const SizedBox(height: 15),
+                          CustomTextFormAuth(
+                            valid: (value) {
+                              return validInput(value!, 5, 30, "username");
+                            },
+                            isNumber: false,
+                            mycontroller: controller.userName,
+                            hintText: "EYUN",
+                            labelText: "UN",
+                            icon: Icons.person_2_outlined,
+                          ),
+                          CustomTextFormAuth(
+                            valid: (value) {
+                              return validInput(value!, 5, 100, "email");
+                            },
+                            isNumber: false,
+                            mycontroller: controller.email,
+                            hintText: "EYE",
+                            labelText: "E",
+                            icon: Icons.email_outlined,
+                          ),
+                          CustomTextFormAuth(
+                            valid: (value) {
+                              return validInput(value!, 11, 15, "phone");
+                            },
+                            isNumber: true,
+                            mycontroller: controller.phoneNumber,
+                            hintText: "EYPN",
+                            labelText: "PN",
+                            icon: Icons.phone_android_outlined,
+                          ),
+                          // const SizedBox(height: 20),
+                          CustomTextFormAuth(
+                            onTapIcon: () {
+                              controller.showPassword();
+                            },
+                            valid: (value) {
+                              return validInput(value!, 6, 30, "password");
+                            },
+                            obscureText: controller.isShowIcon,
+                            isNumber: false,
+                            mycontroller: controller.password,
+                            icon: controller.passIcon,
+                            hintText: "EPW",
+                            labelText: "PW",
+                          ),
+                          CustomButtonAutho(
+                            text: "SU",
+                            onPressed: () {
+                              controller.signUp();
+                            },
+                          ),
+                          SizedBox(height: 30),
+                          CustomTextAndAskAuth(
+                            askTest: "HAA",
+                            linkText: "SI",
+                            onTap: () {
+                              controller.goToSignIn();
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
-                child: ListView(
-                  children: [
-                    const CustomTextTitleAuth(text: "WB"),
-                    const SizedBox(height: 10),
-                    const CustomTextBodyAuth(text: "SUT"),
-                    const SizedBox(height: 15),
-                    CustomTextFormAuth(
-                      valid: (value) {
-                        return validInput(value!, 5, 30, "username");
-                      },
-                      isNumber: false,
-                      mycontroller: controller.userName,
-                      hintText: "EYUN",
-                      labelText: "UN",
-                      icon: Icons.person_2_outlined,
-                    ),
-                    CustomTextFormAuth(
-                      valid: (value) {
-                        return validInput(value!, 5, 100, "email");
-                      },
-                      isNumber: false,
-                      mycontroller: controller.email,
-                      hintText: "EYE",
-                      labelText: "E",
-                      icon: Icons.email_outlined,
-                    ),
-                    CustomTextFormAuth(
-                      valid: (value) {
-                        return validInput(value!, 11, 15, "phone");
-                      },
-                      isNumber: true,
-                      mycontroller: controller.phoneNumber,
-                      hintText: "EYPN",
-                      labelText: "PN",
-                      icon: Icons.phone_android_outlined,
-                    ),
-                    // const SizedBox(height: 20),
-                    CustomTextFormAuth(
-                      onTapIcon: () {
-                        controller.showPassword();
-                      },
-                      valid: (value) {
-                        return validInput(value!, 6, 30, "password");
-                      },
-                      obscureText: controller.isShowIcon,
-                      isNumber: false,
-                      mycontroller: controller.password,
-                      icon: controller.passIcon,
-                      hintText: "EPW",
-                      labelText: "PW",
-                    ),
-                    CustomButtonAutho(
-                      text: "SU",
-                      onPressed: () {
-                        
-                        controller.signUp();
-                      },
-                    ),
-                    SizedBox(height: 30),
-                    CustomTextAndAskAuth(
-                      askTest: "HAA",
-                      linkText: "SI",
-                      onTap: () {
-                        controller.goToSignIn();
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
         ),
       ),
     );
