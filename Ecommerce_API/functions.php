@@ -60,27 +60,31 @@ function insertData($table, $data, $json = true)
 function updateData($table, $data, $where, $json = true)
 {
     global $con;
-    $cols = array();
-    $vals = array();
+    $cols = [];
+    $vals = [];
 
     foreach ($data as $key => $val) {
-        $vals[] = "$val";
-        $cols[] = "`$key` =  ? ";
+        $vals[] = $val;
+        $cols[] = "`$key` = ?";
     }
+
     $sql = "UPDATE $table SET " . implode(', ', $cols) . " WHERE $where";
 
     $stmt = $con->prepare($sql);
     $stmt->execute($vals);
     $count = $stmt->rowCount();
-    if ($json == true) {
-    if ($count > 0) {
-        echo json_encode(array("status" => "success"));
-    } else {
-        echo json_encode(array("status" => "failure"));
+
+    if ($json) {
+        if ($count > 0) {
+            echo json_encode(["status" => "success"]);
+        } else {
+            echo json_encode(["status" => "failure"]);
+        }
     }
-    }
+
     return $count;
 }
+
 
 function deleteData($table, $where, $json = true)
 {
@@ -168,4 +172,12 @@ function sendEmail($toemail , $inputsubject , $inputmessage){
     //     print_r(error_get_last());
     // }
 
+}
+
+function result($count){
+    if($count > 0 ){
+        printState("success"  );
+    }else{
+        printState("failure" );
+    }
 }

@@ -10,9 +10,10 @@ class Crud {
     try {
       if (await checkInternet()) {
         var respose = await http.post(Uri.parse(linkurl), body: data);
+        print(respose.statusCode.toString() + respose.body.toString());
         if (respose.statusCode == 200 || respose.statusCode == 201) {
           Map resposebody = jsonDecode(respose.body);
-          print(resposebody);
+          print("==================" + resposebody.toString() + "============================");
           return right(resposebody);
         } else {
           return const Left(StatusRequest.serverfailyer);

@@ -1,4 +1,7 @@
+import 'package:finalflutterapp/core/class/statusrequest.dart';
 import 'package:finalflutterapp/core/constant/routes.dart';
+import 'package:finalflutterapp/core/functions/handlingdata_controller.dart';
+import 'package:finalflutterapp/data/datasource/remote/auth/login/login_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -10,13 +13,15 @@ abstract class LoginController extends GetxController {
 }
 
 class LoginControllerImp extends LoginController{
+  LoginData loginData = LoginData(Get.find());
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
   late TextEditingController email;
   late TextEditingController password;
   
   bool isShowIcon = false;
   IconData passIcon = Icons.lock_outline;
-
+  StatusRequest? statusRequest;
+  
   showPassword(){
     isShowIcon = !isShowIcon;
     if(isShowIcon){
@@ -28,12 +33,31 @@ class LoginControllerImp extends LoginController{
   }
 
   @override
-  login() {
-    var formdata = formstate.currentState;
-    if(formdata!.validate()){
-      print("V".tr);
-    }else{
-      print("NV".tr);
+  login() async {
+     var formdata = formstate.currentState;
+    if (formdata!.validate()) {
+      statusRequest = StatusRequest.loading;
+      update();
+      var respose = await loginData.findData(
+        password.text,
+        email.text
+      );
+      // print("respose");
+      statusRequest = handlingData(respose);
+      print(respose);
+      if (statusRequest == StatusRequest.success) {
+        if (respose["status"] == "success") {
+          // data.addAll(respose["data"]);
+          Get.offNamed(AppRoutes.home);
+        } else {
+          Get.defaultDialog(
+            title: "WA".tr,
+            middleText:"EOPNC".tr,
+          );
+          statusRequest = StatusRequest.failure;
+        }
+      }
+      update();
     }
   }
 

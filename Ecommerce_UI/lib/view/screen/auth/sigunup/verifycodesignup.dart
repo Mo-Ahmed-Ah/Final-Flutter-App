@@ -1,7 +1,6 @@
 import 'package:finalflutterapp/controller/auth/sigunup/verifycodesignup_controller.dart';
 import 'package:finalflutterapp/core/class/statusrequest.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
-import 'package:finalflutterapp/view/widget/auth/customtextbodyauth.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextbodyveriycodesignup.dart';
 import 'package:finalflutterapp/view/widget/auth/customtexttitleauth.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +40,7 @@ class VerfiyCodeSigunUp extends StatelessWidget {
             children: [
               const CustomTextTitleAuth(text: "CE"),
               const SizedBox(height: 10),
-              CustomTextBodyVeriyCodeSignup(text: "VCT" , email: Get.arguments['email']),
+              CustomTextBodyVeriyCodeSignup(text: "VCT" , email: controller.email!),
               const SizedBox(height: 15),
               OtpTextField(
                 fieldWidth: 50.0,

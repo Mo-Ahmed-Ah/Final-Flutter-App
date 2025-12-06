@@ -3,6 +3,7 @@ class Appilink {
  static const String test = "$server/test.php";
 //  ============================== Atho ===========================================//
  static const String signup = "$server/auth/signup.php";
+ static const String login = "$server/auth/login.php";
  static const String verfiyCodeSigunUp = "$server/auth/verifycode.php";
 
 }

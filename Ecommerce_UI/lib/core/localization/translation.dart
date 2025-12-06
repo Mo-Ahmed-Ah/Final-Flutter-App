@@ -61,6 +61,8 @@ class MyTranslation implements Translations {
       "NO" : "لا",
       "WO": "تحذير",
       "PNOEAE": "رقم الهاتف أو البريد الإلكتروني موجود بالفعل",
+      "VCNC": "رمز التحقق غير صحيح",
+      "EOPNC": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
     },
     "en": {
       // Start onBoarding Test With English lang
@@ -121,8 +123,10 @@ class MyTranslation implements Translations {
       "DYWTLTP" : "Do you want to leave the program ? ",
       "YSE" : "Yse",
       "NO" : "No",
-      "WO" : "Worning",
+      "WA" : "Warning",
       "PNOEAE" :  "phone Number or Email already exists",
+      "VCNC" : "Verify Code Not Correct",
+      "EOPNC" : "Email or Password not correct",
     },
   };
 }

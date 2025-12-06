@@ -59,8 +59,8 @@ class SignupControllerImp extends SignupController {
           });
         } else {
           Get.defaultDialog(
-            title: "WO".tr,
-            middleText:"PNOEAE".tr,
+            title: "WA".tr,
+            middleText:"VCNC".tr,
           );
           statusRequest = StatusRequest.failure;
         }

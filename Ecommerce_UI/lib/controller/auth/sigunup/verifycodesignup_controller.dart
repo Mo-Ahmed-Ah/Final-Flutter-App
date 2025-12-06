@@ -27,23 +27,19 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
         email!,
         verifycode ,
       );
-      print("==========================" + respose.toString() + "================");
       statusRequest = handlingData(respose);
-      print("==========================" + statusRequest.toString() + "================");
       if (statusRequest == StatusRequest.success) {
         if (respose["status"] == "success") {
           Get.offNamed(AppRoutes.successsignup);  
         } else {
           Get.defaultDialog(
-            title: "WO".tr,
+            title: "WA".tr,
             middleText:"PNOEAE".tr,
           );
           statusRequest = StatusRequest.failure;
         }
       }
       update();
-    
-  
   }
 
 void onInit(){

@@ -5,12 +5,10 @@ class VerifyCodeSignupData {
   Crud crud;
   VerifyCodeSignupData(this.crud);
   postData(String email, String verfiycode ) async {
-    
     var respose = await crud.postData(Appilink.verfiyCodeSigunUp, {
       "email": email,
-      "verfiycode": verfiycode,
+      "verifycode": verfiycode,
     });
-    print(respose);
     return respose.fold((l) => l, (r) => r);
   }
 }

@@ -11,4 +11,7 @@ class AppRoutes{
   static const String verificationCodeSigunUp = "/verfiycodesigunup"; 
   // OnBoarding Routes
   static const String onBoarding= "/onboarding"; 
+  // Home Routes
+  static const String home= "/home"; 
+
 }
