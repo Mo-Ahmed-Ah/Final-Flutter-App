@@ -6,7 +6,7 @@ class LoginData {
   LoginData(this.crud);
   findData(String password, String email) async {
     
-    var respose = await crud.postData(Appilink.signup, {
+    var respose = await crud.postData(Appilink.login, {
       "email": email,
       "password": password,
     });
