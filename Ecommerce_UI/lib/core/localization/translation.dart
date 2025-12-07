@@ -63,6 +63,9 @@ class MyTranslation implements Translations {
       "PNOEAE": "رقم الهاتف أو البريد الإلكتروني موجود بالفعل",
       "VCNC": "رمز التحقق غير صحيح",
       "EOPNC": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+      "ENF": "لم يتم العثور على البريد الإلكتروني",
+      "PNM": "كلمة المرور غير متطابقة",
+      "TA": "حاول مرة أخرى",
     },
     "en": {
       // Start onBoarding Test With English lang
@@ -127,6 +130,9 @@ class MyTranslation implements Translations {
       "PNOEAE" :  "phone Number or Email already exists",
       "VCNC" : "Verify Code Not Correct",
       "EOPNC" : "Email or Password not correct",
+      "ENF" : "Email Nor Found",
+      "PNM" : "Password Not Match",
+      "TA":"Try Again",
     },
   };
 }

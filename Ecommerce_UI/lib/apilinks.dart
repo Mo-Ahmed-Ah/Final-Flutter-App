@@ -6,4 +6,9 @@ class Appilink {
  static const String login = "$server/auth/login.php";
  static const String verfiyCodeSigunUp = "$server/auth/verifycode.php";
 
+//  ============================== Forget Password ===========================================//
+ static const String checkEmail = "$server/forgetpassword/checkemail.php";
+ static const String forgetVerfiyCode = "$server/forgetpassword/verifycodeforgetpassword.php";
+ static const String resetPassword = "$server/forgetpassword/resetpassword.php";
+
 }

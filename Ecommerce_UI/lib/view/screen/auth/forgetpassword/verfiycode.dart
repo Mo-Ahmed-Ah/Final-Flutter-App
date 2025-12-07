@@ -1,5 +1,6 @@
 // import 'package:finalflutterapp/controller/auth/VerfiyCode_controller.dart';
-import 'package:finalflutterapp/controller/auth/forgetpassword/verfiycode_controller.dart';
+import 'package:finalflutterapp/controller/forgetpassword/verfiycode_controller.dart';
+import 'package:finalflutterapp/core/class/statusrequest.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextbodyauth.dart';
 import 'package:finalflutterapp/view/widget/auth/customtexttitleauth.dart';
@@ -14,7 +15,7 @@ class VerfiyCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     VerifyCodeControllerImp controller = Get.put(VerifyCodeControllerImp());
-    
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -27,34 +28,42 @@ class VerfiyCode extends StatelessWidget {
         elevation: 0.0,
         centerTitle: true,
       ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-        child: ListView(
-          children: [
-            const CustomTextTitleAuth(text: "CE"),
-            const SizedBox(height: 10),
-            const CustomTextBodyAuth(text: "VCT"),
-            const SizedBox(height: 15),
-            OtpTextField(
-              fieldWidth: 50.0,
-              borderRadius: BorderRadius.circular(20),
-              numberOfFields: 5,
-              borderColor: Color(0xFF512DA8),
-              //set to true to show as box or false to show as dash
-              showFieldAsBox: true,
-              //runs when a code is typed in
-              onCodeChanged: (String code) {
-                //handle validation or checks here
-              },
-              //runs when every textfield is filled
-              onSubmit: (String verificationCode) {
-                controller.goToResetPassword();
-              }, // end onSubmit
-            ),
-            // CustomButtonAutho(text: "C", onPressed: () {}),
-            const SizedBox(height: 40),
-          ],
-        ),
+      body: GetBuilder<VerifyCodeControllerImp>(
+        builder: (controller) =>
+            controller.statusRequest == StatusRequest.loading
+            ? Center(child: Text("Loading"))
+            : Container(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 15,
+                  horizontal: 30,
+                ),
+                child: ListView(
+                  children: [
+                    const CustomTextTitleAuth(text: "CE"),
+                    const SizedBox(height: 10),
+                    const CustomTextBodyAuth(text: "VCT"),
+                    const SizedBox(height: 15),
+                    OtpTextField(
+                      fieldWidth: 50.0,
+                      borderRadius: BorderRadius.circular(20),
+                      numberOfFields: 5,
+                      borderColor: Color(0xFF512DA8),
+                      //set to true to show as box or false to show as dash
+                      showFieldAsBox: true,
+                      //runs when a code is typed in
+                      onCodeChanged: (String code) {
+                        //handle validation or checks here
+                      },
+                      //runs when every textfield is filled
+                      onSubmit: (String verificationCode) {
+                        controller.goToResetPassword();
+                      }, // end onSubmit
+                    ),
+                    // CustomButtonAutho(text: "C", onPressed: () {}),
+                    const SizedBox(height: 40),
+                  ],
+                ),
+              ),
       ),
     );
   }

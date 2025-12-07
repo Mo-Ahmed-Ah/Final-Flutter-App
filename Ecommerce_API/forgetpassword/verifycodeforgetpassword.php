@@ -9,4 +9,4 @@ $stmt->execute([$email, $verifycode]);
 
 $count = $stmt->rowCount();
 
-result($conunt);
+result($count);

@@ -28,7 +28,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoutes.login, page: () => Login()),
   GetPage(name: AppRoutes.signUp, page: () => Signup()),
   GetPage(name: AppRoutes.forgetpassword, page: () => Forgetpassword()),
-  GetPage(name: AppRoutes.verfiycode, page: () => VerfiyCode()),
+  GetPage(name: AppRoutes.verfiyCodeResetPassword, page: () => VerfiyCode()),
   GetPage(name: AppRoutes.resetpassword, page: () => ResetPassword()),
   GetPage(
     name: AppRoutes.successresetpasword,

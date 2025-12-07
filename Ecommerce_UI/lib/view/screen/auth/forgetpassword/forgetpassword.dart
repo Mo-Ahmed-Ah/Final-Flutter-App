@@ -1,4 +1,5 @@
-import 'package:finalflutterapp/controller/auth/forgetpassword/forgetpassword_controller.dart';
+import 'package:finalflutterapp/controller/forgetpassword/forgetpassword_controller.dart';
+import 'package:finalflutterapp/core/class/statusrequest.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/core/functions/validinput.dart';
 import 'package:finalflutterapp/view/widget/auth/custombuttonautho.dart';
@@ -14,7 +15,9 @@ class Forgetpassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ForgetpasswordControllerImp controller = Get.put(ForgetpasswordControllerImp());
+    ForgetpasswordControllerImp controller = Get.put(
+      ForgetpasswordControllerImp(),
+    );
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -27,31 +30,44 @@ class Forgetpassword extends StatelessWidget {
         elevation: 0.0,
         centerTitle: true,
       ),
-      body: Form(
-        key: controller.formstate,
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-          child: ListView(
-            children: [
-              const CustomTextTitleAuth(text: "CE"),
-              const SizedBox(height: 10),
-              const CustomTextBodyAuth(text: "FPT"),
-              const SizedBox(height: 15),
-              CustomTextFormAuth(
-                valid: (value) { 
-                  return validInput(value!, 5, 100, "email");
-                },
-                isNumber: false,
-                mycontroller: controller.email,
-                hintText: "EYE",
-                labelText: "E",
-                icon: Icons.email_outlined,
+      body: GetBuilder<ForgetpasswordControllerImp>(
+        builder: (controller) =>
+            controller.statusRequest == StatusRequest.loading
+            ? Center(child: Text("Lodaing"))
+            : Form(
+                key: controller.formstate,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 15,
+                    horizontal: 30,
+                  ),
+                  child: ListView(
+                    children: [
+                      const CustomTextTitleAuth(text: "CE"),
+                      const SizedBox(height: 10),
+                      const CustomTextBodyAuth(text: "FPT"),
+                      const SizedBox(height: 15),
+                      CustomTextFormAuth(
+                        valid: (value) {
+                          return validInput(value!, 5, 100, "email");
+                        },
+                        isNumber: false,
+                        mycontroller: controller.email,
+                        hintText: "EYE",
+                        labelText: "E",
+                        icon: Icons.email_outlined,
+                      ),
+                      CustomButtonAutho(
+                        text: "C",
+                        onPressed: () {
+                          controller.checkemail();
+                        },
+                      ),
+                      const SizedBox(height: 40),
+                    ],
+                  ),
+                ),
               ),
-              CustomButtonAutho(text: "C", onPressed: () {controller.checkemail();}),
-              const SizedBox(height: 40),
-            ],
-          ),
-        ),
       ),
     );
   }

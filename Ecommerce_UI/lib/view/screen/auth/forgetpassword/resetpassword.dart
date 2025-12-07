@@ -1,4 +1,5 @@
-import 'package:finalflutterapp/controller/auth/forgetpassword/resetpassword_controller.dart';
+import 'package:finalflutterapp/controller/forgetpassword/resetpassword_controller.dart';
+import 'package:finalflutterapp/core/class/statusrequest.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/core/functions/validinput.dart';
 import 'package:finalflutterapp/view/widget/auth/custombuttonautho.dart';
@@ -29,7 +30,11 @@ class ResetPassword extends StatelessWidget {
         elevation: 0.0,
         centerTitle: true,
       ),
-      body: Form(
+      body: GetBuilder<ResetPasswordControllerImp>(builder: (controller) =>
+      controller.statusRequest == StatusRequest.loading ?
+      Center(child: Text("Loading"),)
+      :
+      Form(
         key: controller.formstate,
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
@@ -71,6 +76,7 @@ class ResetPassword extends StatelessWidget {
           ),
         ),
       ),
+      )
     );
   }
 }

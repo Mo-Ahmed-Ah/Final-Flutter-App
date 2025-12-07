@@ -1,4 +1,4 @@
-import 'package:finalflutterapp/controller/remote/test_data_controller.dart';
+import 'package:finalflutterapp/controller/test_data/test_data_controller.dart';
 import 'package:finalflutterapp/core/class/handlingdataview.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:flutter/material.dart';
