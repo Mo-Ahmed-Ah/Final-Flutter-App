@@ -1,5 +1,5 @@
 import 'package:finalflutterapp/controller/auth/login/login_controller.dart';
-import 'package:finalflutterapp/core/class/statusrequest.dart';
+import 'package:finalflutterapp/core/class/handlingdataview.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/core/functions/alertexitapp.dart';
 import 'package:finalflutterapp/core/functions/validinput.dart';
@@ -18,7 +18,7 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoginControllerImp controller = Get.put(LoginControllerImp());
+    Get.put(LoginControllerImp());
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -34,74 +34,71 @@ class Login extends StatelessWidget {
       body: WillPopScope(
         onWillPop: alertExitApp,
         child: GetBuilder<LoginControllerImp>(
-          builder: (controller) =>
-              controller.statusRequest == StatusRequest.loading
-              ? Center(child: Text("Loading"))
-              : Container(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 15,
-                    horizontal: 30,
-                  ),
-                  child: Form(
-                    key: controller.formstate,
-                    child: ListView(
-                      children: [
-                        const LogoAuth(),
-                        const CustomTextTitleAuth(text: "WB"),
-                        const SizedBox(height: 10),
-                        const CustomTextBodyAuth(text: "SIT"),
-                        const SizedBox(height: 15),
-                        CustomTextFormAuth(
-                          valid: (value) {
-                            return validInput(value!, 5, 100, "email");
-                          },
-                          isNumber: false,
-                          mycontroller: controller.email,
-                          hintText: "EYE",
-                          labelText: "E",
-                          icon: Icons.email_outlined,
-                        ),
-                        // const SizedBox(height: 20),
-                        GetBuilder<LoginControllerImp>(
-                          builder: (controller) => CustomTextFormAuth(
-                            onTapIcon: () {
-                              controller.showPassword();
-                            },
-                            valid: (value) {
-                              return validInput(value!, 6, 30, "password");
-                            },
-                            obscureText: controller.isShowIcon,
-                            isNumber: false,
-                            mycontroller: controller.password,
-                            icon: controller.passIcon,
-                            hintText: "EPW",
-                            labelText: "PW",
-                          ),
-                        ),
-                        InkWell(
-                          child: Text("FP".tr, textAlign: TextAlign.end),
-                          onTap: () {
-                            controller.goToForgetPassword();
-                          },
-                        ),
-                        CustomButtonAutho(
-                          text: "SI",
-                          onPressed: () {
-                            controller.login();
-                          },
-                        ),
-                        SizedBox(height: 30),
-                        CustomTextAndAskAuth(
-                          askTest: "D'THAA",
-                          linkText: "SU",
-                          onTap: () {
-                            controller.goToSignUp();
-                          },
-                        ),
-                      ],
+          builder: (controller) => HandlingDataView(
+            statusrequest: controller.statusRequest,
+            widget: Container(
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+              child: Form(
+                key: controller.formstate,
+                child: ListView(
+                  children: [
+                    const LogoAuth(),
+                    const CustomTextTitleAuth(text: "WB"),
+                    const SizedBox(height: 10),
+                    const CustomTextBodyAuth(text: "SIT"),
+                    const SizedBox(height: 15),
+                    CustomTextFormAuth(
+                      valid: (value) {
+                        return validInput(value!, 5, 100, "email");
+                      },
+                      isNumber: false,
+                      mycontroller: controller.email,
+                      hintText: "EYE",
+                      labelText: "E",
+                      icon: Icons.email_outlined,
                     ),
-                  ),
+                    // const SizedBox(height: 20),
+                    GetBuilder<LoginControllerImp>(
+                      builder: (controller) => CustomTextFormAuth(
+                        onTapIcon: () {
+                          controller.showPassword();
+                        },
+                        valid: (value) {
+                          return validInput(value!, 6, 30, "password");
+                        },
+                        obscureText: controller.isShowIcon,
+                        isNumber: false,
+                        mycontroller: controller.password,
+                        icon: controller.passIcon,
+                        hintText: "EPW",
+                        labelText: "PW",
+                      ),
+                    ),
+                    InkWell(
+                      child: Text("FP".tr, textAlign: TextAlign.end),
+                      onTap: () {
+                        controller.goToForgetPassword();
+                      },
+                    ),
+                    CustomButtonAutho(
+                      text: "SI",
+                      onPressed: () {
+                        controller.login();
+                      },
+                    ),
+                    SizedBox(height: 30),
+                    CustomTextAndAskAuth(
+                      askTest: "D'THAA",
+                      linkText: "SU",
+                      onTap: () {
+                        controller.goToSignUp();
+                      },
+                    ),
+                  ],
                 ),
+              ),
+            ),
+          ),
         ),
       ),
     );

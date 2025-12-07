@@ -18,9 +18,9 @@ class LoginControllerImp extends LoginController{
   late TextEditingController email;
   late TextEditingController password;
   
-  bool isShowIcon = false;
+  bool isShowIcon = true;
   IconData passIcon = Icons.lock_outline;
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none; 
   
   showPassword(){
     isShowIcon = !isShowIcon;

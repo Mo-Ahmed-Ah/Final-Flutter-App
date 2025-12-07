@@ -10,10 +10,10 @@ abstract class VerifyCodeController extends GetxController {
 }
 
 class VerifyCodeControllerImp extends VerifyCodeController {
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
   ForgetPasswordVerifyCodeData forgetPasswordVerifyCodeData =
-      ForgetPasswordVerifyCodeData(Get.find());
+  ForgetPasswordVerifyCodeData(Get.find());
   late String email;
 
 

@@ -1,5 +1,5 @@
 import 'package:finalflutterapp/controller/forgetpassword/resetpassword_controller.dart';
-import 'package:finalflutterapp/core/class/statusrequest.dart';
+import 'package:finalflutterapp/core/class/handlingdataview.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/core/functions/validinput.dart';
 import 'package:finalflutterapp/view/widget/auth/custombuttonautho.dart';
@@ -29,61 +29,58 @@ class ResetPassword extends StatelessWidget {
         centerTitle: true,
       ),
       body: GetBuilder<ResetPasswordControllerImp>(
-        builder: (controller) =>
-            controller.statusRequest == StatusRequest.loading
-            ? Center(child: Text("Loading"))
-            : Form(
-                key: controller.formstate,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 15,
-                    horizontal: 30,
+        builder: (controller) => HandlingDataView(
+          statusrequest: controller.statusRequest,
+          widget: Form(
+            key: controller.formstate,
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+              child: ListView(
+                children: [
+                  const CustomTextTitleAuth(text: "NP"),
+                  const SizedBox(height: 10),
+                  const CustomTextBodyAuth(text: "ENP"),
+                  const SizedBox(height: 15),
+                  CustomTextFormAuth(
+                    onTapIcon: () {
+                      controller.showPassword();
+                    },
+                    valid: (value) {
+                      return validInput(value!, 6, 30, "password");
+                    },
+                    obscureText: controller.isShowPasswordIcon,
+                    isNumber: false,
+                    mycontroller: controller.newPassword,
+                    icon: controller.passIcon,
+                    hintText: "EPW",
+                    labelText: "PW",
                   ),
-                  child: ListView(
-                    children: [
-                      const CustomTextTitleAuth(text: "NP"),
-                      const SizedBox(height: 10),
-                      const CustomTextBodyAuth(text: "ENP"),
-                      const SizedBox(height: 15),
-                      CustomTextFormAuth(
-                        onTapIcon: () {
-                          controller.showPassword();
-                        },
-                        valid: (value) {
-                          return validInput(value!, 6, 30, "password");
-                        },
-                        obscureText: controller.isShowPasswordIcon,
-                        isNumber: false,
-                        mycontroller: controller.newPassword,
-                        icon: controller.passIcon,
-                        hintText: "EPW",
-                        labelText: "PW",
-                      ),
-                      CustomTextFormAuth(
-                        onTapIcon: () {
-                          controller.showPassword();
-                        },
-                        valid: (value) {
-                          return validInput(value!, 6, 30, "password");
-                        },
-                        obscureText: controller.isShowRePasswordIcon,
-                        isNumber: false,
-                        mycontroller: controller.reNewPassword,
-                        icon: controller.reNewPassIcon,
-                        hintText: "REPW",
-                        labelText: "PW",
-                      ),
-                      CustomButtonAutho(
-                        text: "S",
-                        onPressed: () {
-                          controller.resetPassword();
-                        },
-                      ),
-                      const SizedBox(height: 40),
-                    ],
+                  CustomTextFormAuth(
+                    onTapIcon: () {
+                      controller.showPassword();
+                    },
+                    valid: (value) {
+                      return validInput(value!, 6, 30, "password");
+                    },
+                    obscureText: controller.isShowRePasswordIcon,
+                    isNumber: false,
+                    mycontroller: controller.reNewPassword,
+                    icon: controller.reNewPassIcon,
+                    hintText: "REPW",
+                    labelText: "PW",
                   ),
-                ),
+                  CustomButtonAutho(
+                    text: "S",
+                    onPressed: () {
+                      controller.resetPassword();
+                    },
+                  ),
+                  const SizedBox(height: 40),
+                ],
               ),
+            ),
+          ),
+        ),
       ),
     );
   }

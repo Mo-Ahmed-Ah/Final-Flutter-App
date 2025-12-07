@@ -1,6 +1,6 @@
 // import 'package:finalflutterapp/controller/auth/VerfiyCode_controller.dart';
 import 'package:finalflutterapp/controller/forgetpassword/verfiycode_controller.dart';
-import 'package:finalflutterapp/core/class/statusrequest.dart';
+import 'package:finalflutterapp/core/class/handlingdataview.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextbodyauth.dart';
 import 'package:finalflutterapp/view/widget/auth/customtexttitleauth.dart';
@@ -29,44 +29,39 @@ class VerfiyCode extends StatelessWidget {
         centerTitle: true,
       ),
       body: GetBuilder<VerifyCodeControllerImp>(
-        builder: (controller) {
-          return controller.statusRequest == StatusRequest.loading
-              ? const Center(child: Text("Loading"))
-              : Container(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 15,
-                    horizontal: 30,
-                  ),
-                  child: Form(
-                    key: controller.formstate,
-                    child: ListView(
-                      children: [
-                        const CustomTextTitleAuth(text: "CE"),
-                        const SizedBox(height: 10),
-                        const CustomTextBodyAuth(text: "VCT"),
-                        Text(controller.email),
-                        const SizedBox(height: 15),
+        builder: (controller) => HandlingDataView(
+          statusrequest: controller.statusRequest,
+          widget: Container(
+            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+            child: Form(
+              key: controller.formstate,
+              child: ListView(
+                children: [
+                  const CustomTextTitleAuth(text: "CE"),
+                  const SizedBox(height: 10),
+                  const CustomTextBodyAuth(text: "VCT"),
+                  Text(controller.email),
+                  const SizedBox(height: 15),
 
-                        OtpTextField(
-                          fieldWidth: 50.0,
-                          borderRadius: BorderRadius.circular(20),
-                          numberOfFields: 5,
-                          borderColor: Color(0xFF512DA8),
-                          showFieldAsBox: true,
-                          onCodeChanged: (String code) {},
-                          onSubmit: (String verificationCode) {
-                            print(verificationCode.toString() + controller.email);
-                            controller.checkCode(verificationCode);
-                            
-                          },
-                        ),
-
-                        const SizedBox(height: 40),
-                      ],
-                    ),
+                  OtpTextField(
+                    fieldWidth: 50.0,
+                    borderRadius: BorderRadius.circular(20),
+                    numberOfFields: 5,
+                    borderColor: Color(0xFF512DA8),
+                    showFieldAsBox: true,
+                    onCodeChanged: (String code) {},
+                    onSubmit: (String verificationCode) {
+                      print(verificationCode.toString() + controller.email);
+                      controller.checkCode(verificationCode);
+                    },
                   ),
-                );
-        },
+
+                  const SizedBox(height: 40),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

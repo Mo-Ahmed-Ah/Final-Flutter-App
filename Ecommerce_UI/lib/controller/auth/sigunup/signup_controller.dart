@@ -17,8 +17,9 @@ class SignupControllerImp extends SignupController {
   late TextEditingController email;
   late TextEditingController phoneNumber;
   late TextEditingController password;
+  StatusRequest statusRequest = StatusRequest.none;
 
-  bool isShowIcon = false;
+  bool isShowIcon = true;
   IconData passIcon = Icons.lock_outline;
 
   showPassword(){
@@ -32,7 +33,7 @@ class SignupControllerImp extends SignupController {
   }
 
 
-   StatusRequest? statusRequest;
+   
   SigunUpData sigunUpData = SigunUpData(Get.find());
   List data = [];
   @override

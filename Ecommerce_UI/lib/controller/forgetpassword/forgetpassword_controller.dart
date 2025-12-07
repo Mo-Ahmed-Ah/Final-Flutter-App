@@ -13,7 +13,7 @@ class ForgetpasswordControllerImp extends ForgetpasswordController {
   CheckEmailData checkEmailData = CheckEmailData(Get.find());
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
   late TextEditingController email;
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
 
   @override
   checkemail() async {
