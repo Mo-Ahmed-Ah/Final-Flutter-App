@@ -9,7 +9,7 @@ class ForgetPasswordVerifyCodeData {
       "email": email,
       "verifycode": verifycode,
     });
-    print(respose);
+    // print(respose);
     return respose.fold((l) => l, (r) => r);
   }
 }

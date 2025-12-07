@@ -2,6 +2,7 @@ import 'package:finalflutterapp/core/class/statusrequest.dart';
 import 'package:finalflutterapp/core/constant/routes.dart';
 import 'package:finalflutterapp/core/functions/handlingdata_controller.dart';
 import 'package:finalflutterapp/data/datasource/remote/forgetpassword/resetpassword_data.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -19,6 +20,32 @@ class ResetPasswordControllerImp extends ResetpasswordController{
   StatusRequest? statusRequest;
 
 String? email;
+
+  bool isShowPasswordIcon = true;
+  IconData passIcon = Icons.lock_outline;
+  bool isShowRePasswordIcon = true;
+  IconData reNewPassIcon = Icons.lock_outline;
+
+
+  showPassword() {
+    isShowPasswordIcon = !isShowPasswordIcon;
+    if (isShowPasswordIcon) {
+      passIcon = Icons.lock_outline;
+    } else {
+      passIcon = Icons.lock_open_outlined;
+    }
+    update();
+  }
+
+  showRePassword() {
+    isShowRePasswordIcon = !isShowRePasswordIcon;
+    if (isShowRePasswordIcon) {
+      reNewPassIcon = Icons.lock_outline;
+    } else {
+      reNewPassIcon = Icons.lock_open_outlined;
+    }
+    update();
+  }
 
   @override
   resetPassword() async{

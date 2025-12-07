@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 
 abstract class VerifyCodeController extends GetxController {
   checkCode(String verifycode);
-  goToResetPassword();
 }
 
 class VerifyCodeControllerImp extends VerifyCodeController {
@@ -15,20 +14,25 @@ class VerifyCodeControllerImp extends VerifyCodeController {
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
   ForgetPasswordVerifyCodeData forgetPasswordVerifyCodeData =
       ForgetPasswordVerifyCodeData(Get.find());
-  late TextEditingController email;
+  late String email;
+
+
+
+
   @override
   checkCode(String verifycode) async {
     var formdata = formstate.currentState;
+    print(email);
     if (formdata!.validate()) {
       statusRequest = StatusRequest.loading;
       update();
       var respose = await forgetPasswordVerifyCodeData.checkVerifyCode(
-        email.text,
+        email,
         verifycode,
       );
       // print("respose");
       statusRequest = handlingData(respose);
-      print(respose);
+      // print(respose);
       if (statusRequest == StatusRequest.success) {
         if (respose["status"] == "success") {
           // data.addAll(respose["data"]);
@@ -43,18 +47,9 @@ class VerifyCodeControllerImp extends VerifyCodeController {
   }
 
   @override
-  goToResetPassword() {}
-
   @override
   void onInit() {
-    email = TextEditingController();
+    email = Get.arguments['email'];
     super.onInit();
-  }
-
-  @override
-  void dispose() {
-    email.dispose();
-
-    super.dispose();
   }
 }

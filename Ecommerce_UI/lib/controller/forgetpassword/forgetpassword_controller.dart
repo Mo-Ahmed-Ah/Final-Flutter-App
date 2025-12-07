@@ -28,7 +28,7 @@ class ForgetpasswordControllerImp extends ForgetpasswordController {
       if (statusRequest == StatusRequest.success) {
         if (respose["status"] == "success") {
           // data.addAll(respose["data"]);
-          Get.offNamed(AppRoutes.verfiyCodeResetPassword);
+          Get.offNamed(AppRoutes.verfiyCodeResetPassword , arguments: {'email' : email.text.toString()});
         } else {
           Get.defaultDialog(title: "WA".tr, middleText: "ENF".tr);
           statusRequest = StatusRequest.failure;

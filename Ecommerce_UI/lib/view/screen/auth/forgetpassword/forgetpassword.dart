@@ -15,7 +15,7 @@ class Forgetpassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ForgetpasswordControllerImp controller = Get.put(
+    Get.put(
       ForgetpasswordControllerImp(),
     );
     return Scaffold(
