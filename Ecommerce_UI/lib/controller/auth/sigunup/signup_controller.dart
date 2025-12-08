@@ -29,6 +29,8 @@ class SignupControllerImp extends SignupController {
     }else{
       passIcon = Icons.lock_open_outlined;
     }
+
+    
     update();
   }
 
