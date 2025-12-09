@@ -5,7 +5,8 @@
 // ==========================================================
 
 define("MB", 1048576);
-function filterRequest($key){
+function filterRequest($key)
+{
     if (isset($_POST[$key])) {
         return htmlspecialchars(strip_tags($_POST[$key]));
     } elseif (isset($_GET[$key])) {
@@ -20,11 +21,15 @@ function getAllData($table, $where = null, $values = null)
 {
     global $con;
     $data = array();
-    $stmt = $con->prepare("SELECT  * FROM $table WHERE   $where ");
+    if ($where == null) {
+        $stmt = $con->prepare("SELECT  * FROM $table ");
+    } else {
+        $stmt = $con->prepare("SELECT  * FROM $table WHERE   $where ");
+    }
     $stmt->execute($values);
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $count  = $stmt->rowCount();
-    if ($count > 0){
+    $count = $stmt->rowCount();
+    if ($count > 0) {
         echo json_encode(array("status" => "success", "data" => $data));
     } else {
         echo json_encode(array("status" => "failure"));
@@ -38,8 +43,8 @@ function getData($table, $where = null, $values = null)
     $stmt = $con->prepare("SELECT  * FROM $table WHERE   $where ");
     $stmt->execute($values);
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
-    $count  = $stmt->rowCount();
-    if ($count > 0){
+    $count = $stmt->rowCount();
+    if ($count > 0) {
         echo json_encode(array("status" => "success", "data" => $data));
     } else {
         echo json_encode(array("status" => "failure"));
@@ -66,7 +71,7 @@ function insertData($table, $data, $json = true)
         if ($count > 0) {
             printState("success");
         } else {
-            printState("failure" , $json->ERRMODE_EXCEPTION);
+            printState("failure", $json->ERRMODE_EXCEPTION);
         }
     }
     return $count;
@@ -119,27 +124,27 @@ function deleteData($table, $where, $json = true)
 
 function imageUpload($imageRequest)
 {
-  global $msgError;
-  $imagename  = rand(1000, 10000) . $_FILES[$imageRequest]['name'];
-  $imagetmp   = $_FILES[$imageRequest]['tmp_name'];
-  $imagesize  = $_FILES[$imageRequest]['size'];
-  $allowExt   = array("jpg", "png", "gif", "mp3", "pdf");
-  $strToArray = explode(".", $imagename);
-  $ext        = end($strToArray);
-  $ext        = strtolower($ext);
+    global $msgError;
+    $imagename = rand(1000, 10000) . $_FILES[$imageRequest]['name'];
+    $imagetmp = $_FILES[$imageRequest]['tmp_name'];
+    $imagesize = $_FILES[$imageRequest]['size'];
+    $allowExt = array("jpg", "png", "gif", "mp3", "pdf");
+    $strToArray = explode(".", $imagename);
+    $ext = end($strToArray);
+    $ext = strtolower($ext);
 
-  if (!empty($imagename) && !in_array($ext, $allowExt)) {
-    $msgError = "EXT";
-  }
-  if ($imagesize > 2 * MB) {
-    $msgError = "size";
-  }
-  if (empty($msgError)) {
-    move_uploaded_file($imagetmp,  "../upload/" . $imagename);
-    return $imagename;
-  } else {
-    return "fail";
-  }
+    if (!empty($imagename) && !in_array($ext, $allowExt)) {
+        $msgError = "EXT";
+    }
+    if ($imagesize > 2 * MB) {
+        $msgError = "size";
+    }
+    if (empty($msgError)) {
+        move_uploaded_file($imagetmp, "../upload/" . $imagename);
+        return $imagename;
+    } else {
+        return "fail";
+    }
 }
 
 
@@ -152,8 +157,8 @@ function deleteFile($dir, $imagename)
 
 function checkAuthenticate()
 {
-    if (isset($_SERVER['PHP_AUTH_USER'])  && isset($_SERVER['PHP_AUTH_PW'])) {
-        if ($_SERVER['PHP_AUTH_USER'] != "wael" ||  $_SERVER['PHP_AUTH_PW'] != "wael12345") {
+    if (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW'])) {
+        if ($_SERVER['PHP_AUTH_USER'] != "wael" || $_SERVER['PHP_AUTH_PW'] != "wael12345") {
             header('WWW-Authenticate: Basic realm="My Realm"');
             header('HTTP/1.0 401 Unauthorized');
             echo 'Page Not Found';
@@ -166,11 +171,13 @@ function checkAuthenticate()
     // End 
 }
 
-function printState($status , $massage = "none"){
-    echo json_encode(array("status" => $status ,   "massage" => $massage));
+function printState($status, $massage = "none")
+{
+    echo json_encode(array("status" => $status, "massage" => $massage));
 }
 
-function sendEmail($toemail , $inputsubject , $inputmessage){
+function sendEmail($toemail, $inputsubject, $inputmessage)
+{
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
@@ -189,10 +196,11 @@ function sendEmail($toemail , $inputsubject , $inputmessage){
 
 }
 
-function result($count){
-    if($count > 0 ){
-        printState("success"  );
-    }else{
-        printState("failure" );
+function result($count)
+{
+    if ($count > 0) {
+        printState("success");
+    } else {
+        printState("failure");
     }
 }
