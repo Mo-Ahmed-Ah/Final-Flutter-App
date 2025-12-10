@@ -1,18 +1,30 @@
 class Appilink {
- static const String server = "http://192.168.1.6/Final-Flutter-App/Ecommerce_API";
- static const String test = "$server/test.php";
-//  ============================== Atho ===========================================//
- static const String signup = "$server/auth/signup.php";
- static const String login = "$server/auth/login.php";
- static const String verfiyCodeSigunUp = "$server/auth/verifycode.php";
+  //  ============================== Image Base ===========================================//
 
-//  ============================== Forget Password ===========================================//
- static const String checkEmail = "$server/forgetpassword/checkemail.php";
- static const String forgetVerfiyCode = "$server/forgetpassword/verifycodeforgetpassword.php";
- static const String resetPassword = "$server/forgetpassword/resetpassword.php";
+  static const String imageBaseLink =
+      "http://192.168.1.4/Final-Flutter-App/upload";
+  //  ============================== Images ===========================================//
+  static const String imageCategories = "${imageBaseLink}/categories";
+  static const String imageItems = "${imageBaseLink}/items";
 
-//  ============================== Home ===========================================//
+  //  ============================== Server Base ===========================================//
+  static const String server =
+      "http://192.168.1.4/Final-Flutter-App/Ecommerce_API";
+  //  ============================== Test ===========================================//
+  static const String test = "$server/test.php";
+  //  ============================== Atho ===========================================//
+  static const String signup = "$server/auth/signup.php";
+  static const String login = "$server/auth/login.php";
+  static const String verfiyCodeSigunUp = "$server/auth/verifycode.php";
 
- static const String homePage = "$server/home.php";
+  //  ============================== Forget Password ===========================================//
+  static const String checkEmail = "$server/forgetpassword/checkemail.php";
+  static const String forgetVerfiyCode =
+      "$server/forgetpassword/verifycodeforgetpassword.php";
+  static const String resetPassword =
+      "$server/forgetpassword/resetpassword.php";
 
+  //  ============================== Home ===========================================//
+
+  static const String homePage = "$server/home.php";
 }

@@ -1,8 +1,10 @@
+import 'package:finalflutterapp/apilinks.dart';
 import 'package:finalflutterapp/controller/home_controller.dart';
 import 'package:finalflutterapp/core/class/handlingdataview.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 
@@ -96,9 +98,26 @@ class Home extends StatelessWidget {
                     ],
                   ),
                 ),
-                // Container(child: ListView.builder(
-
-                // ))
+                Container(
+                  height: 200,
+                  child: ListView.separated(
+                    separatorBuilder: (context , index) => SizedBox(width: 10,),
+                    itemCount: controller.categories.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        decoration: BoxDecoration(color: AppColor.thirdColor,borderRadius: BorderRadius.circular(20)),
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        height: 70,
+                        width: 70,
+                        child: SvgPicture.network(
+                          "${Appilink.imageCategories}/${controller.categories[index]['category_image']}",
+                          color: AppColor.secooundryColor,
+                        ),
+                      );
+                    },
+                  ),
+                ),
               ],
             ),
           ),
