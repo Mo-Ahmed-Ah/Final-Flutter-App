@@ -1,0 +1,11 @@
+import 'package:finalflutterapp/apilinks.dart';
+import 'package:finalflutterapp/core/class/crud.dart';
+
+class HomeData {
+  Crud crud;
+  HomeData(this.crud);
+  getData() async {
+    var respose = await crud.postData(Appilink.homePage, {});
+    return respose.fold((l) => l, (r) => r);
+  }
+}

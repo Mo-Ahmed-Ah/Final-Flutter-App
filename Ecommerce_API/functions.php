@@ -17,7 +17,7 @@ function filterRequest($key)
 }
 
 
-function getAllData($table, $where = null, $values = null)
+function getAllData($table, $where = null, $values = null , $json = true)
 {
     global $con;
     $data = array();
@@ -29,12 +29,20 @@ function getAllData($table, $where = null, $values = null)
     $stmt->execute($values);
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $count = $stmt->rowCount();
-    if ($count > 0) {
-        echo json_encode(array("status" => "success", "data" => $data));
-    } else {
-        echo json_encode(array("status" => "failure"));
+    if($json){
+        if ($count > 0) {
+            echo json_encode(array("status" => "success", "data" => $data));
+        } else {
+            echo json_encode(array("status" => "failure"));
+        }
+        return $count;
+    }else {
+        if ($count > 0) {
+            return $data;
+        } else {
+            return json_encode(array("status" => "failure"));
+        }
     }
-    return $count;
 }
 function getData($table, $where = null, $values = null)
 {
