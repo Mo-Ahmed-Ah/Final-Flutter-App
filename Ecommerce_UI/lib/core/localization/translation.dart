@@ -66,6 +66,7 @@ class MyTranslation implements Translations {
       "ENF": "لم يتم العثور على البريد الإلكتروني",
       "PNM": "كلمة المرور غير متطابقة",
       "TA": "حاول مرة أخرى",
+      "PFY": "المنتج المناسب لك",
     },
     "en": {
       // Start onBoarding Test With English lang
@@ -133,6 +134,7 @@ class MyTranslation implements Translations {
       "ENF" : "Email Nor Found",
       "PNM" : "Password Not Match",
       "TA":"Try Again",
+      "PFY" : "Prodect For You",
     },
   };
 }

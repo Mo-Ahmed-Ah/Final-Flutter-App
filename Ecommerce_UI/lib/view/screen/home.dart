@@ -98,22 +98,91 @@ class Home extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  height: 200,
+                SizedBox(
+                  height: 100,
                   child: ListView.separated(
-                    separatorBuilder: (context , index) => SizedBox(width: 10,),
+                    separatorBuilder: (context, index) => SizedBox(width: 10),
                     itemCount: controller.categories.length,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return Container(
-                        decoration: BoxDecoration(color: AppColor.thirdColor,borderRadius: BorderRadius.circular(20)),
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        height: 70,
-                        width: 70,
-                        child: SvgPicture.network(
-                          "${Appilink.imageCategories}/${controller.categories[index]['category_image']}",
-                          color: AppColor.secooundryColor,
-                        ),
+                      return Column(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: AppColor.thirdColor,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            height: 70,
+                            width: 70,
+                            child: SvgPicture.network(
+                              color: AppColor.secooundryColor,
+                              "${Appilink.imageCategories}/${controller.categories[index]['category_image']}",
+                            ),
+                          ),
+                          Text(
+                            "${controller.categories[index]['category_name']}",
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: AppColor.black,
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  "PFY".tr,
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: AppColor.primaryColor,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 10),
+                SizedBox(
+                  height: 200,
+                  child: ListView.builder(
+                    itemCount: 3,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Stack(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 20,
+                              vertical: 10,
+                            ),
+                            margin: EdgeInsets.symmetric(horizontal: 10),
+                            child: Image.asset(
+                              "assets/images/one.PNG",
+                              height: 100,
+                              width: 150,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: AppColor.black.withOpacity(0.3),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            height: 120,
+                            width: 200,
+                          ),
+                          Positioned(
+                            left: 10,
+                            child: Text(
+                              "Laptop Surface Go 2",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                              ),
+                            ),
+                          ),
+                        ],
                       );
                     },
                   ),
