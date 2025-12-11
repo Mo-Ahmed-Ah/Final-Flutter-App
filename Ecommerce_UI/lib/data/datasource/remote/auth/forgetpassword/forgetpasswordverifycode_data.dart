@@ -5,7 +5,7 @@ class ForgetPasswordVerifyCodeData {
   Crud crud;
   ForgetPasswordVerifyCodeData(this.crud);
   checkVerifyCode(String email, String verifycode) async {
-    var respose = await crud.postData(Appilink.forgetVerfiyCode, {
+    var respose = await crud.postData(Applink.forgetVerfiyCode, {
       "email": email,
       "verifycode": verifycode,
     });

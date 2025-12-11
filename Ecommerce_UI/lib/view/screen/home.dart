@@ -117,7 +117,7 @@ class Home extends StatelessWidget {
                             width: 70,
                             child: SvgPicture.network(
                               color: AppColor.secooundryColor,
-                              "${Appilink.imageCategories}/${controller.categories[index]['category_image']}",
+                              "${Applink.imageCategories}/${controller.categories[index]['category_image']}",
                             ),
                           ),
                           Text(
@@ -134,7 +134,7 @@ class Home extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  "PFY".tr,
+                  "OFY".tr,
                   style: TextStyle(
                     fontSize: 20,
                     color: AppColor.primaryColor,
@@ -145,7 +145,7 @@ class Home extends StatelessWidget {
                 SizedBox(
                   height: 200,
                   child: ListView.builder(
-                    itemCount: 3,
+                    itemCount: controller.itmes.length,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return Stack(
@@ -156,8 +156,8 @@ class Home extends StatelessWidget {
                               vertical: 10,
                             ),
                             margin: EdgeInsets.symmetric(horizontal: 10),
-                            child: Image.asset(
-                              "assets/images/one.PNG",
+                            child: Image.network(
+                              "${Applink.imageItems}/${controller.itmes[index]['item_image']}",
                               height: 100,
                               width: 150,
                               fit: BoxFit.fill,
@@ -174,7 +174,7 @@ class Home extends StatelessWidget {
                           Positioned(
                             left: 10,
                             child: Text(
-                              "Laptop Surface Go 2",
+                              "${controller.itmes[index]['item_name']}",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,

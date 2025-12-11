@@ -5,7 +5,7 @@ class VerifyCodeSignupData {
   Crud crud;
   VerifyCodeSignupData(this.crud);
   postData(String email, String verfiycode ) async {
-    var respose = await crud.postData(Appilink.verfiyCodeSigunUp, {
+    var respose = await crud.postData(Applink.verfiyCodeSigunUp, {
       "email": email,
       "verifycode": verfiycode,
     });

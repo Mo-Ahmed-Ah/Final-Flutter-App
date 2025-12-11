@@ -1,7 +1,7 @@
 import 'package:finalflutterapp/core/class/statusrequest.dart';
 import 'package:finalflutterapp/core/constant/routes.dart';
 import 'package:finalflutterapp/core/functions/handlingdata_controller.dart';
-import 'package:finalflutterapp/data/datasource/remote/forgetpassword/forgetpasswordverifycode_data.dart';
+import 'package:finalflutterapp/data/datasource/remote/auth/forgetpassword/forgetpasswordverifycode_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

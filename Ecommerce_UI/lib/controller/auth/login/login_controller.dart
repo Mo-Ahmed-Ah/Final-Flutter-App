@@ -4,6 +4,7 @@ import 'package:finalflutterapp/core/functions/handlingdata_controller.dart';
 import 'package:finalflutterapp/core/services/services.dart';
 import 'package:finalflutterapp/data/datasource/remote/auth/login/login_data.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -88,8 +89,10 @@ class LoginControllerImp extends LoginController {
   @override
   void onInit() {
     FirebaseMessaging.instance.getToken().then((value) {
-      print(value);
       String? token = value;
+         if (kDebugMode) {
+           print(token);
+       }
     });
 
     email = TextEditingController();

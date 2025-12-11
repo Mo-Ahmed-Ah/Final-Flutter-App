@@ -36,7 +36,7 @@ class HomeControllerImp extends HomeController {
     if (statusRequest == StatusRequest.success) {
       if (respose["status"] == "success") {
         categories.addAll(respose["categories"]);
-        // items.addAll(respose["items"]);
+        itmes.addAll(respose["items"]);
       } else {
         statusRequest = StatusRequest.failure;
       }

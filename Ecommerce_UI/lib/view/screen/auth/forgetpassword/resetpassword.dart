@@ -1,4 +1,4 @@
-import 'package:finalflutterapp/controller/forgetpassword/resetpassword_controller.dart';
+import 'package:finalflutterapp/controller/auth/forgetpassword/resetpassword_controller.dart';
 import 'package:finalflutterapp/core/class/handlingdataview.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/core/functions/validinput.dart';

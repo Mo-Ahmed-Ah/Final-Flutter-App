@@ -5,7 +5,7 @@ class CheckEmailData {
   Crud crud;
   CheckEmailData(this.crud);
   checkEmail(String email) async {
-    var respose = await crud.postData(Appilink.checkEmail, {"email": email});
+    var respose = await crud.postData(Applink.checkEmail, {"email": email});
     print(respose);
     return respose.fold((l) => l, (r) => r);
   }

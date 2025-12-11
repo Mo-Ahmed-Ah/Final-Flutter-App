@@ -1,5 +1,5 @@
 // import 'package:finalflutterapp/controller/auth/VerfiyCode_controller.dart';
-import 'package:finalflutterapp/controller/forgetpassword/verfiycode_controller.dart';
+import 'package:finalflutterapp/controller/auth/forgetpassword/verfiycode_controller.dart';
 import 'package:finalflutterapp/core/class/handlingdataview.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/view/widget/auth/customtextbodyauth.dart';

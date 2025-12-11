@@ -6,7 +6,7 @@ class SigunUpData {
   SigunUpData(this.crud);
   postData(String username, String password, String email, String phone) async {
     
-    var respose = await crud.postData(Appilink.signup, {
+    var respose = await crud.postData(Applink.signup, {
       "username": username,
       "password": password,
       "email": email,

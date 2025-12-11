@@ -5,7 +5,7 @@ class HomeData {
   Crud crud;
   HomeData(this.crud);
   getData() async {
-    var respose = await crud.postData(Appilink.homePage, {});
+    var respose = await crud.postData(Applink.homePage, {});
     return respose.fold((l) => l, (r) => r);
   }
 }

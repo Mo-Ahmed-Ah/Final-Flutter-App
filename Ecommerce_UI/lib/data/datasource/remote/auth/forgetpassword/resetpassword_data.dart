@@ -5,7 +5,7 @@ class ResetPasswordData {
   Crud crud;
   ResetPasswordData(this.crud);
   changePassword(String email, String password) async {
-    var respose = await crud.postData(Appilink.resetPassword, {
+    var respose = await crud.postData(Applink.resetPassword, {
       "email": email,
       "password": password,
     });
