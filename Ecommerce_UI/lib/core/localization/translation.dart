@@ -67,6 +67,7 @@ class MyTranslation implements Translations {
       "PNM": "كلمة المرور غير متطابقة",
       "TA": "حاول مرة أخرى",
       "OFY": "عرض لك",
+      "Find Product" : "ابحث عن المنتج",
     },
     "en": {
       // Start onBoarding Test With English lang
@@ -133,8 +134,9 @@ class MyTranslation implements Translations {
       "EOPNC" : "Email or Password not correct",
       "ENF" : "Email Nor Found",
       "PNM" : "Password Not Match",
-      "TA":"Try Again",
+      "TA": "Try Again",
       "OFY" : "Offer For You",
+      "Find Product" : "Find Product",
     },
   };
 }

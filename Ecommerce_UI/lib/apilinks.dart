@@ -2,14 +2,14 @@ class Applink {
   //  ============================== Image Base ===========================================//
 
   static const String imageBaseLink =
-      "http://192.168.1.5/Final-Flutter-App/upload";
+      "http://192.168.1.2/Final-Flutter-App/upload";
   //  ============================== Images ===========================================//
   static const String imageCategories = "${imageBaseLink}/categories";
   static const String imageItems = "${imageBaseLink}/items";
 
   //  ============================== Server Base ===========================================//
   static const String server =
-      "http://192.168.1.5/Final-Flutter-App/Ecommerce_API";
+      "http://192.168.1.2/Final-Flutter-App/Ecommerce_API";
   //  ============================== Test ===========================================//
   static const String test = "$server/test.php";
   //  ============================== Atho ===========================================//
