@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/utils.dart';
 
-class CustomeAppBar extends StatelessWidget {
+class CustomAppBar extends StatelessWidget {
   final String titleAppBar ;
 final void Function()? notificationOnPressed;
 final void Function()? searchOnPressed;
 
-  const CustomeAppBar({super.key, required this.titleAppBar, this.notificationOnPressed, this.searchOnPressed});
+  const CustomAppBar({super.key, required this.titleAppBar, this.notificationOnPressed, this.searchOnPressed});
 
   @override
   Widget build(BuildContext context) {

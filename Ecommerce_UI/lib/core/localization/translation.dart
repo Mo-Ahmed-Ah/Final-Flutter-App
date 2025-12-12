@@ -68,6 +68,9 @@ class MyTranslation implements Translations {
       "TA": "حاول مرة أخرى",
       "OFY": "عرض لك",
       "Find Product" : "ابحث عن المنتج",
+      "ASS" : "مفاجأة الصيف",
+      "CB20" : "استرداد نقدي بنسبة 20٪" , 
+      "Categories":"الفئات",
     },
     "en": {
       // Start onBoarding Test With English lang
@@ -137,6 +140,9 @@ class MyTranslation implements Translations {
       "TA": "Try Again",
       "OFY" : "Offer For You",
       "Find Product" : "Find Product",
+      "ASS" : "A summer surprise",
+       "CB20" : "Cachback 20%",
+       "Categories":"Categories",
     },
   };
 }

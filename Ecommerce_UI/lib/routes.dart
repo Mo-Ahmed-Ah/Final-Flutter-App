@@ -9,7 +9,8 @@ import 'package:finalflutterapp/view/screen/auth/forgetpassword/sccess_resetpass
 import 'package:finalflutterapp/view/screen/auth/sigunup/success_signup.dart';
 import 'package:finalflutterapp/view/screen/auth/forgetpassword/verfiycode.dart';
 import 'package:finalflutterapp/view/screen/auth/sigunup/verifycodesignup.dart';
-import 'package:finalflutterapp/view/screen/home.dart';
+// import 'package:finalflutterapp/view/screen/home.dart';
+import 'package:finalflutterapp/view/screen/homescreen.dart';
 import 'package:finalflutterapp/view/screen/language.dart';
 import 'package:finalflutterapp/view/screen/onboarding.dart';
 // import 'package:finalflutterapp/view/test/test_view.dart';
@@ -43,5 +44,6 @@ List<GetPage<dynamic>>? routes = [
   ),
 
   // Home Routes
-  GetPage(name: AppRoutes.home, page: () => Home()),
+  GetPage(name: AppRoutes.home, page: () => HomeScreen()),
+  // GetPage(name: AppRoutes.home, page: () => Home()),
 ];
