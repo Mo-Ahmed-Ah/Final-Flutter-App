@@ -10,8 +10,8 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +23,13 @@ class Home extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 15),
           child: ListView(
             children: [
-              CustomTitleHome(title: "Categories"),
+              
               CustomAppBar(
                 titleAppBar: "Find Product",
                 notificationOnPressed: () {},
                 searchOnPressed: () {},
               ),
+              CustomTitleHome(title: "Categories"),
               CustomCardHome(title: "ASS", body: "CB20"),
               ListCategoriesHome(),
               CustomTitleHome(title: "OFY"),

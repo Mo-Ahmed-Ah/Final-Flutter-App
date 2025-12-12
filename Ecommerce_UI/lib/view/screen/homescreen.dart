@@ -1,64 +1,25 @@
+import 'package:finalflutterapp/controller/homescreen_controller.dart';
+import 'package:finalflutterapp/view/widget/home/custombottomappbarhome.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.shopping_basket_outlined),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle( ),
-        notchMargin: 10,
-        child: Row(
-          children: [
-            Row(
-              children: [
-                MaterialButton(
-                  onPressed: () {},
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [Icon(Icons.home), Text("Home")],
-                  ),
-                ),
-                MaterialButton(
-                  onPressed: () {},
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [Icon(Icons.home), Text("Home")],
-                  ),
-                ),
-              ],
-            ),
-            Spacer(),
-            Row(
-              children: [
-                MaterialButton(
-                  onPressed: () {},
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [Icon(Icons.home), Text("Home")],
-                  ),
-                ),
-                MaterialButton(
-                  onPressed: () {},
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [Icon(Icons.home), Text("Home")],
-                  ),
-                ),
-              ],
-            ),
-          ],
+    Get.put(HomeScreenControllerImp());
+    return GetBuilder<HomeScreenControllerImp>(
+      builder: (controller) => Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: Icon(Icons.shopping_basket_outlined),
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: CustomBottomAppBarHome(),
+        body: controller.listPages.elementAt(controller.currentPage),
+        // bottomNavigationBar: ,
       ),
-      body: Column(children: [Center(child: Text("Home Screen"))]),
-      // bottomNavigationBar: ,
     );
   }
 }
