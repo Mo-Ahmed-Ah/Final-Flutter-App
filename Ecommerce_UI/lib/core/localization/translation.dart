@@ -76,6 +76,7 @@ class MyTranslation implements Translations {
       "Profile": "الملف الشخصي",
       "Favorite": "المفضلة",
       "Rating": "التصنيف",
+      "ATC": "أضف إلى العربة",
     },
     "en": {
       // Start onBoarding Test With English lang
@@ -153,6 +154,7 @@ class MyTranslation implements Translations {
       "Profile": "Profile",
       "Favorite": "Favorite",
       "Rating": "Rating",
+      "ATC": "Add To Cart",
     },
   };
 }

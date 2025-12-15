@@ -1,4 +1,4 @@
-import 'package:finalflutterapp/controller/items_controller.dart';
+import 'package:finalflutterapp/controller/items/items_controller.dart';
 import 'package:finalflutterapp/core/class/handlingdataview.dart';
 import 'package:finalflutterapp/data/model/items_model.dart';
 import 'package:finalflutterapp/view/widget/customappbar.dart';

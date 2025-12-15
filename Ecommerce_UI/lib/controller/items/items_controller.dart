@@ -62,7 +62,7 @@ class ItemsControllerImp extends ItemsController {
   }
   
   @override
-  goToProductDetailsPage( itemsData) {
+  goToProductDetailsPage(itemsData) {
     Get.toNamed("productdetails" , arguments: {
       "itemsmodel" : itemsData
     });

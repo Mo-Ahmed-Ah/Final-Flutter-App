@@ -8,7 +8,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
   late ItemsModel itemsModel;
   
   initialData(){
-    itemsModel = Get.arguments("itemsmodel");
+    itemsModel = Get.arguments["itemsmodel"];
   }
   
   @override

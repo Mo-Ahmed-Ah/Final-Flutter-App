@@ -9,7 +9,7 @@ import 'package:finalflutterapp/view/screen/auth/sigunup/signup.dart';
 import 'package:finalflutterapp/view/screen/auth/sigunup/success_signup.dart';
 import 'package:finalflutterapp/view/screen/auth/sigunup/verifycodesignup.dart';
 import 'package:finalflutterapp/view/screen/home/homescreen.dart';
-import 'package:finalflutterapp/view/screen/items.dart';
+import 'package:finalflutterapp/view/screen/items/items.dart';
 import 'package:finalflutterapp/view/screen/language/language.dart';
 import 'package:finalflutterapp/view/screen/onboarding/onboarding.dart';
 import 'package:finalflutterapp/view/screen/product/productdetails.dart';

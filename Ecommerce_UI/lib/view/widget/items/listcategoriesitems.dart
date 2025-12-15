@@ -1,4 +1,5 @@
-import 'package:finalflutterapp/controller/items_controller.dart';
+
+import 'package:finalflutterapp/controller/items/items_controller.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/core/functions/translatedatabase.dart';
 import 'package:finalflutterapp/data/model/categories_model.dart';
