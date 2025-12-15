@@ -1,19 +1,18 @@
-import 'package:finalflutterapp/core/constant/routes.dart' show AppRoutes;
+import 'package:finalflutterapp/core/constant/routes.dart';
 import 'package:finalflutterapp/core/middleware/mymiddleware.dart';
-// import 'package:finalflutterapp/test.dart';
 import 'package:finalflutterapp/view/screen/auth/forgetpassword/forgetpassword.dart';
-import 'package:finalflutterapp/view/screen/auth/login/login.dart';
 import 'package:finalflutterapp/view/screen/auth/forgetpassword/resetpassword.dart';
-import 'package:finalflutterapp/view/screen/auth/sigunup/signup.dart';
 import 'package:finalflutterapp/view/screen/auth/forgetpassword/sccess_resetpassword.dart';
-import 'package:finalflutterapp/view/screen/auth/sigunup/success_signup.dart';
 import 'package:finalflutterapp/view/screen/auth/forgetpassword/verfiycode.dart';
+import 'package:finalflutterapp/view/screen/auth/login/login.dart';
+import 'package:finalflutterapp/view/screen/auth/sigunup/signup.dart';
+import 'package:finalflutterapp/view/screen/auth/sigunup/success_signup.dart';
 import 'package:finalflutterapp/view/screen/auth/sigunup/verifycodesignup.dart';
-// import 'package:finalflutterapp/view/screen/home.dart';
-import 'package:finalflutterapp/view/screen/homescreen.dart';
-import 'package:finalflutterapp/view/screen/language.dart';
-import 'package:finalflutterapp/view/screen/onboarding.dart';
-// import 'package:finalflutterapp/view/test/test_view.dart';
+import 'package:finalflutterapp/view/screen/home/homescreen.dart';
+import 'package:finalflutterapp/view/screen/items.dart';
+import 'package:finalflutterapp/view/screen/language/language.dart';
+import 'package:finalflutterapp/view/screen/onboarding/onboarding.dart';
+import 'package:finalflutterapp/view/screen/product/productdetails.dart';
 import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? routes = [
@@ -22,8 +21,7 @@ List<GetPage<dynamic>>? routes = [
     page: () => const Language(),
     middlewares: [MyMiddleWare()],
   ),
-
-  // GetPage(name: "/", page: () => Test()),
+  // GetPage(name: "/", page: () => ProductDetails()),
   // GetPage(name: "/", page: () => TestView()),
   // Auth Routes
   GetPage(name: AppRoutes.login, page: () => Login()),
@@ -45,5 +43,10 @@ List<GetPage<dynamic>>? routes = [
 
   // Home Routes
   GetPage(name: AppRoutes.home, page: () => HomeScreen()),
-  // GetPage(name: AppRoutes.home, page: () => Home()),
+
+  // Items Routes
+  GetPage(name: AppRoutes.items, page: () => Items()),
+
+  // Items Details Routes
+  GetPage(name: AppRoutes.productDetails, page: () => ProductDetails()),
 ];

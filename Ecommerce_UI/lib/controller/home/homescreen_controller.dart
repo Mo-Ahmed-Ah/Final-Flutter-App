@@ -1,4 +1,4 @@
-import 'package:finalflutterapp/view/screen/home.dart';
+import 'package:finalflutterapp/view/screen/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

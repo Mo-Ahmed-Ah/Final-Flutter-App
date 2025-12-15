@@ -1,4 +1,5 @@
 import 'package:finalflutterapp/core/class/statusrequest.dart';
+import 'package:finalflutterapp/core/constant/routes.dart';
 import 'package:finalflutterapp/core/functions/handlingdata_controller.dart';
 import 'package:finalflutterapp/core/services/services.dart';
 import 'package:finalflutterapp/data/datasource/remote/home_data.dart';
@@ -7,10 +8,13 @@ import 'package:get/get.dart';
 abstract class HomeController extends GetxController {
   initialData();
   getData();
+  goToItems(List categories, int selectedCat, String categoryId);
 }
 
 class HomeControllerImp extends HomeController {
   MyServices myServices = Get.find();
+
+String? lang;
 
   String? userid;
   String? username;
@@ -23,6 +27,7 @@ class HomeControllerImp extends HomeController {
 
   @override
   initialData() {
+    lang =  myServices.sharedPreferences.getString('lang');
     username = myServices.sharedPreferences.getString('username');
     userid = myServices.sharedPreferences.getString('id');
   }
@@ -49,5 +54,17 @@ class HomeControllerImp extends HomeController {
     getData();
     initialData();
     super.onInit();
+  }
+
+  @override
+  goToItems(categories, selectedCat, categoryId) {
+    Get.toNamed(
+      AppRoutes.items,
+      arguments: {
+        "categories": categories,
+        "selectedCat": selectedCat,
+        "categoryID": categoryId,
+      },
+    );
   }
 }

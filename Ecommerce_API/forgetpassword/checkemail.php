@@ -2,7 +2,7 @@
 
 include "../connect.php";
 
-$email = filterRequest("email");
+$email = ("email");
 $verfiycode = rand(10000, 99999);
 
 $stmt = $con->prepare("SELECT * FROM users WHERE user_email = ?");

@@ -1,5 +1,5 @@
 import 'package:finalflutterapp/apilinks.dart';
-import 'package:finalflutterapp/controller/home_controller.dart';
+import 'package:finalflutterapp/controller/home/home_controller.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/data/model/items_model.dart';
 import 'package:flutter/material.dart';

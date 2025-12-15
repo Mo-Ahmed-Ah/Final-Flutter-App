@@ -25,6 +25,7 @@ class Applink {
       "$server/forgetpassword/resetpassword.php";
 
   //  ============================== Home ===========================================//
-
   static const String homePage = "$server/home.php";
+  //  ============================== Items ===========================================//
+  static const String items = "$server/items/items.php";
 }

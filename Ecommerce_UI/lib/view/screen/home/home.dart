@@ -1,7 +1,7 @@
-import 'package:finalflutterapp/controller/home_controller.dart';
+import 'package:finalflutterapp/controller/home/home_controller.dart';
 import 'package:finalflutterapp/core/class/handlingdataview.dart';
+import 'package:finalflutterapp/view/widget/customappbar.dart';
 import 'package:finalflutterapp/view/widget/home/customcardhome.dart';
-import 'package:finalflutterapp/view/widget/home/customappbar.dart';
 import 'package:finalflutterapp/view/widget/home/customtitlehome.dart';
 import 'package:finalflutterapp/view/widget/home/listcategorieshome.dart';
 import 'package:finalflutterapp/view/widget/home/listitemshome.dart';
@@ -23,7 +23,6 @@ class HomePage extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 15),
           child: ListView(
             children: [
-              
               CustomAppBar(
                 titleAppBar: "Find Product",
                 notificationOnPressed: () {},

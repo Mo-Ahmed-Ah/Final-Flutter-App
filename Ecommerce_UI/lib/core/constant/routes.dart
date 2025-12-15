@@ -13,5 +13,9 @@ class AppRoutes{
   static const String onBoarding= "/onboarding"; 
   // Home Routes
   static const String home= "/home"; 
+  // Items Routes
+  static const String items= "/items"; 
+  // Items Detales Routes
+  static const String productDetails= "/productdetails"; 
 
 }
