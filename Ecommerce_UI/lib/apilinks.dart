@@ -1,21 +1,20 @@
 class Applink {
-
   //  ============================== All Base ===========================================//
+  static const String baseLink = "http://192.168.1.4";
 
-  static const String baseLink =
-      "http://192.168.1.5";
   //  ============================== Image Base ===========================================//
-  static const String imageBaseLink =
-      "${baseLink}/Final-Flutter-App/upload";
+  static const String imageBaseLink = "${baseLink}/Final-Flutter-App/upload";
+
   //  ============================== Images ===========================================//
   static const String imageCategories = "${imageBaseLink}/categories";
   static const String imageItems = "${imageBaseLink}/items";
 
   //  ============================== Server Base ===========================================//
-  static const String server =
-      "${baseLink}/Final-Flutter-App/Ecommerce_API";
+  static const String server = "${baseLink}/Final-Flutter-App/Ecommerce_API";
+
   //  ============================== Test ===========================================//
   static const String test = "$server/test.php";
+
   //  ============================== Atho ===========================================//
   static const String signup = "$server/auth/signup.php";
   static const String login = "$server/auth/login.php";
@@ -30,6 +29,7 @@ class Applink {
 
   //  ============================== Home ===========================================//
   static const String homePage = "$server/home.php";
+
   //  ============================== Items ===========================================//
   static const String items = "$server/items/items.php";
 }

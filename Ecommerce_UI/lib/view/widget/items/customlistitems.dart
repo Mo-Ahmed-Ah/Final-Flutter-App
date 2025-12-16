@@ -10,7 +10,8 @@ import 'package:get/get_state_manager/src/simple/get_view.dart';
 
 class CustomListItems extends GetView<ItemsControllerImp> {
   final ItemsModel itemsModel;
-  const CustomListItems({super.key, required this.itemsModel});
+  final bool active;
+  CustomListItems({super.key, required this.itemsModel, required this.active});
 
   @override
   Widget build(BuildContext context) {
@@ -82,8 +83,10 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                   ),
                   IconButton(
                     onPressed: () {},
-                    // icon: Icon(Icons.favorite_border_outlined),
-                    icon: Icon(Icons.favorite, color: AppColor.primaryColor),
+                    icon: Icon(
+                      active ? Icons.favorite : Icons.favorite_border_outlined,
+                      color: AppColor.primaryColor,
+                    ),
                   ),
                 ],
               ),
