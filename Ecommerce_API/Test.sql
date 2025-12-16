@@ -144,5 +144,5 @@ SELECT items1view.* , 1 as favorite FROM items1view
 INNER JOIN favorites ON favorites.favorite_item_id = items1view.item_id AND favorites.favorite_user_id = 1
 UNION ALL
 SELECT * , 0 as favorite FROM items1view
-WHERE item_id != ( SELECT items1view.item_id FROM items1view
+WHERE item_id NOT IN ( SELECT items1view.item_id FROM items1view
 INNER JOIN favorites ON favorites.favorite_item_id = items1view.item_id AND favorites.favorite_user_id = 1)

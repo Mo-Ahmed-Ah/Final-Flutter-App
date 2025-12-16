@@ -1,5 +1,6 @@
 import 'package:finalflutterapp/core/class/statusrequest.dart';
 import 'package:finalflutterapp/core/functions/handlingdata_controller.dart';
+import 'package:finalflutterapp/core/services/services.dart';
 import 'package:finalflutterapp/data/datasource/remote/items_data.dart';
 import 'package:finalflutterapp/data/model/items_model.dart';
 import 'package:get/get.dart';
@@ -21,6 +22,8 @@ class ItemsControllerImp extends ItemsController {
   List categories = [];
   int? selectedCat;
   String? categoryID;
+
+  MyServices myServices = Get.find();
 
   @override
   initialData() {
@@ -48,7 +51,7 @@ class ItemsControllerImp extends ItemsController {
   getItems(categoryID) async {
     data.clear();
     statusRequest = StatusRequest.loading;
-    var respose = await itemsData.getData(categoryID);
+    var respose = await itemsData.getData(categoryID , myServices.sharedPreferences.getString("id")!);
     statusRequest = handlingData(respose);
     print(respose);
     if (statusRequest == StatusRequest.success) {

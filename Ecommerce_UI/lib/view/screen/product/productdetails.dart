@@ -1,9 +1,9 @@
 import 'package:finalflutterapp/controller/product/productdetails_controller.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/core/functions/translatedatabase.dart';
+import 'package:finalflutterapp/view/widget/productdetails/priceandcount.dart';
+import 'package:finalflutterapp/view/widget/productdetails/subitemslist.dart';
 import 'package:finalflutterapp/view/widget/productdetails/topproductdetailspage.dart';
-import 'package:finalflutterapp/view/widget/ptofuctdetails/priceandcount.dart';
-import 'package:finalflutterapp/view/widget/ptofuctdetails/subitemslist.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

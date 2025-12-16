@@ -4,8 +4,8 @@ import 'package:finalflutterapp/core/class/crud.dart';
 class ItemsData {
   Crud crud;
   ItemsData(this.crud);
-  getData(String id) async {
-    var respose = await crud.postData(Applink.items, {"id": id});
+  getData(String categoryId , String userId) async {
+    var respose = await crud.postData(Applink.items, {"categoryId": categoryId , "userId"  : userId});
     return respose.fold((l) => l, (r) => r);
   }
 }
