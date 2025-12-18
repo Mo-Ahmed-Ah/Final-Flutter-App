@@ -1,3 +1,49 @@
+-- Adding Users
+INSERT INTO `users` (`user_id`, `user_name`, `user_email`, `user_phone`, `user_verfiycode`, `user_approve`, `user_create`, `user_password`) VALUES
+( 'ahmed', 'ahmed7777003330@gmail.com', '01056866999', 85475, 1, '2025-12-06 05:54:51', 'a3ef75e129bef511831e82353e68c29851340ed0'),
+( 'Mohamed', 'Mohamed@gmail.com', '01022622262', 0, 0, '2025-12-02 08:00:52', 'a3ef75e129bef511831e82353e68c29851340ed0'),
+( 'Mohamed', 'Mohamed@gmail.com', '01022622262', 0, 0, '2025-12-02 08:06:00', 'a3ef75e129bef511831e82353e68c29851340ed0'),
+( 'Mohamed', 'Mohamed@gmail.com', '01022622262', 0, 0, '2025-12-02 08:06:04', 'a3ef75e129bef511831e82353e68c29851340ed0'),
+( 'Mohamed', 'Mohamed@gmail.com', '01022622262', 0, 0, '2025-12-02 08:06:05', 'a3ef75e129bef511831e82353e68c29851340ed0'),
+( 'Mohamed', 'Mohamed@gmail.com', '01022622262', 0, 0, '2025-12-02 08:11:42', 'a3ef75e129bef511831e82353e68c29851340ed0'),
+( 'Mohamed', 'Mohameld@gmail.com', '010226222612', 0, 0, '2025-12-02 08:18:31', 'a3ef75e129bef511831e82353e68c29851340ed0'),
+( 'new', 'Moha1meld@gmail.com', '010226222613', 15434, 0, '2025-12-04 13:30:41', 'a3ef75e129bef511831e82353e68c29851340ed0'),
+( 'hejdn', 'jsjjdjr@gejd.jdkdm', '045646565964', 49912, 1, '2025-12-06 07:16:41', 'a3ef75e129bef511831e82353e68c29851340ed0'),
+( 'hdjjr', 'hejrj@jejrj.xonmr', '616569562662', 76217, 1, '2025-12-06 07:44:44', '92e487490e609251fab4c83887bea222726d6ddc'),
+( 'bjdndnd', 'hsiekene@jejej.dirmr', '6461326299229', 58890, 1, '2025-12-06 07:53:02', '553c3d7752f0d0c49a50305a5acf483127220cc6'),
+( 'gvbbbb', 'fhbbnn@vhjn.hbjn', '5396696869699', 14158, 1, '2025-12-06 07:54:43', 'b0ded3e6cabc3061975b043d483446a90da32f4d'),
+( 'gdhjd', 'hdjdjjnfnn@hrjn.com', '656659599595', 15039, 1, '2025-12-06 08:54:26', 'a3ef75e129bef511831e82353e68c29851340ed0'),
+( 'ahmed', 'jejdkjrm@hdikr.jdjnd', '816653299294', 13917, 1, '2025-12-06 14:44:00', 'a3ef75e129bef511831e82353e68c29851340ed0'),
+( 'ddfgg', 'dfghjjj@fhh.ffg', '5896699999999', 67048, 1, '2025-12-07 10:31:44', 'a3ef75e129bef511831e82353e68c29851340ed0'),
+( 'ahmed', 'ahjdjfnf@hejrk.jdkmr', '62656566266259', 69996, 1, '2025-12-07 14:46:22', 'a3ef75e129bef511831e82353e68c29851340ed0');
+
+
+
+-- Adding Categories
+INSERT INTO categories (
+    category_name,
+    category_name_ar,
+    category_image,
+    category_datetime
+)
+VALUES
+('laptop',     'لابتوب',        'laptop.svg',     NOW()),
+('camera',     'كاميرا',        'camera.svg',     NOW()),
+('mobile',     'موبيل',         'mobile.svg',     NOW()),
+('shoes',      'احذية',         'shoes.svg',      NOW()),
+('dress',      'فستان',         'dress.svg',      NOW()),
+('tablet',     'تابلت',         'tablet.svg',     NOW()),
+('watch',      'ساعة',          'watch.svg',      NOW()),
+('headphones', 'سماعات',        'headphones.svg', NOW()),
+('tv',         'تلفزيون',       'tv.svg',         NOW()),
+('gaming',     'ألعاب',         'gaming.svg',     NOW()),
+('furniture',  'أثاث',          'furniture.svg',  NOW()),
+('beauty',     'مستحضرات تجميل', 'beauty.svg',     NOW()),
+('books',      'كتب',           'books.svg',      NOW()),
+('sports',     'رياضة',         'sports.svg',     NOW()),
+('electronics','إلكترونيات',    'electronics.svg',NOW());
+
+
 -- Adding Items
 INSERT INTO items (
     item_name,
@@ -83,56 +129,34 @@ VALUES
 ('Wireless Charger', 'شاحن لاسلكي', 'Qi wireless charger', 'شاحن بدون أسلاك', 'electronics2.png', 32, 55, 5, NOW(), 1, 15);
 
 
--- Adding Categories
-INSERT INTO categories (
-    category_name,
-    category_name_ar,
-    category_image,
-    category_datetime
-)
-VALUES
-('laptop',     'لابتوب',        'laptop.svg',     NOW()),
-('camera',     'كاميرا',        'camera.svg',     NOW()),
-('mobile',     'موبيل',         'mobile.svg',     NOW()),
-('shoes',      'احذية',         'shoes.svg',      NOW()),
-('dress',      'فستان',         'dress.svg',      NOW()),
-('tablet',     'تابلت',         'tablet.svg',     NOW()),
-('watch',      'ساعة',          'watch.svg',      NOW()),
-('headphones', 'سماعات',        'headphones.svg', NOW()),
-('tv',         'تلفزيون',       'tv.svg',         NOW()),
-('gaming',     'ألعاب',         'gaming.svg',     NOW()),
-('furniture',  'أثاث',          'furniture.svg',  NOW()),
-('beauty',     'مستحضرات تجميل', 'beauty.svg',     NOW()),
-('books',      'كتب',           'books.svg',      NOW()),
-('sports',     'رياضة',         'sports.svg',     NOW()),
-('electronics','إلكترونيات',    'electronics.svg',NOW());
-
-
 -- Adding Favorites
 
-INSERT INTO favorites (favorite_user_id, favorite_item_id)
+INSERT INTO favorites (favorite_user_id, favorite_item_id, favorite_datetime)
 VALUES
-(1, 2),
-(1, 3),
-(1, 4),
-(1, 5),
-(1, 6),
-(1, 7),
-(1, 8),
-(1, 9),
-(1, 10),
-(1, 11),
-(2, 2),
-(2, 3),
-(2, 4),
-(2, 5),
-(2, 6),
-(3, 7),
-(3, 8),
-(3, 9),
-(3, 10),
-(3, 11);
+-- user 1
+(1, 1, NOW()),   -- Dell XPS 13
+(1, 5, NOW()),   -- Canon EOS M50
+(1, 9, NOW()),   -- Samsung S24
 
+-- user 3
+(3, 4, NOW()),   -- MacBook Air M2
+(3, 8, NOW()),   -- iPhone 15
+(3, 13, NOW()),  -- Nike Air Max
+
+-- user 4
+(4, 2, NOW()),   -- HP Spectre
+(4, 6, NOW()),   -- Sony A6400
+(4, 18, NOW()),  -- Casual Dress
+
+-- user 10
+(10, 21, NOW()), -- iPad Pro
+(10, 23, NOW()), -- Apple Watch 9
+(10, 25, NOW()), -- AirPods Pro
+
+-- user 11
+(11, 29, NOW()), -- LG OLED 55
+(11, 31, NOW()), -- PlayStation 5
+(11, 33, NOW()); -- Office Chair
 
 -- Test Items Views
 CREATE OR REPLACE VIEW itemsview as 

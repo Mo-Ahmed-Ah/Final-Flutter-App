@@ -1,3 +1,4 @@
+import 'package:finalflutterapp/controller/favorite/favorite_controller.dart';
 import 'package:finalflutterapp/controller/items/items_controller.dart';
 import 'package:finalflutterapp/core/class/handlingdataview.dart';
 import 'package:finalflutterapp/data/model/items_model.dart';
@@ -5,6 +6,7 @@ import 'package:finalflutterapp/view/widget/customappbar.dart';
 import 'package:finalflutterapp/view/widget/items/customlistitems.dart';
 import 'package:finalflutterapp/view/widget/items/listcategoriesitems.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 
 class Items extends StatelessWidget {
@@ -12,6 +14,8 @@ class Items extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(ItemsControllerImp());
+    FavoriteController favoriteController = Get.put(FavoriteController());
     return Scaffold(
       body: Container(
         padding: EdgeInsets.all(15),
@@ -38,10 +42,12 @@ class Items extends StatelessWidget {
                     childAspectRatio: 0.7,
                   ),
                   itemBuilder: (context, index) {
+                    favoriteController.isFavorite[controller
+                            .data[index]["items_id"]] =
+                        controller.data[index]["favorite"];
                     return CustomListItems(
                       // active : true,
                       itemsModel: ItemsModel.fromJson(controller.data[index]),
-              
                     );
                   },
                 ),

@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:finalflutterapp/apilinks.dart';
+import 'package:finalflutterapp/controller/favorite/favorite_controller.dart';
 import 'package:finalflutterapp/controller/items/items_controller.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/core/functions/translatedatabase.dart';
@@ -82,13 +83,25 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                       fontFamily: 'sans',
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      itemsModel.favorite == 1
-                          ? Icons.favorite
-                          : Icons.favorite_border_outlined,
-                      color: AppColor.primaryColor,
+                  GetBuilder<FavoriteController>(
+                    builder: (controller) => IconButton(
+                      onPressed: () {
+                        if (controller.isFavorite[itemsModel.itemId] == "1") {
+                          controller.setFavoite(itemsModel.itemId, "0");
+                          controller.removeFavorite(
+                            itemsModel.itemId.toString(),
+                          );
+                        } else {
+                          controller.setFavoite(itemsModel.itemId, "1");
+                          controller.addFavorite(itemsModel.itemId.toString());
+                        }
+                      },
+                      icon: Icon(
+                        controller.isFavorite[itemsModel.itemId] == "1"
+                            ? Icons.favorite
+                            : Icons.favorite_border_outlined,
+                        color: AppColor.primaryColor,
+                      ),
                     ),
                   ),
                 ],

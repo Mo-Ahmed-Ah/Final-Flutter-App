@@ -77,6 +77,11 @@ class MyTranslation implements Translations {
       "Favorite": "المفضلة",
       "Rating": "التصنيف",
       "ATC": "أضف إلى العربة",
+      "NOTIF": "إشعار",
+      "TIHBATF": "تمت إضافة العنصر إلى المفضلة",
+      "TIHNBATF": "لم تتم إضافة العنصر إلى المفضلة",
+      "TIHBRTF": "تمت إزالة العنصر من المفضلة",
+      "TIHNBRTF": "لم تتم إزالة العنصر من المفضلة",
     },
     "en": {
       // Start onBoarding Test With English lang
@@ -155,6 +160,11 @@ class MyTranslation implements Translations {
       "Favorite": "Favorite",
       "Rating": "Rating",
       "ATC": "Add To Cart",
+      "NOTIF": "Notification",
+      "TIHBATF": "The item has been added to favorites",
+      "TIHBRTF": "The item has been removed to favorites",
+      "TIHNBATF": "The item has not been added to favorites",
+      "TIHNBRTF": "The item has not been removed to favorites",
     },
   };
 }
