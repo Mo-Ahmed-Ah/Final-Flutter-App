@@ -19,4 +19,6 @@ class FavoriteData {
     });
     return respose.fold((l) => l, (r) => r);
   }
+
+  
 }

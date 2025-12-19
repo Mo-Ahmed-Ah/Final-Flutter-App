@@ -1,5 +1,5 @@
 -- Adding Users
-INSERT INTO users (user_name, user_email, user_phone, user_verfiycode, user_approve, user_create, user_password) VALUES
+INSERT INTO users ( user_name, user_email, user_phone, user_verfiycode, user_approve, user_create, user_password) VALUES
 ( 'ahmed', 'ahmed7777003330@gmail.com', '01056866999', 85475, 1, '2025-12-06 05:54:51', 'a3ef75e129bef511831e82353e68c29851340ed0'),
 ( 'Mohamed', 'Mohamed@gmail.com', '01022622262', 0, 0, '2025-12-02 08:00:52', 'a3ef75e129bef511831e82353e68c29851340ed0'),
 ( 'Mohamed', 'Mohamed@gmail.com', '01022622262', 0, 0, '2025-12-02 08:06:00', 'a3ef75e129bef511831e82353e68c29851340ed0'),
@@ -135,7 +135,7 @@ INSERT INTO favorites (favorite_user_id, favorite_item_id, favorite_datetime)
 VALUES
 -- user 1
 (1, 1, NOW()),   -- Dell XPS 13
-(1, 1, NOW()),   -- Dell XPS 13
+(1, 2, NOW()),   -- Dell XPS 13
 (1, 5, NOW()),   -- Canon EOS M50
 (1, 9, NOW()),   -- Samsung S24
 

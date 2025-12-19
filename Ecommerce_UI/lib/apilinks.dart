@@ -1,6 +1,6 @@
 class Applink {
   //  ============================== All Base ===========================================//
-  static const String baseLink = "http://192.168.1.4";
+  static const String baseLink = "http://192.168.1.3";
 
   //  ============================== Image Base ===========================================//
   static const String imageBaseLink = "${baseLink}/Final-Flutter-App/upload";
@@ -36,4 +36,5 @@ class Applink {
   //  ============================== Favorites ===========================================//
   static const String addItemToFavorite = "$server/favorite/add.php";
   static const String removeItemFromFavorite = "$server/favorite/remove.php";
+  static const String viewFavorite = "$server/favorite/view.php";
 }

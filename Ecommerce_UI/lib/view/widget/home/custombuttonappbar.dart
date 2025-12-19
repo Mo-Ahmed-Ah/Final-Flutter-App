@@ -20,6 +20,7 @@ class CustomButtonAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
+      padding: EdgeInsets.only(right: 0),
       onPressed: onPressed,
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -32,7 +33,6 @@ class CustomButtonAppBar extends StatelessWidget {
             buttonTitle.tr,
             style: TextStyle(
               color: active == true ? AppColor.primaryColor : AppColor.darkGray,
-              
             ),
           ),
         ],
