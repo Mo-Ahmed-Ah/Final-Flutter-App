@@ -2,11 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:get/utils.dart';
 
 class CustomAppBar extends StatelessWidget {
-  final String titleAppBar ;
-final void Function()? notificationOnPressed;
-final void Function()? searchOnPressed;
+  final String titleAppBar;
+  final void Function()? notificationOnPressed;
+  final void Function()? searchOnPressed;
+  final void Function()? favoriteOnPressed;
 
-  const CustomAppBar({super.key, required this.titleAppBar, this.notificationOnPressed, this.searchOnPressed});
+  const CustomAppBar({
+    super.key,
+    required this.titleAppBar,
+    this.notificationOnPressed,
+    this.searchOnPressed,
+    required this.favoriteOnPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +25,10 @@ final void Function()? searchOnPressed;
           Expanded(
             child: TextFormField(
               decoration: InputDecoration(
-                prefixIcon: IconButton(onPressed: searchOnPressed, icon: Icon(Icons.search)),
+                prefixIcon: IconButton(
+                  onPressed: searchOnPressed,
+                  icon: Icon(Icons.search),
+                ),
                 hintText: titleAppBar.tr,
                 hintStyle: TextStyle(fontSize: 18),
                 border: OutlineInputBorder(
@@ -41,6 +51,23 @@ final void Function()? searchOnPressed;
               onPressed: notificationOnPressed,
               icon: Icon(
                 Icons.notifications_active_outlined,
+                size: 30,
+                color: Colors.grey[600],
+              ),
+            ),
+          ),
+          SizedBox(width: 10),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(10),
+            ),
+            width: 60,
+            padding: EdgeInsets.symmetric(vertical: 8),
+            child: IconButton(
+              onPressed: favoriteOnPressed,
+              icon: Icon(
+                Icons.favorite_border_outlined,
                 size: 30,
                 color: Colors.grey[600],
               ),

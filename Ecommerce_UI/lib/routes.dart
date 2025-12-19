@@ -8,6 +8,7 @@ import 'package:finalflutterapp/view/screen/auth/login/login.dart';
 import 'package:finalflutterapp/view/screen/auth/sigunup/signup.dart';
 import 'package:finalflutterapp/view/screen/auth/sigunup/success_signup.dart';
 import 'package:finalflutterapp/view/screen/auth/sigunup/verifycodesignup.dart';
+import 'package:finalflutterapp/view/screen/favorites/myfavorite.dart';
 import 'package:finalflutterapp/view/screen/home/homescreen.dart';
 import 'package:finalflutterapp/view/screen/items/items.dart';
 import 'package:finalflutterapp/view/screen/language/language.dart';
@@ -41,12 +42,14 @@ List<GetPage<dynamic>>? routes = [
     page: () => VerfiyCodeSigunUp(),
   ),
 
-  // Home Routes
+  // Home Route
   GetPage(name: AppRoutes.home, page: () => HomeScreen()),
 
-  // Items Routes
+  // Items Route
   GetPage(name: AppRoutes.items, page: () => Items()),
 
-  // Items Details Routes
+  // Items Details Route
   GetPage(name: AppRoutes.productDetails, page: () => ProductDetails()),
+  // My Favroites Route
+  GetPage(name: AppRoutes.myFavorites, page: () => MyFavorites()),
 ];

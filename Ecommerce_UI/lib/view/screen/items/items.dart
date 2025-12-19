@@ -1,6 +1,7 @@
 import 'package:finalflutterapp/controller/favorite/favorite_controller.dart';
 import 'package:finalflutterapp/controller/items/items_controller.dart';
 import 'package:finalflutterapp/core/class/handlingdataview.dart';
+import 'package:finalflutterapp/core/constant/routes.dart';
 import 'package:finalflutterapp/data/model/items_model.dart';
 import 'package:finalflutterapp/view/widget/customappbar.dart';
 import 'package:finalflutterapp/view/widget/items/customlistitems.dart';
@@ -25,6 +26,9 @@ class Items extends StatelessWidget {
               titleAppBar: "Find Product",
               notificationOnPressed: () {},
               searchOnPressed: () {},
+              favoriteOnPressed: () {
+                Get.toNamed(AppRoutes.myFavorites);
+              },
             ),
 
             const SizedBox(height: 20),
@@ -43,7 +47,7 @@ class Items extends StatelessWidget {
                   ),
                   itemBuilder: (context, index) {
                     favoriteController.isFavorite[controller
-                            .data[index]["items_id"]] =
+                            .data[index]["item_id"]] =
                         controller.data[index]["favorite"];
                     return CustomListItems(
                       // active : true,

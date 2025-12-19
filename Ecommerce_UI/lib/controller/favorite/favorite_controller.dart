@@ -46,7 +46,7 @@ class FavoriteController extends GetxController {
   removeFavorite(String itemsid) async {
     data.clear();
     statusRequest = StatusRequest.loading;
-    var respose = await favoriteData.addFavorite(
+    var respose = await favoriteData.removeFavorite(
       myServices.sharedPreferences.getString("id")!,
       itemsid,
     );

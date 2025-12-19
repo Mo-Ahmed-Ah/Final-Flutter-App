@@ -1,5 +1,6 @@
 import 'package:finalflutterapp/controller/home/home_controller.dart';
 import 'package:finalflutterapp/core/class/handlingdataview.dart';
+import 'package:finalflutterapp/core/constant/routes.dart';
 import 'package:finalflutterapp/view/widget/customappbar.dart';
 import 'package:finalflutterapp/view/widget/home/customcardhome.dart';
 import 'package:finalflutterapp/view/widget/home/customtitlehome.dart';
@@ -27,6 +28,9 @@ class HomePage extends StatelessWidget {
                 titleAppBar: "Find Product",
                 notificationOnPressed: () {},
                 searchOnPressed: () {},
+                favoriteOnPressed: () {
+                  Get.toNamed(AppRoutes.myFavorites);
+                },
               ),
               CustomTitleHome(title: "Categories"),
               CustomCardHome(title: "ASS", body: "CB20"),

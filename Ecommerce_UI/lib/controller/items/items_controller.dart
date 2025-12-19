@@ -51,7 +51,10 @@ class ItemsControllerImp extends ItemsController {
   getItems(categoryID) async {
     data.clear();
     statusRequest = StatusRequest.loading;
-    var respose = await itemsData.getData(categoryID , myServices.sharedPreferences.getString("id")!);
+    var respose = await itemsData.getData(
+      categoryID,
+      myServices.sharedPreferences.getString("id")!,
+    );
     statusRequest = handlingData(respose);
     print(respose);
     if (statusRequest == StatusRequest.success) {
@@ -63,11 +66,9 @@ class ItemsControllerImp extends ItemsController {
     }
     update();
   }
-  
+
   @override
   goToProductDetailsPage(itemsData) {
-    Get.toNamed("productdetails" , arguments: {
-      "itemsmodel" : itemsData
-    });
+    Get.toNamed("productdetails", arguments: {"itemsmodel": itemsData});
   }
 }

@@ -78,6 +78,3 @@ CREATE TABLE IF NOT EXISTS `favorites` (
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-CREATE OR REPLACE VIEW itemsview as 
-SELECT items.* , categories.* FROM items
-INNER JOIN categories ON categories.category_id = items.item_cat

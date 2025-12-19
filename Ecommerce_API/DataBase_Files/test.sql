@@ -1,5 +1,5 @@
 -- Adding Users
-INSERT INTO `users` (`user_id`, `user_name`, `user_email`, `user_phone`, `user_verfiycode`, `user_approve`, `user_create`, `user_password`) VALUES
+INSERT INTO users (user_name, user_email, user_phone, user_verfiycode, user_approve, user_create, user_password) VALUES
 ( 'ahmed', 'ahmed7777003330@gmail.com', '01056866999', 85475, 1, '2025-12-06 05:54:51', 'a3ef75e129bef511831e82353e68c29851340ed0'),
 ( 'Mohamed', 'Mohamed@gmail.com', '01022622262', 0, 0, '2025-12-02 08:00:52', 'a3ef75e129bef511831e82353e68c29851340ed0'),
 ( 'Mohamed', 'Mohamed@gmail.com', '01022622262', 0, 0, '2025-12-02 08:06:00', 'a3ef75e129bef511831e82353e68c29851340ed0'),
@@ -135,6 +135,7 @@ INSERT INTO favorites (favorite_user_id, favorite_item_id, favorite_datetime)
 VALUES
 -- user 1
 (1, 1, NOW()),   -- Dell XPS 13
+(1, 1, NOW()),   -- Dell XPS 13
 (1, 5, NOW()),   -- Canon EOS M50
 (1, 9, NOW()),   -- Samsung S24
 
@@ -154,19 +155,7 @@ VALUES
 (10, 25, NOW()), -- AirPods Pro
 
 -- user 11
-(11, 29, NOW()), -- LG OLED 55
-(11, 31, NOW()), -- PlayStation 5
-(11, 33, NOW()); -- Office Chair
+(11, 25, NOW()), -- LG OLED 55
+(11, 23, NOW()), -- PlayStation 5
+(11, 22, NOW()); -- Office Chair
 
--- Test Items Views
-CREATE OR REPLACE VIEW itemsview as 
-SELECT items.* , categories.* FROM items
-INNER JOIN categories ON categories.category_id = items.item_cat
-
--- Test new Items Views
-SELECT items1view.* , 1 as favorite FROM items1view
-INNER JOIN favorites ON favorites.favorite_item_id = items1view.item_id AND favorites.favorite_user_id = 1
-UNION ALL
-SELECT * , 0 as favorite FROM items1view
-WHERE item_id NOT IN ( SELECT items1view.item_id FROM items1view
-INNER JOIN favorites ON favorites.favorite_item_id = items1view.item_id AND favorites.favorite_user_id = 1)
