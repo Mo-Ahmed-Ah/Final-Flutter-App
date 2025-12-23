@@ -59,6 +59,20 @@ class VerfiyCodeSigunUp extends StatelessWidget {
                 ),
                 // CustomButtonAutho(text: "C", onPressed: () {}),
                 const SizedBox(height: 40),
+                InkWell(
+                  onTap: () {
+                    controller.reSend();
+                  },
+                  child: Center(
+                    child: Text(
+                      "Resend Verfiy Code".tr,
+                      style: TextStyle(
+                        color: AppColor.primaryColor,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

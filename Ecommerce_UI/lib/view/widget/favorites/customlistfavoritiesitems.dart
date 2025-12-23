@@ -11,7 +11,7 @@ class CustomListFavoritiesItems extends GetView<MyFavoriteController> {
   final MyFavoritesModel itemsModel;
   // final bool active;
   // CustomListItems({super.key, required this.itemsModel, required this.active});
-  CustomListFavoritiesItems({super.key, required this.itemsModel});
+  const CustomListFavoritiesItems({super.key, required this.itemsModel});
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include "../connect.php";
 
@@ -11,4 +11,4 @@ $password = sha1(filterRequest("password"));
 
 // result($conunt); 
 
-getData("users" , "user_email = ? AND user_password = ? AND user_approve = 1 " , array($email , $password));
+getData("users", "user_email = ? AND user_password = ?  ", array($email, $password));

@@ -1,4 +1,5 @@
 import 'package:finalflutterapp/view/screen/home/home.dart';
+import 'package:finalflutterapp/view/screen/settings/sittingns.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,19 +19,21 @@ class HomeScreenControllerImp extends HomeScreenController {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [Center(child: Text("Test 2"))],
     ),
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [Center(child: Text("Test 3"))],
-    ),
+    Settings(),
   ];
 
-  List titleButtonAppBar = ["Home", "Settings", "Profile", "Favorite"];
-  List<IconData> iconButtonAppBar = [
-    Icons.home,
-    Icons.settings_outlined,
-    Icons.person_2_outlined,
-    Icons.favorite_outline,
+  List buttonAppBar = [
+    {'title': "Home", 'icon': Icons.home},
+    {'title': "card", 'icon': Icons.notifications_outlined},
+    {'title': "Profile", 'icon': Icons.person_2_outlined},
+    {'title': "Settings", 'icon': Icons.settings_outlined},
   ];
+  // List<IconData> iconButtonAppBar = [
+  //   Icons.home,
+  //   Icons.settings_outlined,
+  //   Icons.person_2_outlined,
+  //   Icons.favorite_outline,
+  // ];
   @override
   changePage(int index) {
     currentPage = index;

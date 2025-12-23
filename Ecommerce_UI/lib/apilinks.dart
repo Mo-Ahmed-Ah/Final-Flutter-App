@@ -1,6 +1,6 @@
 class Applink {
   //  ============================== All Base ===========================================//
-  static const String baseLink = "http://192.168.1.6";
+  static const String baseLink = "http://192.168.1.3";
 
   //  ============================== Image Base ===========================================//
   static const String imageBaseLink = "${baseLink}/Final-Flutter-App/upload";
@@ -19,6 +19,7 @@ class Applink {
   static const String signup = "$server/auth/signup.php";
   static const String login = "$server/auth/login.php";
   static const String verfiyCodeSigunUp = "$server/auth/verifycode.php";
+  static const String reSendVerfiyCodeSigunUp = "$server/auth/resendverifycode.php";
 
   //  ============================== Forget Password ===========================================//
   static const String checkEmail = "$server/forgetpassword/checkemail.php";

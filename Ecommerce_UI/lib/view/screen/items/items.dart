@@ -24,7 +24,7 @@ class Items extends StatelessWidget {
           children: [
             CustomAppBar(
               titleAppBar: "Find Product",
-              notificationOnPressed: () {},
+              // notificationOnPressed: () {},
               searchOnPressed: () {},
               favoriteOnPressed: () {
                 Get.toNamed(AppRoutes.myFavorites);

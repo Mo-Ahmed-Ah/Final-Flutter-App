@@ -82,6 +82,12 @@ class MyTranslation implements Translations {
       "TIHNBATF": "لم تتم إضافة العنصر إلى المفضلة",
       "TIHBRTF": "تمت إزالة العنصر من المفضلة",
       "TIHNBRTF": "لم تتم إزالة العنصر من المفضلة",
+      "Resend Verfiy Code": "إعادة ارسال رمز التحقق",
+      'About us': "من نحن",
+      'Contact us': "تواصل معنى",
+      "Logout": "تسجيل خروج",
+      'Diabale Notifications': "لا ترسل اشعارات",
+      "Address": "العنوان",
     },
     "en": {
       // Start onBoarding Test With English lang
@@ -165,6 +171,12 @@ class MyTranslation implements Translations {
       "TIHBRTF": "The item has been removed to favorites",
       "TIHNBATF": "The item has not been added to favorites",
       "TIHNBRTF": "The item has not been removed to favorites",
+      "Resend Verfiy Code": "Resend Verfiy Code",
+      'About us': 'About us',
+      'Contact us': 'Contact us',
+      "Logout": "Logout",
+      'Diabale Notifications': 'Diabale Notifications',
+      "Address": "Address",
     },
   };
 }

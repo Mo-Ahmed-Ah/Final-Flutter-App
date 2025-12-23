@@ -47,26 +47,33 @@ class LoginControllerImp extends LoginController {
       print(respose);
       if (statusRequest == StatusRequest.success) {
         if (respose["status"] == "success") {
-          // data.addAll(respose["data"]);
-          myServices.sharedPreferences.setString(
-            'id',
-            respose['data']['user_id'].toString(),
-          );
-          myServices.sharedPreferences.setString(
-            'username',
-            respose['data']['user_name'].toString(),
-          );
-          myServices.sharedPreferences.setString(
-            'email',
-            respose['data']['user_email'].toString(),
-          );
-          myServices.sharedPreferences.setString(
-            'phone',
-            respose['data']['user_phone'].toString(),
-          );
+          if (respose['data']['user_approve'] == 1) {
+            // data.addAll(respose["data"]);
+            myServices.sharedPreferences.setString(
+              'id',
+              respose['data']['user_id'].toString(),
+            );
+            myServices.sharedPreferences.setString(
+              'username',
+              respose['data']['user_name'].toString(),
+            );
+            myServices.sharedPreferences.setString(
+              'email',
+              respose['data']['user_email'].toString(),
+            );
+            myServices.sharedPreferences.setString(
+              'phone',
+              respose['data']['user_phone'].toString(),
+            );
 
-          myServices.sharedPreferences.setString('step', '2');
-          Get.offNamed(AppRoutes.home);
+            myServices.sharedPreferences.setString('step', '2');
+            Get.offNamed(AppRoutes.home);
+          } else {
+            Get.toNamed(
+              AppRoutes.verificationCodeSigunUp,
+              arguments: {"email": email.text},
+            );
+          }
         } else {
           Get.defaultDialog(title: "WA".tr, middleText: "EOPNC".tr);
           statusRequest = StatusRequest.failure;
@@ -90,9 +97,9 @@ class LoginControllerImp extends LoginController {
   void onInit() {
     FirebaseMessaging.instance.getToken().then((value) {
       String? token = value;
-         if (kDebugMode) {
-           print(token);
-       }
+      if (kDebugMode) {
+        print(token);
+      }
     });
 
     email = TextEditingController();

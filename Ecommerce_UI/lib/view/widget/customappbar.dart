@@ -3,14 +3,14 @@ import 'package:get/utils.dart';
 
 class CustomAppBar extends StatelessWidget {
   final String titleAppBar;
-  final void Function()? notificationOnPressed;
+  // final void Function()? notificationOnPressed;
   final void Function()? searchOnPressed;
   final void Function()? favoriteOnPressed;
 
   const CustomAppBar({
     super.key,
     required this.titleAppBar,
-    this.notificationOnPressed,
+    // this.notificationOnPressed,
     this.searchOnPressed,
     required this.favoriteOnPressed,
   });
@@ -39,23 +39,23 @@ class CustomAppBar extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: 10),
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: BorderRadius.circular(10),
-            ),
-            width: 60,
-            padding: EdgeInsets.symmetric(vertical: 8),
-            child: IconButton(
-              onPressed: notificationOnPressed,
-              icon: Icon(
-                Icons.notifications_active_outlined,
-                size: 30,
-                color: Colors.grey[600],
-              ),
-            ),
-          ),
+          // SizedBox(width: 10),
+          // Container(
+          //   decoration: BoxDecoration(
+          //     color: Colors.grey[200],
+          //     borderRadius: BorderRadius.circular(10),
+          //   ),
+          //   width: 60,
+          //   padding: EdgeInsets.symmetric(vertical: 8),
+          //   child: IconButton(
+          //     onPressed: notificationOnPressed,
+          //     icon: Icon(
+          //       Icons.notifications_active_outlined,
+          //       size: 30,
+          //       color: Colors.grey[600],
+          //     ),
+          //   ),
+          // ),
           SizedBox(width: 10),
           Container(
             decoration: BoxDecoration(

@@ -18,11 +18,14 @@ class MyFavoriteController extends GetxController {
   MyServices myServices = Get.find();
 
   deleteFromFavorite(String favoriteid) {
-    var respose = favoriteData.deleteData(favoriteid);
-    statusRequest = handlingData(respose);
-    data.removeWhere((element) => element.favoriteId == favoriteid);
-
-    update();
+    favoriteData.deleteData(favoriteid).then((response) {
+      if (response["status"] == "success") {
+        data.removeWhere(
+          (element) => element.favoriteId.toString() == favoriteid,
+        );
+        update();
+      }
+    });
   }
 
   getData() async {
