@@ -1,15 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:finalflutterapp/apilinks.dart';
-import 'package:finalflutterapp/controller/favorite/favorite_controller.dart';
-import 'package:finalflutterapp/controller/items/items_controller.dart';
+import 'package:finalflutterapp/controller/favorite/myfavforite_controller.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/core/functions/translatedatabase.dart';
 import 'package:finalflutterapp/data/model/myfavorites_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
 
-class CustomListFavoritiesItems extends StatelessWidget {
+class CustomListFavoritiesItems extends GetView<MyFavoriteController> {
   final MyFavoritesModel itemsModel;
   // final bool active;
   // CustomListItems({super.key, required this.itemsModel, required this.active});
@@ -83,27 +81,17 @@ class CustomListFavoritiesItems extends StatelessWidget {
                       fontFamily: 'sans',
                     ),
                   ),
-                  // GetBuilder<FavoriteController>(
-                  //   builder: (controller) => IconButton(
-                  //     onPressed: () {
-                  //       if (controller.isFavorite[itemsModel.itemId] == 1) {
-                  //         controller.setFavoite(itemsModel.itemId, 0);
-                  //         controller.removeFavorite(
-                  //           itemsModel.itemId.toString(),
-                  //         );
-                  //       } else {
-                  //         controller.setFavoite(itemsModel.itemId, 1);
-                  //         controller.addFavorite(itemsModel.itemId.toString());
-                  //       }
-                  //     },
-                  //     icon: Icon(
-                  //       controller.isFavorite[itemsModel.itemId] == 1
-                  //           ? Icons.favorite
-                  //           : Icons.favorite_border_outlined,
-                  //       color: AppColor.primaryColor,
-                  //     ),
-                  //   ),
-                  // ),
+                  IconButton(
+                    onPressed: () {
+                      controller.deleteFromFavorite(
+                        itemsModel.favoriteId.toString(),
+                      );
+                    },
+                    icon: Icon(
+                      Icons.delete_outline,
+                      color: AppColor.primaryColor,
+                    ),
+                  ),
                 ],
               ),
             ],

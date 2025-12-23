@@ -17,6 +17,14 @@ class MyFavoriteController extends GetxController {
 
   MyServices myServices = Get.find();
 
+  deleteFromFavorite(String favoriteid) {
+    var respose = favoriteData.deleteData(favoriteid);
+    statusRequest = handlingData(respose);
+    data.removeWhere((element) => element.favoriteId == favoriteid);
+
+    update();
+  }
+
   getData() async {
     data.clear();
     statusRequest = StatusRequest.loading;
@@ -29,8 +37,6 @@ class MyFavoriteController extends GetxController {
       if (respose["status"] == "success") {
         List responsData = respose['data'];
         data.addAll(responsData.map((e) => MyFavoritesModel.fromJson(e)));
-        print("data");
-        print(data);
       } else {
         statusRequest = StatusRequest.failure;
       }

@@ -8,4 +8,11 @@ class MyFavoriteData {
     var respose = await crud.postData(Applink.viewFavorite, {"userid": id});
     return respose.fold((l) => l, (r) => r);
   }
+
+  deleteData(String favoriteId) async {
+    var respose = await crud.postData(Applink.deleteFavorite, {
+      "favoriteid": favoriteId,
+    });
+    return respose.fold((l) => l, (r) => r);
+  }
 }
