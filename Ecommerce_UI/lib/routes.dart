@@ -8,6 +8,7 @@ import 'package:finalflutterapp/view/screen/auth/login/login.dart';
 import 'package:finalflutterapp/view/screen/auth/sigunup/signup.dart';
 import 'package:finalflutterapp/view/screen/auth/sigunup/success_signup.dart';
 import 'package:finalflutterapp/view/screen/auth/sigunup/verifycodesignup.dart';
+import 'package:finalflutterapp/view/screen/cart/cart.dart';
 import 'package:finalflutterapp/view/screen/favorites/myfavorite.dart';
 import 'package:finalflutterapp/view/screen/home/homescreen.dart';
 import 'package:finalflutterapp/view/screen/items/items.dart';
@@ -17,12 +18,12 @@ import 'package:finalflutterapp/view/screen/product/productdetails.dart';
 import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? routes = [
-  GetPage(
-    name: "/",
-    page: () => const Language(),
-    middlewares: [MyMiddleWare()],
-  ),
-  // GetPage(name: "/", page: () => ProductDetails()),
+  // GetPage(
+  //   name: "/",
+  //   page: () => const Language(),
+  //   middlewares: [MyMiddleWare()],
+  // ),
+  GetPage(name: "/", page: () => Cart()),
   // GetPage(name: "/", page: () => TestView()),
   // Auth Routes
   GetPage(name: AppRoutes.login, page: () => Login()),

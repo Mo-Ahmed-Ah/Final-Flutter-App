@@ -2,7 +2,6 @@ import 'package:finalflutterapp/controller/product/productdetails_controller.dar
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/core/functions/translatedatabase.dart';
 import 'package:finalflutterapp/view/widget/productdetails/priceandcount.dart';
-import 'package:finalflutterapp/view/widget/productdetails/subitemslist.dart';
 import 'package:finalflutterapp/view/widget/productdetails/topproductdetailspage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -59,14 +58,14 @@ class ProductDetails extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 SizedBox(height: 10),
-                Text(
-                  "Color",
-                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                    color: AppColor.fourthColor,
-                  ),
-                ),
+                // Text(
+                //   "Color",
+                //   style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                //     color: AppColor.fourthColor,
+                //   ),
+                // ),
                 SizedBox(height: 10),
-                SubItemsList(),
+                // SubItemsList(),
               ],
             ),
           ),
