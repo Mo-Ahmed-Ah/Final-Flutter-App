@@ -54,10 +54,10 @@ class FavoriteController extends GetxController {
     print(respose);
     if (statusRequest == StatusRequest.success) {
       if (respose["status"] == "success") {
-        Get.rawSnackbar(title: "NOTIF".tr, messageText: Text("TIHBRTF".tr));
+        Get.rawSnackbar(title: "NOTIF".tr, messageText: Text("TIHBRFF".tr));
         // data.addAll(respose["data"]);
       } else {
-        Get.rawSnackbar(title: "NOTIF".tr, messageText: Text("TIHNBRTF".tr));
+        Get.rawSnackbar(title: "NOTIF".tr, messageText: Text("TIHNBRFF".tr));
         statusRequest = StatusRequest.failure;
       }
     }

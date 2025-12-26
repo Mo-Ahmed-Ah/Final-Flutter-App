@@ -23,12 +23,30 @@ class CartController extends GetxController {
         Get.rawSnackbar(title: "NOTIF".tr, messageText: Text("TIHBATC".tr));
         // data.addAll(respose["data"]);
       } else {
-        Get.rawSnackbar(title: "NOTIF".tr, messageText: Text("TIHNBRTC".tr));
+        Get.rawSnackbar(title: "NOTIF".tr, messageText: Text("TIHNBATC".tr));
         statusRequest = StatusRequest.failure;
       }
     }
   }
 
-  delete() {}
+  delete(String itemId) async {
+    statusRequest = StatusRequest.loading;
+    var respose = await cartData.removeItemFromCart(
+      myServices.sharedPreferences.getString("id")!,
+      itemId,
+    );
+    statusRequest = handlingData(respose);
+    print(respose);
+    if (statusRequest == StatusRequest.success) {
+      if (respose["status"] == "success") {
+        Get.rawSnackbar(title: "NOTIF".tr, messageText: Text("TIHBRFC".tr));
+        // data.addAll(respose["data"]);
+      } else {
+        Get.rawSnackbar(title: "NOTIF".tr, messageText: Text("TIHNBRFC".tr));
+        statusRequest = StatusRequest.failure;
+      }
+    }
+  }
+
   view() {}
 }

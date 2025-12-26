@@ -20,7 +20,7 @@ class PriceAndCount extends StatelessWidget {
       children: [
         Row(
           children: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+            IconButton(onPressed: onAdd, icon: Icon(Icons.add)),
             Container(
               alignment: Alignment.center,
               width: 50,
@@ -31,7 +31,7 @@ class PriceAndCount extends StatelessWidget {
               ),
               child: Text(count, style: TextStyle(fontSize: 20, height: 1.1)),
             ),
-            IconButton(onPressed: () {}, icon: Icon(Icons.remove)),
+            IconButton(onPressed: onRemove, icon: Icon(Icons.remove)),
           ],
         ),
         Spacer(),

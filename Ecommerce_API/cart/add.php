@@ -4,7 +4,13 @@ include("../connect.php");
 $itemid = filterRequest("itemid");
 $userid = filterRequest("userid");
 
-$count = getData("carts", "cart_user_id = '$userid' AND cart_item_id = '$itemid'");
+$count = $count = getData(
+    "carts",
+    "cart_user_id = ? AND cart_item_id = ?",
+    array($userid, $itemid),
+    false
+);
+
 
 
 $data = array(
@@ -12,3 +18,8 @@ $data = array(
     "cart_item_id" => $itemid,
 );
 insertData("carts", $data);
+
+
+
+
+

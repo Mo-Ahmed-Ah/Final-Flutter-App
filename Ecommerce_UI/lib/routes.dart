@@ -18,12 +18,12 @@ import 'package:finalflutterapp/view/screen/product/productdetails.dart';
 import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? routes = [
-  // GetPage(
-  //   name: "/",
-  //   page: () => const Language(),
-  //   middlewares: [MyMiddleWare()],
-  // ),
-  GetPage(name: "/", page: () => Cart()),
+  GetPage(
+    name: "/",
+    page: () => const Language(),
+    middlewares: [MyMiddleWare()],
+  ),
+  // GetPage(name: "/", page: () => Cart()),
   // GetPage(name: "/", page: () => TestView()),
   // Auth Routes
   GetPage(name: AppRoutes.login, page: () => Login()),

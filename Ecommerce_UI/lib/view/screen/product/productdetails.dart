@@ -46,8 +46,16 @@ class ProductDetails extends StatelessWidget {
                   ),
                 ),
                 PriceAndCount(
-                  onAdd: () {},
-                  onRemove: () {},
+                  onAdd: () {
+                    controller.cartController.add(
+                      controller.itemsModel.itemId!.toString(),
+                    );
+                  },
+                  onRemove: () {
+                    controller.cartController.delete(
+                      controller.itemsModel.itemId!.toString(),
+                    );
+                  },
                   price: controller.itemsModel.itemPrice!.toString(),
                   count: "22",
                 ),
