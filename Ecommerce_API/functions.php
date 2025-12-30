@@ -50,10 +50,14 @@ function getData($table, $where = null, $values = null, $json = true)
     $stmt = $con->prepare("SELECT * FROM $table WHERE $where");
     $stmt->execute($values);
     $count = $stmt->rowCount();
+    $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($json) {
         if ($count > 0) {
-            echo json_encode(array("status" => "success"));
+            echo json_encode(array(
+                "status" => "success",
+                "data" => $data
+            ));
         } else {
             echo json_encode(array("status" => "failure"));
         }

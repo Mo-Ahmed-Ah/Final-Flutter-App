@@ -48,5 +48,30 @@ class CartController extends GetxController {
     }
   }
 
+  getCountItems(String itemId) async {
+    statusRequest = StatusRequest.loading;
+    var respose = await cartData.getCountItemsFromCart(
+      myServices.sharedPreferences.getString("id")!,
+      itemId,
+    );
+    statusRequest = handlingData(respose);
+    print(respose);
+    if (statusRequest == StatusRequest.success) {
+      if (respose["status"] == "success") {
+        int countItems = 0;
+        countItems = respose['data'];
+        print("===============================");
+        print(countItems);
+        print("===============================");
+        return countItems;
+      } else {}
+    }
+  }
+
   view() {}
+
+  @override
+  void onInit() {
+    super.onInit();
+  }
 }

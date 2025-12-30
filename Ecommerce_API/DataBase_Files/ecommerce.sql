@@ -78,3 +78,28 @@ CREATE TABLE IF NOT EXISTS `favorites` (
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+
+CREATE TABLE `carts` (
+  `card_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `cart_user_id` INT(11) NOT NULL,
+  `cart_item_id` INT(11) NOT NULL,
+
+  PRIMARY KEY (`card_id`),
+  KEY `cart_item_id` (`cart_item_id`),
+  KEY `cart_user_id` (`cart_user_id`),
+
+  CONSTRAINT `carts_ibfk_1`
+    FOREIGN KEY (`cart_item_id`)
+    REFERENCES `items` (`item_id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+
+  CONSTRAINT `carts_ibfk_2`
+    FOREIGN KEY (`cart_user_id`)
+    REFERENCES `users` (`user_id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+) ENGINE=InnoDB
+  DEFAULT CHARSET=utf8mb4
+  COLLATE=utf8mb4_general_ci;
+

@@ -78,12 +78,18 @@ class MyTranslation implements Translations {
       "Rating": "التصنيف",
       "ATC": "أضف إلى العربة",
       "NOTIF": "إشعار",
+      // بداية المفضله
       "TIHBATF": "تمت إضافة العنصر إلى المفضلة",
-      "TIHBATC": "تمت إضافة العنصر إلى السلة",
       "TIHNBATF": "لم تتم إضافة العنصر إلى المفضلة",
+      "TIHBRFF": "تمت إزالة العنصر من المفضلة",
+      "TIHNBRFF": "لم تتم إزالة العنصر من المفضلة",
+      // نهاية المفضله
+      // بداية السلة
+      "TIHBATC": "تمت إضافة العنصر إلى السلة",
       "TIHNBATC": "لم تتم إضافة العنصر إلى السلة",
-      "TIHBRTF": "تمت إزالة العنصر من المفضلة",
-      "TIHNBRTF": "لم تتم إزالة العنصر من المفضلة",
+      "TIHBRFC": "تمت إزالة العنصر من السلة" ,
+      "TIHNBRFC": "لم تتم إزالة العنصر من السلة",
+      // نهاية السلة
       "Resend Verfiy Code": "إعادة ارسال رمز التحقق",
       'About us': "من نحن",
       'Contact us': "تواصل معنى",
@@ -176,14 +182,18 @@ class MyTranslation implements Translations {
       "Rating": "Rating",
       "ATC": "Add To Cart",
       "NOTIF": "Notification",
+      // Favorites start
       "TIHBATF": "The item has been added to Favorites",
       "TIHNBATF": "The item has not been added to Favorites",
       "TIHBRFF": "The item has been removed From Favorites",
       "TIHNBRFF": "The item has been Not removed From Favorites",
+      // Favorites end
+      // Carts Start
       "TIHBATC": "The item has been added to Cart",
       "TIHNBATC": "The item has not been added to Cart",
       "TIHBRFC": "The item has been removed From Cart",
       "TIHNBRFC": "The item has not been removed From Cart",
+      // Carts end
       "Resend Verfiy Code": "Resend Verfiy Code",
       'About us': 'About us',
       'Contact us': 'Contact us',

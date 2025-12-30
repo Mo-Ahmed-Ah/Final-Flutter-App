@@ -20,5 +20,11 @@ class CartData {
     return respose.fold((l) => l, (r) => r);
   }
 
-  
+  getCountItemsFromCart(String userId, String itemId) async {
+    var respose = await crud.postData(Applink.getCountItemsFromCart, {
+      "userid": userId,
+      "itemid": itemId,
+    });
+    return respose.fold((l) => l, (r) => r);
+  }
 }

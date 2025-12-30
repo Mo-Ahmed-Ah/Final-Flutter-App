@@ -1,3 +1,4 @@
+import 'package:finalflutterapp/view/screen/cart/cart.dart';
 import 'package:finalflutterapp/view/screen/home/home.dart';
 import 'package:finalflutterapp/view/screen/settings/sittingns.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +12,7 @@ class HomeScreenControllerImp extends HomeScreenController {
   int currentPage = 0;
   List<Widget> listPages = [
     const HomePage(),
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [Center(child: Text("Test 1"))],
-    ),
+    const Cart(),
     Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [Center(child: Text("Test 2"))],
@@ -24,7 +22,7 @@ class HomeScreenControllerImp extends HomeScreenController {
 
   List buttonAppBar = [
     {'title': "Home", 'icon': Icons.home},
-    {'title': "card", 'icon': Icons.notifications_outlined},
+    {'title': "card", 'icon': Icons.shopping_cart_outlined},
     {'title': "Profile", 'icon': Icons.person_2_outlined},
     {'title': "Settings", 'icon': Icons.settings_outlined},
   ];

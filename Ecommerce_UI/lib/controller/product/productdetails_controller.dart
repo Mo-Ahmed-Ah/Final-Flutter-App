@@ -1,4 +1,5 @@
 import 'package:finalflutterapp/controller/cart/cart_controller.dart';
+import 'package:finalflutterapp/core/class/statusrequest.dart';
 import 'package:finalflutterapp/data/model/items_model.dart';
 import 'package:get/get.dart';
 
@@ -6,6 +7,18 @@ abstract class ProductDetailsController extends GetxController {}
 
 class ProductDetailsControllerImp extends ProductDetailsController {
   CartController cartController = Get.put(CartController());
+  late StatusRequest statusRequest;
+  int countItems = 0;
+
+  initialData() async {
+    statusRequest = StatusRequest.loading;
+    itemsModel = Get.arguments["itemsmodel"];
+    countItems = await cartController.getCountItems(
+      itemsModel.itemId.toString(),
+    );
+    statusRequest = StatusRequest.success;
+    update();
+  }
 
   List subItems = [
     {"name": "red", "id": "1", "active": "1"},
@@ -14,12 +27,8 @@ class ProductDetailsControllerImp extends ProductDetailsController {
   ];
   late ItemsModel itemsModel;
 
-  initialData() {
-    itemsModel = Get.arguments["itemsmodel"];
-  }
-
   @override
-  void onInit() {
+  void onInit() async {
     initialData();
     super.onInit();
   }

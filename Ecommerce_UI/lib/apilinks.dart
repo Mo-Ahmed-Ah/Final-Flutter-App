@@ -1,6 +1,6 @@
 class Applink {
   //  ============================== All Base ===========================================//
-  static const String baseLink = "http://192.168.1.3";
+  static const String baseLink = "http://192.168.1.6";
 
   //  ============================== Image Base ===========================================//
   static const String imageBaseLink = "${baseLink}/Final-Flutter-App/upload";
@@ -46,4 +46,5 @@ class Applink {
   static const String viewCart = "$server/cart/view.php";
   static const String addItemToCart = "$server/cart/add.php";
   static const String removeItemFromCart = "$server/cart/delete.php";
+  static const String getCountItemsFromCart = "$server/cart/getcountitems.php";
 }
