@@ -27,6 +27,20 @@ class ProductDetailsControllerImp extends ProductDetailsController {
   ];
   late ItemsModel itemsModel;
 
+  add() {
+    cartController.add(itemsModel.itemId!.toString());
+    countItems++;
+    update();
+  }
+
+  remove() {
+    if (countItems > 0) {
+      cartController.delete(itemsModel.itemId!.toString());
+      countItems--;
+      update();
+    }
+  }
+
   @override
   void onInit() async {
     initialData();
