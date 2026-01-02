@@ -23,7 +23,7 @@ List<GetPage<dynamic>>? routes = [
     page: () => const Language(),
     middlewares: [MyMiddleWare()],
   ),
-  // GetPage(name: "/", page: () => Cart()),
+  
   // GetPage(name: "/", page: () => TestView()),
   // Auth Routes
   GetPage(name: AppRoutes.login, page: () => Login()),
@@ -53,4 +53,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoutes.productDetails, page: () => ProductDetails()),
   // My Favroites Route
   GetPage(name: AppRoutes.myFavorites, page: () => MyFavorites()),
+
+  // My Cart Route
+  GetPage(name: AppRoutes.myCart, page: () => Cart()),
 ];

@@ -1,6 +1,7 @@
 import 'package:finalflutterapp/controller/product/productdetails_controller.dart';
 import 'package:finalflutterapp/core/class/handlingdataview.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
+import 'package:finalflutterapp/core/constant/routes.dart';
 import 'package:finalflutterapp/core/functions/translatedatabase.dart';
 import 'package:finalflutterapp/view/widget/productdetails/priceandcount.dart';
 import 'package:finalflutterapp/view/widget/productdetails/topproductdetailspage.dart';
@@ -22,9 +23,11 @@ class ProductDetails extends StatelessWidget {
             borderRadius: BorderRadiusGeometry.circular(10),
           ),
           color: AppColor.secooundryColor,
-          onPressed: () {},
+          onPressed: () {
+            Get.toNamed(AppRoutes.myCart); 
+          },
           child: Text(
-            "ATC".tr,
+            "GTC".tr,
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ),

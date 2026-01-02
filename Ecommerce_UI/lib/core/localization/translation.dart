@@ -77,6 +77,7 @@ class MyTranslation implements Translations {
       "Favorite": "المفضلة",
       "Rating": "التصنيف",
       "ATC": "أضف إلى العربة",
+      "GTC": "الانتقال إلى عربة التسوق",
       "NOTIF": "إشعار",
       // بداية المفضله
       "TIHBATF": "تمت إضافة العنصر إلى المفضلة",
@@ -87,7 +88,7 @@ class MyTranslation implements Translations {
       // بداية السلة
       "TIHBATC": "تمت إضافة العنصر إلى السلة",
       "TIHNBATC": "لم تتم إضافة العنصر إلى السلة",
-      "TIHBRFC": "تمت إزالة العنصر من السلة" ,
+      "TIHBRFC": "تمت إزالة العنصر من السلة",
       "TIHNBRFC": "لم تتم إزالة العنصر من السلة",
       // نهاية السلة
       "Resend Verfiy Code": "إعادة ارسال رمز التحقق",
@@ -181,6 +182,7 @@ class MyTranslation implements Translations {
       "Favorite": "Favorite",
       "Rating": "Rating",
       "ATC": "Add To Cart",
+      "GTC": "Go To Cart",
       "NOTIF": "Notification",
       // Favorites start
       "TIHBATF": "The item has been added to Favorites",

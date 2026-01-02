@@ -18,5 +18,7 @@ class AppRoutes {
   // Items Detales Route
   static const String productDetails = "/productdetails";
   // My Favroites Route
-  static const String myFavorites = "/myfavorites"; 
+  static const String myFavorites = "/myfavorites";
+  // My Cart Route
+  static const String myCart = "/mycart";
 }
