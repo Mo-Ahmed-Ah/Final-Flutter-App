@@ -14,7 +14,12 @@ class CustomAppBarCart extends StatelessWidget {
           Expanded(
             child: Container(
               alignment: Alignment.centerLeft,
-              child: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+              child: IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: Icon(Icons.arrow_back),
+              ),
             ),
           ),
           Expanded(

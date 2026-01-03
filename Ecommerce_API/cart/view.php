@@ -3,9 +3,9 @@ include('../connect.php');
 
 $userid = filterRequest("userid");
 
-$data = getData('cartview', "cart_user_id = '$userid'", null, false);
+$data = getAllData('cartview', "cart_user_id = $userid", null, false);
 
-$stmt = $con->prepare("SELECT SUM(itemPrice) AS totalPrice , SUM(itemsCount) AS totalCount FROM `cartview` 
+$stmt = $con->prepare("SELECT SUM(itemsPrice) AS totalPrice , COUNT(itemsCount) AS totalCount FROM `cartview` 
 WHERE cartview.cart_user_id = $userid
 GROUP BY cart_user_id");
 
@@ -16,6 +16,6 @@ echo json_encode(
     array(
         "status" => "success",
         "datacart" => $data,
-        "countprice" => $dataCountPrice
+        "countandprice" => $dataCountPrice
     )
 );

@@ -1,16 +1,23 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:finalflutterapp/apilinks.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
-import 'package:finalflutterapp/core/constant/imageasset.dart';
 import 'package:flutter/material.dart';
 
 class CustomItemsCardListCard extends StatelessWidget {
   final String itemTitle;
   final String itemPrice;
   final String numberOfItems;
+  final String? imageUrl;
+  final void Function()? onAdd;
+  final void Function()? onRemove;
   const CustomItemsCardListCard({
     super.key,
     required this.itemTitle,
     required this.itemPrice,
     required this.numberOfItems,
+    this.imageUrl,
+    required this.onAdd,
+    required this.onRemove,
   });
 
   @override
@@ -21,10 +28,14 @@ class CustomItemsCardListCard extends StatelessWidget {
           children: [
             Expanded(
               flex: 2,
-              child: Image.asset(
-                AppImageAsset.avatar,
-                height: 90,
-                fit: BoxFit.cover,
+              child: Container(
+                color: Colors.white,
+                child: CachedNetworkImage(
+                  imageUrl: imageUrl == null
+                      ? "${Applink.defaultImageItems}/product.png"
+                      : "${Applink.imageItems}/$imageUrl",
+                  height: 80,
+                ),
               ),
             ),
             Expanded(
@@ -32,7 +43,7 @@ class CustomItemsCardListCard extends StatelessWidget {
               child: ListTile(
                 title: Text(itemTitle, style: TextStyle(fontSize: 15)),
                 subtitle: Text(
-                  "${itemPrice}\$",
+                  "$itemPrice\$",
                   style: TextStyle(color: AppColor.primaryColor, fontSize: 17),
                 ),
               ),
@@ -42,7 +53,7 @@ class CustomItemsCardListCard extends StatelessWidget {
                 children: [
                   Container(
                     height: 35,
-                    child: IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+                    child: IconButton(onPressed: onAdd, icon: Icon(Icons.add)),
                   ),
                   Container(
                     height: 30,
@@ -54,7 +65,7 @@ class CustomItemsCardListCard extends StatelessWidget {
                   Container(
                     height: 25,
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: onRemove,
                       icon: Icon(Icons.remove),
                     ),
                   ),

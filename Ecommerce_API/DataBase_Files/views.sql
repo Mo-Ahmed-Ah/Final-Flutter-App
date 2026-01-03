@@ -20,6 +20,6 @@ INNER JOIN items ON items.item_id = favorites.favorite_item_id
 
 -- Create My cart View
 CREATE OR REPLACE VIEW cartview AS
-SELECT SUM(items.item_price) AS itemPrice , COUNT(carts.cart_item_id) AS itemsCount , carts.* , items.* FROM carts
+SELECT SUM(items.item_price) AS itemsPrice , COUNT(carts.cart_item_id) AS itemsCount , carts.* , items.* FROM carts
 INNER JOIN items ON items.item_id = carts.cart_item_id
 GROUP BY carts.cart_item_id , carts.cart_user_id

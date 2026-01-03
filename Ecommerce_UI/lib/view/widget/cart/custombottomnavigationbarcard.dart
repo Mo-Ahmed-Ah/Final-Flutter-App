@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CustomBottomNavigationBarCard extends StatelessWidget {
-  final int priceValue;
-  final int shippingValue;
+  final String priceValue;
+  final String shippingValue;
+  final String totalPrice;
 
   const CustomBottomNavigationBarCard({
     super.key,
     required this.priceValue,
     required this.shippingValue,
+    required this.totalPrice,
   });
 
   @override
@@ -69,7 +71,7 @@ class CustomBottomNavigationBarCard extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 20),
 
                 child: Text(
-                  "${priceValue + shippingValue}\$",
+                  "${totalPrice}\$",
                   style: TextStyle(
                     fontSize: 16,
                     color: AppColor.primaryColor,

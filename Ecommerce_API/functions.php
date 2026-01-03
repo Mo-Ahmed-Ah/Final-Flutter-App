@@ -44,6 +44,7 @@ function getAllData($table, $where = null, $values = null, $json = true)
         }
     }
 }
+
 function getData($table, $where = null, $values = null, $json = true)
 {
     global $con;
@@ -121,7 +122,7 @@ function updateData($table, $data, $where, $json = true)
 }
 
 
-function deleteData($table, $where, $json = true)
+function deleteData($table, $where, $json = true )
 {
     global $con;
     $stmt = $con->prepare("DELETE FROM $table WHERE $where");

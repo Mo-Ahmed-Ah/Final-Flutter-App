@@ -27,4 +27,9 @@ class CartData {
     });
     return respose.fold((l) => l, (r) => r);
   }
+
+  viewCart(String userId) async {
+    var respose = await crud.postData(Applink.viewCart, {"userid": userId});
+    return respose.fold((l) => l, (r) => r);
+  }
 }

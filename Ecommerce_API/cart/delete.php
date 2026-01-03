@@ -6,5 +6,5 @@ $userid = filterRequest("userid");
 
 $count = deleteData(
     "carts",
-    "cart_user_id = '$userid' AND cart_item_id = '$itemid'"
+    "cart_user_id = '$userid' AND cart_item_id = '$itemid' LIMIT 1" 
 );

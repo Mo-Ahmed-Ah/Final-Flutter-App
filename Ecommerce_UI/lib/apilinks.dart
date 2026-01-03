@@ -1,6 +1,6 @@
 class Applink {
   //  ============================== All Base ===========================================//
-  static const String baseLink = "http://192.168.1.2";
+  static const String baseLink = "http://192.168.1.7";
 
   //  ============================== Image Base ===========================================//
   static const String imageBaseLink = "${baseLink}/Final-Flutter-App/upload";
@@ -8,6 +8,7 @@ class Applink {
   //  ============================== Images ===========================================//
   static const String imageCategories = "${imageBaseLink}/categories";
   static const String imageItems = "${imageBaseLink}/items";
+  static const String defaultImageItems = "${imageBaseLink}/default";
 
   //  ============================== Server Base ===========================================//
   static const String server = "${baseLink}/Final-Flutter-App/Ecommerce_API";
