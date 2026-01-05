@@ -6,13 +6,16 @@ class CustomAppBar extends StatelessWidget {
   // final void Function()? notificationOnPressed;
   final void Function()? searchOnPressed;
   final void Function()? favoriteOnPressed;
-
+  final void Function(String)? onChanged;
+  final TextEditingController myController;
   const CustomAppBar({
     super.key,
     required this.titleAppBar,
     // this.notificationOnPressed,
     this.searchOnPressed,
     required this.favoriteOnPressed,
+    this.onChanged,
+    required this.myController,
   });
 
   @override
@@ -24,6 +27,8 @@ class CustomAppBar extends StatelessWidget {
         children: [
           Expanded(
             child: TextFormField(
+              controller: myController,
+              onChanged: onChanged,
               decoration: InputDecoration(
                 prefixIcon: IconButton(
                   onPressed: searchOnPressed,

@@ -5,6 +5,7 @@ import 'package:finalflutterapp/core/constant/routes.dart';
 import 'package:finalflutterapp/data/model/items_model.dart';
 import 'package:finalflutterapp/view/widget/customappbar.dart';
 import 'package:finalflutterapp/view/widget/items/customlistitems.dart';
+import 'package:finalflutterapp/view/widget/items/customlistitemssearch.dart';
 import 'package:finalflutterapp/view/widget/items/listcategoriesitems.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,7 +16,7 @@ class Items extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ItemsControllerImp());
+    ItemsControllerImp controller = Get.put(ItemsControllerImp());
     FavoriteController favoriteController = Get.put(FavoriteController());
     return Scaffold(
       body: Container(
@@ -23,38 +24,48 @@ class Items extends StatelessWidget {
         child: ListView(
           children: [
             CustomAppBar(
+              myController: controller.itemName!,
+              onChanged: (val) {
+                controller.checkSearch(val);
+              },
               titleAppBar: "Find Product",
               // notificationOnPressed: () {},
-              searchOnPressed: () {},
+              searchOnPressed: () {
+                controller.onSearchItems();
+              },
               favoriteOnPressed: () {
                 Get.toNamed(AppRoutes.myFavorites);
               },
             ),
-
             const SizedBox(height: 20),
             const ListCategoriesItems(),
             GetBuilder<ItemsControllerImp>(
               init: ItemsControllerImp(),
               builder: (controller) => HandlingDataView(
                 statusrequest: controller.statusRequest,
-                widget: GridView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: controller.data.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 0.7,
-                  ),
-                  itemBuilder: (context, index) {
-                    favoriteController.isFavorite[controller
-                            .data[index]["item_id"]] =
-                        controller.data[index]["favorite"];
-                    return CustomListItems(
-                      // active : true,
-                      itemsModel: ItemsModel.fromJson(controller.data[index]),
-                    );
-                  },
-                ),
+                widget: !controller.isSearch
+                    ? GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: controller.data.length,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              childAspectRatio: 0.7,
+                            ),
+                        itemBuilder: (context, index) {
+                          favoriteController.isFavorite[controller
+                                  .data[index]["item_id"]] =
+                              controller.data[index]["favorite"];
+                          return CustomListItems(
+                            // active : true,
+                            itemsModel: ItemsModel.fromJson(
+                              controller.data[index],
+                            ),
+                          );
+                        },
+                      )
+                    : CustomListItemsSearch(listDataModel: controller.listData),
               ),
             ),
           ],

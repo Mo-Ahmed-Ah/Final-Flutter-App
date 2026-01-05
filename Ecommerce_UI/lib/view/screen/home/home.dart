@@ -6,6 +6,7 @@ import 'package:finalflutterapp/view/widget/home/customcardhome.dart';
 import 'package:finalflutterapp/view/widget/home/customtitlehome.dart';
 import 'package:finalflutterapp/view/widget/home/listcategorieshome.dart';
 import 'package:finalflutterapp/view/widget/home/listitemshome.dart';
+import 'package:finalflutterapp/view/widget/items/customlistitemssearch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -18,29 +19,42 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(HomeControllerImp());
     return GetBuilder<HomeControllerImp>(
-      builder: (controller) => HandlingDataView(
-        statusrequest: controller.statusRequest,
-        widget: Container(
-          padding: EdgeInsets.symmetric(horizontal: 15),
-          child: ListView(
-            children: [
-              CustomAppBar(
-                titleAppBar: "Find Product",
-                // notificationOnPressed: () {},
-                searchOnPressed: () {},
-                favoriteOnPressed: () {
-                  Get.toNamed(AppRoutes.myFavorites);
-                },
-              ),
-              CustomTitleHome(title: "Categories"),
-              CustomCardHome(title: "ASS", body: "CB20"),
-              ListCategoriesHome(),
-              CustomTitleHome(title: "OFY"),
-              ListItemsHome(),
-              CustomTitleHome(title: "OFY"),
-              ListItemsHome(),
-            ],
-          ),
+      builder: (controller) => Container(
+        padding: EdgeInsets.symmetric(horizontal: 15),
+        child: ListView(
+          children: [
+            CustomAppBar(
+              myController: controller.itemName!,
+              onChanged: (val) {
+                controller.checkSearch(val);
+              },
+              titleAppBar: "Find Product",
+              // notificationOnPressed: () {},
+              searchOnPressed: () {
+                controller.onSearchItems();
+              },
+              favoriteOnPressed: () {
+                Get.toNamed(AppRoutes.myFavorites);
+              },
+            ),
+            HandlingDataView(
+              statusrequest: controller.statusRequest,
+              widget: !controller.isSearch
+                  ? Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CustomTitleHome(title: "Categories"),
+                        CustomCardHome(title: "ASS", body: "CB20"),
+                        ListCategoriesHome(),
+                        CustomTitleHome(title: "OFY"),
+                        ListItemsHome(),
+                        CustomTitleHome(title: "OFY"),
+                        ListItemsHome(),
+                      ],
+                    )
+                  : CustomListItemsSearch(listDataModel: controller.listData),
+            ),
+          ],
         ),
       ),
     );
