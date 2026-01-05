@@ -14,7 +14,7 @@ abstract class HomeController extends GetxController {
 class HomeControllerImp extends HomeController {
   MyServices myServices = Get.find();
 
-String? lang;
+  String? lang;
 
   String? userid;
   String? username;
@@ -27,7 +27,7 @@ String? lang;
 
   @override
   initialData() {
-    lang =  myServices.sharedPreferences.getString('lang');
+    lang = myServices.sharedPreferences.getString('lang');
     username = myServices.sharedPreferences.getString('username');
     userid = myServices.sharedPreferences.getString('id');
   }
@@ -40,8 +40,8 @@ String? lang;
     print(respose);
     if (statusRequest == StatusRequest.success) {
       if (respose["status"] == "success") {
-        categories.addAll(respose["categories"]);
-        itmes.addAll(respose["items"]);
+        categories.addAll(respose["categories"]['data']);
+        itmes.addAll(respose["items"]['data']);
       } else {
         statusRequest = StatusRequest.failure;
       }

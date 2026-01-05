@@ -5,7 +5,7 @@ $userid = filterRequest("userid");
 
 $data = getAllData('cartview', "cart_user_id = $userid", null, false);
 
-$stmt = $con->prepare("SELECT SUM(itemsPrice) AS totalPrice , COUNT(itemsCount) AS totalCount FROM `cartview` 
+$stmt = $con->prepare("SELECT SUM(itemPrice) AS totalPrice , COUNT(itemsCount) AS totalCount FROM `cartview` 
 WHERE cartview.cart_user_id = $userid
 GROUP BY cart_user_id");
 

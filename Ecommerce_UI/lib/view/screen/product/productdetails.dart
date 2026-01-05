@@ -1,3 +1,4 @@
+import 'package:finalflutterapp/controller/cart/cart_controller.dart';
 import 'package:finalflutterapp/controller/product/productdetails_controller.dart';
 import 'package:finalflutterapp/core/class/handlingdataview.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
@@ -13,7 +14,9 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ProductDetailsControllerImp());
+    ProductDetailsControllerImp controller = Get.put(
+      ProductDetailsControllerImp(),
+    );
     return Scaffold(
       bottomNavigationBar: Container(
         margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -24,7 +27,8 @@ class ProductDetails extends StatelessWidget {
           ),
           color: AppColor.secooundryColor,
           onPressed: () {
-            Get.toNamed(AppRoutes.myCart); 
+            // controller.cartController.refreshPage();
+            Get.toNamed(AppRoutes.myCart);
           },
           child: Text(
             "GTC".tr,

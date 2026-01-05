@@ -43,14 +43,14 @@ class Cart extends StatelessWidget {
                     ...List.generate(
                       controller.data.length,
                       (index) => CustomItemsCardListCard(
-                        onAdd: () {
-                          cartController.add(
+                        onAdd: () async {
+                          await cartController.add(
                             controller.data[index].itemId!.toString(),
                           );
                           cartController.refreshPage();
                         },
-                        onRemove: () {
-                          cartController.delete(
+                        onRemove: () async {
+                          await cartController.delete(
                             controller.data[index].itemId!.toString(),
                           );
                           cartController.refreshPage();
@@ -58,7 +58,7 @@ class Cart extends StatelessWidget {
                         imageUrl: controller.data[index].itemImage,
                         itemTitle:
                             "${TranslateDataBase(cartController.data[index].itemNameAr, cartController.data[index].itemName)}",
-                        itemPrice: "${cartController.data[index].itemsPrice}",
+                        itemPrice: "${cartController.data[index].itemPrice}",
                         numberOfItems:
                             "${cartController.data[index].itemsCount}",
                       ),
