@@ -6,7 +6,7 @@ import 'package:finalflutterapp/view/widget/home/customcardhome.dart';
 import 'package:finalflutterapp/view/widget/home/customtitlehome.dart';
 import 'package:finalflutterapp/view/widget/home/listcategorieshome.dart';
 import 'package:finalflutterapp/view/widget/home/listitemshome.dart';
-import 'package:finalflutterapp/view/widget/items/customlistitemssearch.dart';
+import 'package:finalflutterapp/view/widget/search/customlistitemssearch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';

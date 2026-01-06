@@ -11,6 +11,7 @@ class ItemsModel {
   String? itemDate;
   int? itemActive;
   int? itemCat;
+  double? itemPriceDescount;
   int? categoryId;
   String? categoryName;
   String? categoryNameAr;
@@ -31,6 +32,7 @@ class ItemsModel {
     this.itemDate,
     this.itemActive,
     this.itemCat,
+    this.itemPriceDescount,
     this.categoryId,
     this.categoryName,
     this.categoryNameAr,
@@ -40,46 +42,57 @@ class ItemsModel {
   });
 
   ItemsModel.fromJson(Map<String, dynamic> json) {
-    itemId = json['item_id'];
-    itemName = json['item_name'];
-    itemNameAr = json['item_name_ar'];
-    itemDesc = json['item_desc'];
-    itemDescAr = json['item_desc_ar'];
-    itemImage = json['item_image'];
-    itemCount = json['item_count'];
-    itemPrice = json['item_price'];
-    itemDiscount = json['item_discount'];
-    itemDate = json['item_date'];
-    itemActive = json['item_active'];
-    itemCat = json['item_cat'];
-    categoryId = json['category_id'];
-    categoryName = json['category_name'];
-    categoryNameAr = json['category_name_ar'];
-    categoryImage = json['category_image'];
-    categoryDatetime = json['category_datetime'];
-    favorite = json['favorite'];
+    itemId = int.tryParse(json['item_id'].toString());
+    itemName = json['item_name']?.toString();
+    itemNameAr = json['item_name_ar']?.toString();
+    itemDesc = json['item_desc']?.toString();
+    itemDescAr = json['item_desc_ar']?.toString();
+    itemImage = json['item_image']?.toString();
+
+    itemCount = int.tryParse(json['item_count'].toString());
+    itemPrice = int.tryParse(json['item_price'].toString());
+    itemDiscount = int.tryParse(json['item_discount'].toString());
+
+    itemDate = json['item_date']?.toString();
+    itemActive = int.tryParse(json['item_active'].toString());
+    itemCat = int.tryParse(json['item_cat'].toString());
+
+    itemPriceDescount = json['item_price_discount'] == null
+        ? null
+        : double.tryParse(json['item_price_discount'].toString());
+
+    categoryId = int.tryParse(json['category_id'].toString());
+    categoryName = json['category_name']?.toString();
+    categoryNameAr = json['category_name_ar']?.toString();
+    categoryImage = json['category_image']?.toString();
+    categoryDatetime = json['category_datetime']?.toString();
+
+    favorite = int.tryParse(json['favorite'].toString());
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['item_id'] = this.itemId;
-    data['item_name'] = this.itemName;
-    data['item_name_ar'] = this.itemNameAr;
-    data['item_desc'] = this.itemDesc;
-    data['item_desc_ar'] = this.itemDescAr;
-    data['item_image'] = this.itemImage;
-    data['item_count'] = this.itemCount;
-    data['item_price'] = this.itemPrice;
-    data['item_discount'] = this.itemDiscount;
-    data['item_date'] = this.itemDate;
-    data['item_active'] = this.itemActive;
-    data['item_cat'] = this.itemCat;
-    data['category_id'] = this.categoryId;
-    data['category_name'] = this.categoryName;
-    data['category_name_ar'] = this.categoryNameAr;
-    data['category_image'] = this.categoryImage;
-    data['category_datetime'] = this.categoryDatetime;
-    data['favorite'] = this.favorite;
+    final Map<String, dynamic> data = <String, dynamic>{};
+
+    data['item_id'] = itemId;
+    data['item_name'] = itemName;
+    data['item_name_ar'] = itemNameAr;
+    data['item_desc'] = itemDesc;
+    data['item_desc_ar'] = itemDescAr;
+    data['item_image'] = itemImage;
+    data['item_count'] = itemCount;
+    data['item_price'] = itemPrice;
+    data['item_discount'] = itemDiscount;
+    data['item_date'] = itemDate;
+    data['item_active'] = itemActive;
+    data['item_cat'] = itemCat;
+    data['item_price_discount'] = itemPriceDescount;
+    data['category_id'] = categoryId;
+    data['category_name'] = categoryName;
+    data['category_name_ar'] = categoryNameAr;
+    data['category_image'] = categoryImage;
+    data['category_datetime'] = categoryDatetime;
+    data['favorite'] = favorite;
+
     return data;
   }
 }

@@ -1,4 +1,4 @@
-import 'package:finalflutterapp/controller/home/home_controller.dart';
+import 'package:finalflutterapp/controller/search/searchmix_controller.dart';
 import 'package:finalflutterapp/core/class/statusrequest.dart';
 import 'package:finalflutterapp/core/functions/handlingdata_controller.dart';
 import 'package:finalflutterapp/core/services/services.dart';
@@ -6,16 +6,15 @@ import 'package:finalflutterapp/data/datasource/remote/items_data.dart';
 import 'package:finalflutterapp/data/model/items_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
-abstract class ItemsController extends GetxController {
+abstract class ItemsController extends SearchMixController {
   initialData();
   changeCat(int value, String catVal);
   getItems(String categoryID);
   goToProductDetailsPage(ItemsModel itemsData);
 }
 
-class ItemsControllerImp extends SearchMixController {
+class ItemsControllerImp extends ItemsController {
   ItemsData itemsData = ItemsData(Get.find());
 
   List data = [];

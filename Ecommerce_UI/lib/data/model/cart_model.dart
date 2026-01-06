@@ -38,7 +38,7 @@ class CartModel {
   });
 
   CartModel.fromJson(Map<String, dynamic> json) {
-    itemsPrice = json['itemsPrice'];
+    itemsPrice = json['itemPrice'];
     itemsCount = json['itemsCount'];
     cardId = json['card_id'];
     cartUserId = json['cart_user_id'];

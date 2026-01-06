@@ -11,4 +11,5 @@ class AppImageAsset {
   static const String offline = "$rootLottie/offline.json";
   static const String serverError = "$rootLottie/servererror.json";
   static const String avatar = "assets/images/avatar.jpg";
+  static const String saleOne = "assets/images/saleone.png";
 }

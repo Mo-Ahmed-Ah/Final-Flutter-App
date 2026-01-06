@@ -22,92 +22,129 @@ class CustomListItems extends GetView<ItemsControllerImp> {
         controller.goToProductDetailsPage(itemsModel);
       },
       child: Card(
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Hero(
-                tag: "${itemsModel.itemId}",
-                child: CachedNetworkImage(
-                  height: 110,
-                  width: 300,
-                  fit: BoxFit.fill,
-                  // ignore: prefer_interpolation_to_compose_strings
-                  imageUrl: Applink.imageItems + "/" + itemsModel.itemImage!,
-                ),
-              ),
-              SizedBox(height: 5),
-              Text(
-                TranslateDataBase(itemsModel.itemNameAr, itemsModel.itemName),
-                style: TextStyle(
-                  color: AppColor.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Row(
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "Rating".tr + " 3.5",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  Container(
-                    alignment: Alignment.bottomCenter,
-                    height: 20,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        ...List.generate(
-                          5,
-                          (index) => Icon(Icons.star, size: 15),
-                        ),
-                      ],
+                  Hero(
+                    tag: "${itemsModel.itemId}",
+                    child: CachedNetworkImage(
+                      height: 110,
+                      width: 300,
+                      fit: BoxFit.fill,
+                      // ignore: prefer_interpolation_to_compose_strings
+                      imageUrl:
+                          Applink.imageItems + "/" + itemsModel.itemImage!,
                     ),
                   ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                  SizedBox(height: 5),
                   Text(
-                    "${itemsModel.itemPrice} \$",
+                    TranslateDataBase(
+                      itemsModel.itemNameAr,
+                      itemsModel.itemName,
+                    ),
                     style: TextStyle(
-                      color: AppColor.primaryColor,
-                      fontSize: 20,
+                      color: AppColor.black,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      fontFamily: 'sans',
                     ),
                   ),
-                  GetBuilder<FavoriteController>(
-                    builder: (controller) => IconButton(
-                      onPressed: () {
-                        if (controller.isFavorite[itemsModel.itemId] == 1) {
-                          controller.setFavoite(itemsModel.itemId, 0);
-                          controller.removeFavorite(
-                            itemsModel.itemId.toString(),
-                          );
-                        } else {
-                          controller.setFavoite(itemsModel.itemId, 1);
-                          controller.addFavorite(itemsModel.itemId.toString());
-                        }
-                      },
-                      icon: Icon(
-                        controller.isFavorite[itemsModel.itemId] == 1
-                            ? Icons.favorite
-                            : Icons.favorite_border_outlined,
-                        color: AppColor.primaryColor,
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Rating".tr + " 3.5",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 16),
                       ),
-                    ),
+                      Container(
+                        alignment: Alignment.bottomCenter,
+                        height: 20,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            ...List.generate(
+                              5,
+                              (index) => Icon(Icons.star, size: 15),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "${itemsModel.itemPriceDescount} \$",
+                        style: TextStyle(
+                          color: AppColor.primaryColor,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'sans',
+                        ),
+                      ),
+                      GetBuilder<FavoriteController>(
+                        builder: (controller) => IconButton(
+                          onPressed: () {
+                            if (controller.isFavorite[itemsModel.itemId] == 1) {
+                              controller.setFavoite(itemsModel.itemId, 0);
+                              controller.removeFavorite(
+                                itemsModel.itemId.toString(),
+                              );
+                            } else {
+                              controller.setFavoite(itemsModel.itemId, 1);
+                              controller.addFavorite(
+                                itemsModel.itemId.toString(),
+                              );
+                            }
+                          },
+                          icon: Icon(
+                            controller.isFavorite[itemsModel.itemId] == 1
+                                ? Icons.favorite
+                                : Icons.favorite_border_outlined,
+                            color: AppColor.primaryColor,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+            if (itemsModel.itemDiscount != null && itemsModel.itemDiscount! > 0)
+              Positioned(
+                top: 8,
+                left: 8,
+                child: Container(
+                  padding: const EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    color: AppColor.secooundryColor,
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 6,
+                        offset: Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: Text(
+                    "-${itemsModel.itemDiscount}%",
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ),
+          ],
         ),
       ),
     );

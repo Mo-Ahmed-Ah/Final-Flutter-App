@@ -2,6 +2,10 @@ import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 ThemeData themeEnglish = ThemeData(
+  appBarTheme: AppBarTheme(color: AppColor.primaryColor),
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
+    backgroundColor: AppColor.primaryColor,
+  ),
   useMaterial3: true,
   textTheme: const TextTheme(
     // Headline Large Text Styles

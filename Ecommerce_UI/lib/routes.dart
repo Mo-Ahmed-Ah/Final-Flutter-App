@@ -1,5 +1,8 @@
 import 'package:finalflutterapp/core/constant/routes.dart';
 import 'package:finalflutterapp/core/middleware/mymiddleware.dart';
+import 'package:finalflutterapp/view/address/add.dart';
+import 'package:finalflutterapp/view/address/edit.dart';
+import 'package:finalflutterapp/view/address/view.dart';
 import 'package:finalflutterapp/view/screen/auth/forgetpassword/forgetpassword.dart';
 import 'package:finalflutterapp/view/screen/auth/forgetpassword/resetpassword.dart';
 import 'package:finalflutterapp/view/screen/auth/forgetpassword/sccess_resetpassword.dart';
@@ -23,7 +26,7 @@ List<GetPage<dynamic>>? routes = [
     page: () => const Language(),
     middlewares: [MyMiddleWare()],
   ),
-  
+
   // GetPage(name: "/", page: () => TestView()),
   // Auth Routes
   GetPage(name: AppRoutes.login, page: () => Login()),
@@ -56,4 +59,9 @@ List<GetPage<dynamic>>? routes = [
 
   // My Cart Route
   GetPage(name: AppRoutes.myCart, page: () => Cart()),
+
+  // Addresses Route
+  GetPage(name: AppRoutes.addressView, page: () => AddressView()),
+  GetPage(name: AppRoutes.addressAdd, page: () => AddressAdd()),
+  GetPage(name: AppRoutes.addressEdit, page: () => AddressEdit()),
 ];

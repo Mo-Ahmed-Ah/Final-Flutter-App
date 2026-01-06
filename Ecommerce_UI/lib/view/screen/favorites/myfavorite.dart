@@ -1,7 +1,6 @@
 import 'package:finalflutterapp/controller/favorite/myfavforite_controller.dart';
 import 'package:finalflutterapp/core/class/handlingdataview.dart';
-import 'package:finalflutterapp/core/constant/routes.dart';
-import 'package:finalflutterapp/view/widget/customappbar.dart';
+
 import 'package:finalflutterapp/view/widget/favorites/customlistfavoritiesitems.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

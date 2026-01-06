@@ -58,7 +58,7 @@ class Cart extends StatelessWidget {
                         imageUrl: controller.data[index].itemImage,
                         itemTitle:
                             "${TranslateDataBase(cartController.data[index].itemNameAr, cartController.data[index].itemName)}",
-                        itemPrice: "${cartController.data[index].itemPrice}",
+                        itemPrice: "${cartController.data[index].itemsPrice}",
                         numberOfItems:
                             "${cartController.data[index].itemsCount}",
                       ),

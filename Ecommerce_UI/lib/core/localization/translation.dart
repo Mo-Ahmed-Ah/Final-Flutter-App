@@ -105,6 +105,9 @@ class MyTranslation implements Translations {
       "Shipping": "التوصيل",
       "Total": "أجمالي",
       "place Order": "طلب الطرد",
+      "Addresses": "العناوين",
+      "Add Address": "إضافة عنوان",
+      "Edit Address": "تحرير العنوان",
     },
     "en": {
       // Start onBoarding Test With English lang
@@ -211,6 +214,9 @@ class MyTranslation implements Translations {
       "Shipping": "Shipping",
       "Total": "Total",
       "place Order": "place Order",
+      "Addresses": "Addresses",
+      "Add Address": "Add Address",
+      "Edit Address": "Edit Address",
     },
   };
 }

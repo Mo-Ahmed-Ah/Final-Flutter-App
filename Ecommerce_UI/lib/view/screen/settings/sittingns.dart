@@ -1,6 +1,7 @@
 import 'package:finalflutterapp/controller/settings/settings_controller.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
 import 'package:finalflutterapp/core/constant/imageasset.dart';
+import 'package:finalflutterapp/core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -47,7 +48,9 @@ class Settings extends StatelessWidget {
                     trailing: Switch(onChanged: (val) {}, value: true),
                   ),
                   ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      Get.toNamed(AppRoutes.addressView);
+                    },
                     title: Text('Address'.tr),
                     trailing: Icon(Icons.location_on_outlined),
                   ),

@@ -1,4 +1,3 @@
-import 'package:finalflutterapp/controller/cart/cart_controller.dart';
 import 'package:finalflutterapp/controller/product/productdetails_controller.dart';
 import 'package:finalflutterapp/core/class/handlingdataview.dart';
 import 'package:finalflutterapp/core/constant/color.dart';
@@ -14,9 +13,8 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ProductDetailsControllerImp controller = Get.put(
-      ProductDetailsControllerImp(),
-    );
+    // ProductDetailsControllerImp controller =
+    Get.put(ProductDetailsControllerImp());
     return Scaffold(
       bottomNavigationBar: Container(
         margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -60,7 +58,8 @@ class ProductDetails extends StatelessWidget {
                       onRemove: () {
                         controller.remove();
                       },
-                      price: controller.itemsModel.itemPrice!.toString(),
+                      price: controller.itemsModel.itemPriceDescount!
+                          .toString(),
                       count: controller.countItems.toString(),
                     ),
                     // SizedBox(height: 10),

@@ -103,3 +103,22 @@ CREATE TABLE `carts` (
   DEFAULT CHARSET=utf8mb4
   COLLATE=utf8mb4_general_ci;
 
+
+CREATE TABLE `addresses` (
+  `address_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `address_user_id` INT(11) NOT NULL,
+  `address_name` VARCHAR(255) NOT NULL,
+  `address_city` VARCHAR(255) NOT NULL,
+  `address_street` VARCHAR(255) NOT NULL,
+  `address_lat` DOUBLE NOT NULL,
+  `address_long` DOUBLE NOT NULL,
+  PRIMARY KEY (`address_id`),
+  KEY `address_user_id` (`address_user_id`),
+  CONSTRAINT `addresses_ibfk_1`
+    FOREIGN KEY (`address_user_id`)
+    REFERENCES `users` (`user_id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+) ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_general_ci;

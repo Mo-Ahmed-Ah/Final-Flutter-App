@@ -21,4 +21,8 @@ class AppRoutes {
   static const String myFavorites = "/myfavorites";
   // My Cart Route
   static const String myCart = "/mycart";
+  // Addresses Route
+  static const String addressView = "/addressview";
+  static const String addressAdd = "/addressadd";
+  static const String addressEdit = "/addressedit";
 }

@@ -5,7 +5,7 @@ import 'package:finalflutterapp/core/constant/routes.dart';
 import 'package:finalflutterapp/data/model/items_model.dart';
 import 'package:finalflutterapp/view/widget/customappbar.dart';
 import 'package:finalflutterapp/view/widget/items/customlistitems.dart';
-import 'package:finalflutterapp/view/widget/items/customlistitemssearch.dart';
+import 'package:finalflutterapp/view/widget/search/customlistitemssearch.dart';
 import 'package:finalflutterapp/view/widget/items/listcategoriesitems.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
