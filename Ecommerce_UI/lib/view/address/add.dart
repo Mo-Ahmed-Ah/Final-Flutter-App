@@ -7,9 +7,11 @@ class AddressAdd extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Add Address".tr)),
+      appBar: AppBar(title: Text("Add new Address".tr)),
       body: Container(child: ListView(
-        children: [],
+        children: [
+          
+        ],
       ),),
     );
   }

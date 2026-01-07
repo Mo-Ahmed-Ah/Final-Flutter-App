@@ -107,6 +107,7 @@ class MyTranslation implements Translations {
       "place Order": "طلب الطرد",
       "Addresses": "العناوين",
       "Add Address": "إضافة عنوان",
+      "Add new Address": "إضافة عنوان جديد",
       "Edit Address": "تحرير العنوان",
     },
     "en": {
@@ -216,6 +217,7 @@ class MyTranslation implements Translations {
       "place Order": "place Order",
       "Addresses": "Addresses",
       "Add Address": "Add Address",
+      "Add new Address": "Add new Address",
       "Edit Address": "Edit Address",
     },
   };

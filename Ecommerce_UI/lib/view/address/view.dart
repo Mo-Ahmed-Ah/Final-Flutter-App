@@ -1,3 +1,4 @@
+import 'package:finalflutterapp/core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,7 +10,9 @@ class AddressView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Addresses".tr)),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.toNamed(AppRoutes.addressAdd);
+        },
         child: Icon(Icons.add),
       ),
       body: Container(child: ListView(children: [])),

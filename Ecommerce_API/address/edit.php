@@ -11,7 +11,7 @@ $useraddresslong = filterRequest("useraddresslong");
 
 
 $data=  array(
-"address_name" => $useraddressname
+"address_name" => $useraddressname,
 "address_city" => $useraddresscity,
 "address_street" => $useraddresstreet,
 "address_lat" => $useraddresslat,
