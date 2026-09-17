@@ -1,386 +1,324 @@
-  # Final Flutter App
-
-  هذا المشروع يعتمد على مجموعة من المكتبات الحديثة في Flutter لتقديم وظائف متكاملة تشمل الخرائط، الإشعارات، التخزين المحلي، التعامل مع الوقت، والمزيد.
-
-  ---
-
-  ## 📁 مشروع مبني على هيكلية منظمة (LIP Architecture)
-
-  يتم تنظيم الملفات داخل التطبيق بالشكل التالي لتسهيل التطوير والتوسّع لاحقًا:
-  ```
-  assets
-  ├─ fonts
-  | ├─ Cario
-  | | ├─ Cairo-Black.ttf
-  | | ├─ Cairo-Bold.ttf
-  | | ├─ Cairo-ExtraLight.ttf
-  | | ├─ Cairo-Light.ttf
-  | | ├─ Cairo-Regular.ttf
-  | | └─ Cairo-SemiBold.ttf
-  | └─ PlayfairDisplay
-  | | ├─ PlayfairDisplay-Black.ttf
-  | | ├─ PlayfairDisplay-BlackItalic.ttf
-  | | ├─ PlayfairDisplay-Bold.ttf
-  | | ├─ PlayfairDisplay-BoldItalic.ttf
-  | | ├─ PlayfairDisplay-ExtraBold.ttf
-  | | ├─ PlayfairDisplay-ExtraBoldItalic.ttf
-  | | ├─ PlayfairDisplay-Italic.ttf
-  | | ├─ PlayfairDisplay-Medium.ttf
-  | | ├─ PlayfairDisplay-MediumItalic.ttf
-  | | ├─ PlayfairDisplay-Regular.ttf
-  | | ├─ PlayfairDisplay-SemiBold.ttf
-  | | └─ PlayfairDisplay-SemiBoldItalic.ttf
-  ├─ images
-  │ ├─ one.PNG
-  │ ├─ two.PNG
-  │ └─ three.PNG
-  └─
-
-  lip
-  ├─ controller
-  │ ├─ onboarding_controller.dart
-  | └─
-  ├─ core
-  │ ├─ class
-  │ ├─ constant
-  | | ├─ imageasset.dart
-  | | ├─ color.dart
-  | | ├─ routes.dart
-  | | └─
-  | └─
-  │ ├─ functions
-  │ ├─ localization
-  | | ├─ services.dart
-  | | └─ changelocale.dart
-  │ ├─ services
-  | | ├─ services.dart
-  | | └─
-  │ └─ shared
-  ├─ data
-  │ ├─ datasource
-  | | ├─ static
-  | | | ├─ static.dart
-  | | | └─
-  | | └─
-  │ └─ model
-  | | ├─ onboardingmodel.dart
-  | | └─
-  ├─ view
-  | ├─ screen
-  | | ├─ auth
-  | | | ├─ login.dart
-  | | ├─ onboarding.dart
-  | | ├─ lanuage.dart
-  | | └─
-  | └─ widget
-  | | ├─ onboarding
-  | | | ├─ custombutton.dart
-  | | | ├─ customslider.dart
-  | | | └─dotcontroller.dart
-  | | ├─ onboarding
-  | | | ├─ custombuttonlang.dart
-  | | └─
-  | └─
-  ├─ routes.dart
-  └─ main.dart
-
-  Controller Functions
-  ├─ onboarding_controller.dart
-  │ ├─ next() -> this function used to transtion between on boarding bages and display loign page is the on boarding screens are finshed 
-  │ ├─ onPageChanged(int pageIndex)
-  │ ├─ void onInit()
-  | └─
-  └─
-  ```
-
-
-  ### ✅ شرح المجلدات
-
-  #### **1️⃣ controller**
-  - إدارة المنطق الخاص بالشاشات (Business Logic)
-  - ربط البيانات مع الواجهة
-  - التعامل مع التنقل والحالة باستخدام GetX
+# Final Flutter E-Commerce App
+
+تطبيق تجارة إلكترونية متعدد المنصات مبني باستخدام Flutter، ويتصل بواجهة خلفية PHP تعتمد على MySQL. يوفّر المشروع تجربة أساسية للتسوق تشمل إنشاء الحساب وتسجيل الدخول، تصفح التصنيفات والمنتجات، البحث، المفضلة، سلة المشتريات، وإدارة عناوين المستخدم.
+
+> **حالة المشروع:** المشروع عبارة عن تطبيق عملي قيد التطوير. هذا الوصف يعتمد على الكود الموجود حاليًا في المستودع، وليس على قائمة مكتبات أو ميزات مستقبلية غير مستخدمة.
+
+## نظرة عامة
+
+يتكون المستودع من ثلاثة أجزاء مترابطة:
+
+| الجزء | المسار | الدور |
+|---|---|---|
+| تطبيق العميل | `Ecommerce_UI/` | تطبيق Flutter لواجهات المستخدم والمنطق المحلي والاتصال بالـ API |
+| الخادم | `Ecommerce_API/` | نقاط PHP تعالج المصادقة والمنتجات والمفضلة والسلة والعناوين |
+| الوسائط | `upload/` | صور المنتجات والتصنيفات والصورة الافتراضية |
+
+يعتمد التطبيق على REST-like endpoints ترسل البيانات غالبًا باستخدام `POST` وتستقبل استجابات JSON بصيغة تحتوي على `status` و`data`. وتتم إدارة الحالة والتنقل باستخدام GetX، بينما تُنفذ طلبات HTTP داخل طبقة بيانات منفصلة عن الواجهات.
+
+## الميزات المنفذة
+
+### حساب المستخدم
+
+- اختيار اللغة عند بدء التشغيل.
+- شاشة onboarding مع حفظ خطوة المستخدم محليًا.
+- إنشاء حساب جديد.
+- التحقق من الحساب باستخدام رمز تحقق.
+- إعادة إرسال رمز التحقق.
+- تسجيل الدخول والخروج.
+- استعادة كلمة المرور من خلال البريد الإلكتروني، رمز التحقق، ثم تعيين كلمة مرور جديدة.
+- حفظ بيانات الجلسة وخطوة الدخول باستخدام `shared_preferences`.
+
+### تجربة التسوق
+
+- عرض التصنيفات في الصفحة الرئيسية.
+- عرض المنتجات المخفضة في الصفحة الرئيسية.
+- عرض المنتجات بحسب التصنيف.
+- البحث عن المنتجات بالاسم باللغة العربية أو الإنجليزية عبر الـ API.
+- عرض تفاصيل المنتج والسعر والخصم والوصف والصورة.
+- حساب السعر بعد الخصم من خلال الاستعلامات الخلفية.
+- إضافة المنتجات إلى المفضلة وإزالتها.
+- عرض قائمة المنتجات المفضلة.
+- إضافة المنتجات إلى سلة المشتريات وحذفها.
+- عرض عدد المنتجات في السلة وإجمالي السعر المحسوب من الخادم.
+
+### العناوين
+
+- عرض عناوين المستخدم.
+- إضافة عنوان جديد يتضمن الاسم والمدينة والشارع وإحداثيات الموقع.
+- تعديل العنوان.
+- حذف العنوان.
+
+### الواجهة والبنية
+
+- دعم العربية والإنجليزية من خلال GetX localization.
+- تنقل مركزي باستخدام `GetPage` وmiddleware للتحقق من حالة المستخدم.
+- فصل التطبيق إلى controllers وviews وwidgets وdata sources وmodels وطبقة خدمات مشتركة.
+- التعامل مع حالات الاتصال والنجاح والفشل من خلال `StatusRequest` و`Either` من حزمة `dartz`.
+- تهيئة Firebase عند تشغيل التطبيق، واستخدام Firebase Messaging في مسار تسجيل الدخول للحصول على رمز الجهاز.
+- دعم تشغيل Flutter على Android وiOS وWeb وWindows وmacOS وLinux من خلال ملفات المنصات الموجودة في المشروع، مع ضرورة اختبار كل منصة قبل اعتبارها جاهزة للإصدار.
+
+## التقنيات المستخدمة
+
+| التقنية | الاستخدام الفعلي في المشروع |
+|---|---|
+| Flutter / Dart | بناء تطبيق العميل متعدد المنصات |
+| GetX | إدارة الحالة، التنقل، middleware، والترجمة |
+| PHP | بناء واجهة الخادم ونقاط الـ API |
+| MySQL | تخزين المستخدمين والمنتجات والتصنيفات والمفضلة والسلة والعناوين |
+| PDO | الاتصال بقاعدة MySQL من PHP |
+| HTTP | إرسال الطلبات من Flutter إلى الخادم |
+| Firebase Core | تهيئة Firebase |
+| Firebase Messaging | الحصول على FCM token في تدفق تسجيل الدخول |
+| Shared Preferences | التخزين المحلي لقيم الجلسة وخطوة الاستخدام |
+| dartz | تمثيل نتائج طلبات الشبكة باستخدام `Either` |
+| XAMPP | بيئة محلية مناسبة لتشغيل Apache وPHP وMySQL وإرسال البريد |
+
+> توجد حزم إضافية في `pubspec.yaml`، لكن وجودها في ملف الاعتماديات لا يعني أن كل وظيفة مرتبطة بها مكتملة أو مستخدمة في تدفق التطبيق الحالي. لذلك لا ينبغي وصف المشروع بأنه يدعم الدفع أو الخرائط أو Firestore أو الإشعارات المحلية أو تسجيل الدخول عبر Google ما لم تُنفذ هذه الوظائف وتُختبر لاحقًا.
+
+## هيكل المشروع
+
+```text
+Final-Flutter-App/
+├── Ecommerce_API/
+│   ├── DataBase_Files/
+│   │   ├── ecommerce.sql       # الجداول والبيانات الأساسية
+│   │   ├── views.sql           # views للمنتجات والمفضلة والسلة
+│   │   ├── addresses.sql
+│   │   ├── carts.sql
+│   │   └── test.sql
+│   ├── auth/                   # التسجيل، الدخول، التحقق، إعادة الإرسال
+│   ├── forgetpassword/         # استعادة كلمة المرور
+│   ├── items/                  # المنتجات والبحث
+│   ├── categoies/              # التصنيفات
+│   ├── favorite/               # المفضلة
+│   ├── cart/                   # السلة
+│   ├── address/                # عناوين المستخدم
+│   ├── connect.php             # اتصال PDO بقاعدة البيانات
+│   ├── functions.php           # دوال الطلبات والاستجابات والبريد
+│   └── home.php                # بيانات الصفحة الرئيسية
+├── Ecommerce_UI/
+│   ├── lib/
+│   │   ├── bindings/           # الربط الأولي للخدمات
+│   │   ├── controller/         # منطق الصفحات وإدارة الحالة
+│   │   ├── core/               # الثوابت، الشبكة، الترجمة، الخدمات
+│   │   ├── data/               # models وremote data sources
+│   │   ├── view/               # الشاشات والمكونات
+│   │   ├── main.dart
+│   │   ├── routes.dart
+│   │   └── apilinks.dart
+│   ├── assets/
+│   ├── android/ ios/ web/ ...
+│   ├── pubspec.yaml
+│   └── test/
+└── upload/
+    ├── categories/
+    ├── items/
+    └── default/
+```
+
+## مخطط تدفق البيانات
+
+```text
+Flutter View
+    ↓
+GetX Controller
+    ↓
+Remote Data Source
+    ↓
+Crud.postData()
+    ↓ HTTP POST
+PHP Endpoint
+    ↓
+PDO / MySQL
+    ↓
+JSON { status, data }
+    ↓
+Model.fromJson()
+    ↓
+GetX Controller → Flutter View
+```
+
+## نقاط الـ API الموجودة
+
+العنوان الأساسي الحالي معرّف في `Ecommerce_UI/lib/apilinks.dart`، وقيمته الافتراضية هي:
 
-  ---
+```text
+http://192.168.1.7/Final-Flutter-App
+```
+
+| المجال | النقاط |
+|---|---|
+| المصادقة | `auth/signup.php`, `auth/login.php`, `auth/verifycode.php`, `auth/resendverifycode.php` |
+| استعادة كلمة المرور | `forgetpassword/checkemail.php`, `forgetpassword/verifycodeforgetpassword.php`, `forgetpassword/resetpassword.php` |
+| الصفحة الرئيسية | `home.php` |
+| المنتجات | `items/items.php`, `items/search.php` |
+| التصنيفات | `categoies/view.php` |
+| المفضلة | `favorite/add.php`, `favorite/remove.php`, `favorite/view.php`, `favorite/deletefromfavorite.php` |
+| السلة | `cart/add.php`, `cart/delete.php`, `cart/view.php`, `cart/getcountitems.php` |
+| العناوين | `address/add.php`, `address/edit.php`, `address/view.php`, `address/delete.php` |
 
-  #### **2️⃣ core**
-  يشمل الأساسيات المشتركة في التطبيق:
+## قاعدة البيانات
 
-  - **class**
-    - ملفات أساسية مثل BaseController / AppTheme / AppBinding
+تتضمن قاعدة البيانات جداول للمستخدمين والتصنيفات والمنتجات والمفضلة والسلة والعناوين. كما يحتوي `views.sql` على views تجمع بيانات المنتجات مع التصنيفات، وتجهز بيانات المفضلة والسلة للعرض في التطبيق.
 
-  - **constant**
-    - المتغيرات الثابتة (Colors, API URLs, Keys)
+أهم العلاقات هي:
+
+- يرتبط كل منتج بتصنيف من خلال `items.item_cat`.
+- ترتبط المفضلة بالمستخدم والمنتج مع قيد يمنع تكرار المنتج للمستخدم نفسه.
+- ترتبط السلة بالمستخدم والمنتج.
+- ترتبط العناوين بالمستخدم وتحفظ إحداثيات `latitude` و`longitude`.
 
-  - **functions**
-    - دوال مساعدة مثل:
-      - التعامل مع التوست
-      - التحقق من الاتصال
-      - تنسيق البيانات
+## متطلبات التشغيل
 
-  - **localization**
-    - ملفات الترجمة
-    - دعم تعدد اللغات باستخدام GetX Translations أو intl
+قبل البدء، ثبّت ما يلي:
 
-  - **services**
-    - خدمات عامة مثل:
-      - الإشعارات
-      - الموقع
-      - التخزين المؤقت
-      - الإنترنت
+- Flutter SDK متوافق مع إصدار Flutter المستخدم في بيئتك.
+- Android SDK عند التشغيل على Android.
+- PHP وApache وMySQL، ويفضل استخدام XAMPP للتشغيل المحلي.
+- Git.
+- حساب Firebase ومشروع Firebase إذا أردت تفعيل تهيئة Firebase وFCM.
+- إعداد Gmail App Password إذا أردت تجربة إرسال رموز التحقق بالبريد من PHP محليًا.
 
-  - **shared**
-    - الأكواد المشتركة القابلة لإعادة الاستخدام
-    - مثل SharedPrefs Helper أو Token Manager
+## التشغيل المحلي
 
-  ---
+### 1. استنساخ المشروع
 
-  #### **3️⃣ data**
+```bash
+git clone https://github.com/Mo-Ahmed-Ah/Final-Flutter-App.git
+cd Final-Flutter-App
+```
 
-  مصدر الحقيقة للبيانات داخل التطبيق:
+### 2. إعداد الخادم
 
-  - **datasource**
-    - API calls باستخدام `http` أو `dio`
-    - تخزين محلي عبر `sqflite`
-    - قراءة البيانات من Firebase عند الحاجة
+انسخ مجلد المشروع أو اربطه داخل مجلد خادم Apache، مثل:
 
-  - **model**
-    - كائنات Dart لتمثيل البيانات
-    - تحويل JSON ↔ Object
+```text
+C:/xampp/htdocs/Final-Flutter-App
+```
 
-  ---
+تأكد من أن المسارين التاليين قابلان للوصول من المتصفح:
 
-  #### **4️⃣ view**
+```text
+http://localhost/Final-Flutter-App/Ecommerce_API/home.php
+http://localhost/Final-Flutter-App/upload/items/
+```
 
-  واجهة المستخدم بالكامل:
+### 3. إنشاء قاعدة البيانات
 
-  - **screen**
-    - الشاشات الكاملة:
-      - Login
-      - Home
-      - Map
-      - Settings
+أنشئ قاعدة بيانات MySQL باسم مناسب، ثم نفّذ بالترتيب:
 
-  - **widget**
-    - مكونات قابلة لإعادة الاستخدام:
-      - CustomButton
-      - AppTextField
-      - InfoCard
+```text
+Ecommerce_API/DataBase_Files/ecommerce.sql
+Ecommerce_API/DataBase_Files/views.sql
+```
 
-  ---
+يمكن تنفيذ ملفات `addresses.sql` و`carts.sql` و`test.sql` عند الحاجة بحسب محتواها وتوافقها مع المخطط الأساسي.
 
-  ## 📌 Core & Utilities
+بعد ذلك حدّث بيانات الاتصال في:
 
-  ### ⭐ get
-  - إدارة الحالة والتنقل وربط الكنترولر بالشاشات
-  - يدعم Dependency Injection
-  - سريع وخفيف بدون boilerplate
+```text
+Ecommerce_API/connect.php
+```
 
-  ### ⭐ intl
-  - تنسيق الأرقام والعملات والتواريخ
-  - دعم تعدد اللغات
-  - يستخدم في localization داخل التطبيق
+لا تضع كلمات المرور الحقيقية داخل مستودع عام. يفضّل نقل الإعدادات إلى متغيرات بيئة أو ملف إعدادات غير متعقب بواسطة Git.
 
-  ### ⭐ jiffy
-  - بديل سهل لـ DateTime
-  - أمثلة:
-    - `2 days ago`
-    - `next week`
-    - إضافة أيام وساعات بسهولة
+### 4. تعديل رابط الـ API في Flutter
 
-  ### ⭐ http
-  - تنفيذ طلبات REST API
-  - يدعم GET / POST / PUT / DELETE
-  - بسيط ومناسب للمشاريع المتوسطة
+افتح:
 
-  ---
+```text
+Ecommerce_UI/lib/apilinks.dart
+```
 
-  ## 🖼️ Media & Images
+وغيّر `baseLink` إلى عنوان الخادم المناسب لجهازك:
 
-  ### ⭐ cached_network_image
-  - تحميل الصور من الإنترنت مع التخزين المؤقت
-  - تجنب إعادة التحميل عند فتح الشاشة
+```dart
+static const String baseLink = "http://YOUR_SERVER_IP";
+```
 
-  ### ⭐ image_picker
-  - اختيار الصور من:
-    - الكاميرا
-    - المعرض
-  - مناسب لرفع الصور والبروفايل
+عند استخدام Android Emulator يمكن أن تحتاج إلى `10.0.2.2` للوصول إلى localhost على جهاز التطوير. أما الهاتف الحقيقي فيحتاج إلى عنوان IP المحلي لجهاز الكمبيوتر مع السماح بالاتصال عبر الجدار الناري.
 
-  ### ⭐ flutter_svg
-  - عرض ملفات SVG بدقة عالية
-  - مناسب للشعارات والأيقونات الحديثة
+### 5. تثبيت الاعتماديات وتشغيل التطبيق
 
-  ### ⭐ image_pickers
-  - اختيار عدة صور مرة واحدة
-  - يدعم الكاميرا والفيديو
+```bash
+cd Ecommerce_UI
+flutter pub get
+flutter run
+```
 
-  ---
+للتشغيل على جهاز محدد:
 
-  ## 🎥 QR & Scanning
+```bash
+flutter devices
+flutter run -d <device-id>
+```
 
-  ### ⭐ mobile_scanner
-  - مكتبة حديثة وسريعة لمسح QR
-  - تدعم Android و iOS
-  - بديلة لمكتبة scan القديمة
+## إعداد البريد الإلكتروني محليًا
 
-  ### ⭐ qr_flutter
-  - توليد QR داخل التطبيق
-  - تخصيص:
-    - اللون
-    - الحجم
-    - إضافة لوجو بالوسط
+تستخدم بعض مسارات التسجيل واستعادة كلمة المرور دالة البريد الموجودة في `Ecommerce_API/functions.php`. لتجربة ذلك مع XAMPP وGmail:
 
-  ---
+1. فعّل التحقق بخطوتين في حساب Gmail.
+2. أنشئ **App Password** مخصصًا للتطبيق.
+3. اضبط `sendmail_path` في `xampp/php/php.ini`.
+4. اضبط خادم SMTP والمنفذ واسم المستخدم وكلمة مرور التطبيق في `xampp/sendmail/sendmail.ini`.
+5. أعد تشغيل Apache.
 
-  ## 🗺️ Maps & Location
+لا تحفظ App Password داخل GitHub أو داخل ملفات المشروع المتعقبة.
 
-  ### ⭐ google_maps_flutter
-  - دمج خرائط Google الأصلية داخل التطبيق
-  - دعم التفاعل مثل:
-    - markers
-    - camera position
-    - zoom
+## اختبار المشروع
 
-  ### ⭐ flutter_polyline_points
-  - رسم خطوط السير على الخريطة
-  - يستخدم في تتبع المسارات
+يحتوي المشروع حاليًا على `Ecommerce_UI/test/widget_test.dart`، لكنه اختبار Flutter افتراضي لتطبيق عدّاد، ولا يطابق الشاشات الحالية للمتجر. لذلك ينبغي استبداله باختبارات حقيقية قبل الاعتماد عليه كدليل على جودة التطبيق.
 
-  ### ⭐ geolocator
-  - تحديد الموقع الحالي
-  - مراقبة الحركة (stream location)
-  - حساب المسافات
+لتشغيل الاختبارات الحالية:
 
-  ### ⭐ geocoding
-  - تحويل:
-    - عنوان → إحداثيات
-    - إحداثيات → عنوان
+```bash
+cd Ecommerce_UI
+flutter test
+```
 
-  ---
+ولفحص التحليل الساكن:
 
-  ## 🔥 Firebase & Notifications
+```bash
+flutter analyze
+```
 
-  ### ⭐ firebase_core
-  - تهيئة Firebase داخل التطبيق
-  - مطلوب قبل استخدام أي Firebase service
+ومن الاختبارات المقترحة لاحقًا:
 
-  ### ⭐ cloud_firestore
-  - قاعدة بيانات NoSQL لحفظ البيانات سحابيًا
-  - تحديثات لحظية (real-time)
+- اختبار parsing لنماذج `ItemsModel` و`CartModel` و`CategoriesModel`.
+- اختبار controllers مع mock data sources.
+- اختبار قواعد التحقق من البريد وكلمة المرور ورموز التحقق.
+- اختبار انتقال middleware بين onboarding وتسجيل الدخول والصفحة الرئيسية.
+- اختبار widget لتدفقات تسجيل الدخول والبحث وإضافة منتج إلى السلة.
+- اختبار تكامل لنقاط الـ API مع قاعدة اختبار منفصلة.
 
-  ### ⭐ firebase_messaging
-  - استقبال الإشعارات عبر FCM
-  - دعم:
-    - الرسائل الخلفية
-    - الرسائل عند فتح التطبيق
+## ملاحظات أمنية مهمة
 
-  ### ⭐ flutter_local_notifications
-  - عرض إشعارات محلية حتى بدون إنترنت
-  - تخصيص:
-    - الصوت
-    - الأيقونة
-    - الجدولة
+المشروع مناسب للتعلم أو كنقطة بداية لتطبيق متجر، لكنه يحتاج إلى تقوية أمنية قبل الإنتاج. من أهم النقاط أن بعض مسارات PHP تبني أجزاء من استعلامات SQL باستخدام قيم قادمة من الطلب، كما أن كلمات المرور تُعالج حاليًا باستخدام SHA-1 في بعض المسارات. ينبغي استخدام prepared statements في جميع الاستعلامات و`password_hash` و`password_verify` لكلمات المرور.
 
-  ---
+كذلك ينبغي إضافة مصادقة حقيقية تعتمد على token بدل إرسال `userId` مباشرة ضمن الطلبات، وفرض HTTPS، والتحقق الصارم من المدخلات، وتحديد معدل الطلبات، وضبط CORS، وعدم نشر مفاتيح Firebase أو بيانات SMTP الحساسة داخل المستودع. كما يجب فصل إعدادات التطوير عن إعدادات الإنتاج وتغيير رابط الخادم من قيمة ثابتة إلى إعدادات بيئية.
 
-  ## 💾 Local Storage
+## حدود النطاق الحالي
 
-  ### ⭐ sqflite
-  - قاعدة بيانات SQLite داخل الجهاز
-  - مناسب لتخزين البيانات الضخمة
+لا يحتوي الكود الحالي على تدفق طلبات كامل أو checkout أو بوابة دفع أو لوحة تحكم للبائع أو إدارة مخزون متكاملة أو تتبع شحنات. كما أن تهيئة Firebase وFCM موجودة جزئيًا، ولا ينبغي وصفها كمنظومة إشعارات مكتملة دون إضافة معالج الرسائل الخلفية وإعداد الخادم وإثبات التشغيل على الأجهزة المستهدفة.
 
-  ### ⭐ shared_preferences
-  - تخزين القيم البسيطة مثل:
-    - Theme Mode
-    - Token
-    - Language
+## أفكار التطوير التالية
 
-  ### ⭐ path
-  - التعامل مع مسارات الملفات
-  - إنشاء وإدارة الفولدرات المحلية
+- إضافة checkout وإنشاء order مستقل عن cart.
+- دمج بوابة دفع آمنة من خلال الخادم.
+- بناء لوحة تحكم لإدارة المنتجات والتصنيفات والمستخدمين والطلبات.
+- إضافة pagination وcaching وتحسين البحث.
+- استبدال الاعتماد على `userId` المباشر بنظام JWT أو جلسات آمنة.
+- نقل إعدادات الـ API وFirebase إلى ملفات بيئية آمنة.
+- كتابة اختبارات unit وwidget وintegration حقيقية.
+- إضافة CI لتشغيل `flutter analyze` و`flutter test` وفحوص PHP تلقائيًا.
+- إضافة توثيق OpenAPI لنقاط الخادم.
 
-  ---
 
-  ## 🎨 UI & Animations
+## الترخيص
 
-  ### ⭐ show_up_animation
-  - تأثير دخول العناصر بشكل جميل
-  - إضافته سهل على أي widget
+لا يحتوي المستودع حاليًا على ملف ترخيص واضح. قبل إعادة استخدام المشروع أو توزيعه، أضف ملف `LICENSE` يحدد الحقوق المسموحة بوضوح.
 
-  ### ⭐ auto_animated
-  - تحريك القوائم تلقائيًا أثناء التمرير
+## المصدر
 
-  ### ⭐ grouped_list
-  - تقسيم العناصر داخل أقسام
-  - مثال:
-    - رسائل حسب التاريخ
-
-  ### ⭐ dropdown_search
-  - قائمة منسدلة مع بحث
-  - تدعم اختيار متعدد
-
-  ### ⭐ badges
-  - تنبيهات فوق الأيقونات
-  - مثل عدد الإشعارات
-
-  ### ⭐ font_awesome_flutter
-  - مجموعة أيقونات مشهورة وجاهزة
-
-  ### ⭐ fluttericon
-  - استيراد أيقونات مخصصة من موقع fluttericon.com
-
-  ---
-
-  ## 🌐 Other Features
-
-  ### ⭐ url_launcher
-  - فتح الروابط داخل التطبيق أو المتصفح
-  - دعم الاتصال الهاتفي والبريد
-
-  ### ⭐ google_sign_in
-  - تسجيل دخول بحساب Google بسهولة
-
-  ### ⭐ device_preview
-  - معاينة التطبيق على أجهزة بأحجام مختلفة
-
-  ### ⭐ responsive_builder
-  - تصميم واجهات متجاوبة بدون تعقيد
-
-  ### ⭐ dartz
-  - أدوات للبرمجة الوظيفية
-  - مثل Either, Option
-  - يساعد في التعامل مع الأخطاء بطريقة نظيفة
-
-  ---
-
-  ### ✅ ملاحظة مهمة
-  تم استبدال مكتبة `scan` لأنها غير متوافقة مع Android Gradle Plugin الحديث  
-  وتم استخدام **mobile_scanner** بدلًا عنها لضمان استقرار البناء.
-
-  ---
-
-  ## ✅ المتطلبات
-  - Flutter آخر إصدار
-  - Android SDK حديث
-  - تفعيل Google Maps API
-
-## To Enable Send Mail using Gmail On Exampp
-  ### VERY IMPORTANT: Create a Gmail App Password
-  - Go to: [Your Google Account Manager](https://myaccount.google.com/)
-  - Enable 2-Step Verification
-  - Go to Security → App passwords
-  - Enter The app Name like "STMP"
-  - Right-Click on Generate
-  - Copy That 16-digit password
-  ### Configure XAMPP php.ini
-  - Open the file : `xampp/php/php.ini`
-  - Set `sendmail_path = "\"C:\xampp\sendmail\sendmail.exe\" -t"`
-  - save file
-  ### Configure XAMPP sendmail.ini
-  - Open the file : `xampp/sendmail/sendmail.ini`
-  - set `smtp_server=smtp.gmail.com`
-  - set `smtp_port=587`
-  - set `smtp_ssl=tls`
-  - set `auth_username=yourgmail@gmail.com`
-  - set `auth_password=your_app_password`
-  - save file
+- [المستودع الأصلي على GitHub](https://github.com/Mo-Ahmed-Ah/Final-Flutter-App)
